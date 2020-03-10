@@ -6,9 +6,11 @@
         to="/home"
       >
         <img
-          src="public/EWAHaaglanden_logo.jpg"
+          src="../../../public/images/EWAHaaglanden_logo.jpg"
           class="img-fluid"
           alt="Logo van Ewa Haaglanden"
+          width="400"
+          height="400"
         >
       </router-link>
       <button
