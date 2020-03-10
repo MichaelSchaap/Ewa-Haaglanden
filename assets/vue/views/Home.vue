@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <div class="row col">
       <h1>Homepage</h1>
     </div>
@@ -15,3 +15,9 @@ export default {
   name: "Home"
 };
 </script>
+
+<style scoped>
+.content {
+  flex: 1;
+}
+</style>
