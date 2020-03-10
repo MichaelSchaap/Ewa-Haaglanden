@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <router-link
         class="navbar-brand"
         to="/home"
       >
-        App
+        Ewa Haaglanden
       </router-link>
       <button
         class="navbar-toggler"
