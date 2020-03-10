@@ -1,12 +1,14 @@
 <template>
-  <div class="content">
-    <div class="row col">
-      <h1>Homepage</h1>
-    </div>
-
-    <div class="row col">
-      <p>This is the homepage of our Vue.js application.</p>
-    </div>
+  <div>
+    <section id="home">
+      <div class="overlay">
+        <img
+          src="../../../public/images/EWAHeader.jpg"
+          class="img-fluid"
+          alt="Plaat van EWA Haaglanden"
+        >
+      </div>
+    </section>
   </div>
 </template>
 
