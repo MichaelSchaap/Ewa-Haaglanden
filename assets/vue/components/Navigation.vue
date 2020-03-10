@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-white bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <router-link
         class="navbar-brand"
         to="/home"
@@ -17,15 +17,16 @@
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon" />
       </button>
+
       <div
-        id="navbarNav"
+        id="navbarSupportedContent"
         class="collapse navbar-collapse"
       >
         <ul class="navbar-nav ml-auto">
@@ -92,3 +93,4 @@ export default {
   name: "Navigation",
 }
 </script>
+
