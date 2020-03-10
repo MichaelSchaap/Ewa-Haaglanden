@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <router-link
         class="navbar-brand"
         to="/home"
@@ -31,9 +31,6 @@
           >
             <a class="nav-link">Home</a>
           </router-link>
-
-
-          </li>
         </ul>
       </div>
     </nav>
