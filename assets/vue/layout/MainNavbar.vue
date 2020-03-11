@@ -1,7 +1,7 @@
 <template>
   <navbar
     position="fixed"
-    type="primary"
+    type="white"
     :transparent="transparent"
     :color-on-scroll="colorOnScroll"
     menu-classes="ml-auto"
@@ -51,7 +51,7 @@
       </drop-down>
       <li class="nav-item">
         <a
-          class="nav-link btn btn-neutral"
+          class="nav-link btn btn-warning"
           href="#/login"
         >
           <i class="now-ui-icons users_single-02"></i>
