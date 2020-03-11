@@ -39,6 +39,7 @@ export default {
 
 #introduction {
   background-color: tomato;
+  text-align: center;
 }
 
 .title {
@@ -51,5 +52,9 @@ export default {
   line-height: 1.1em;
   text-align: center;
 
+}
+
+.explanation {
+  width: 50%;
 }
 </style>
