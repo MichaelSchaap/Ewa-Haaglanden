@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="page-header clear-filter" filter-color="orange">
+    <div class="page-header clear-filter" filter-color="white">
       <parallax
         class="page-header-image"
         style="background-image:url('images/EWAHeader.jpg')"
@@ -8,34 +8,9 @@
       </parallax>
       <div class="container">
         <div class="content-center brand">
-          <h1 class="h1-seo">Ewa Haagland.</h1>
+
         </div>
-        <h6 class="category category-absolute">
-          Gemaakt door
-          <a href="https://github.com/Evoxius/Ewa-Haaglanden" target="_blank">
-            <h5>Michael Schaap</h5>
-             </a
-          >
-        </h6>
-      </div>
-    </div>
-    <div class="main">
-      <div class="section section-images">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="hero-images-container">
-                <img src="images/hero-image-1.png" alt="" />
-              </div>
-              <div class="hero-images-container-1">
-                <img src="images/hero-image-2.png" alt="" />
-              </div>
-              <div class="hero-images-container-2">
-                <img src="images/hero-image-3.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
     <basic-elements></basic-elements>
@@ -80,7 +55,6 @@ import CarouselSection from './components/CarouselSection';
 import NucleoIconsSection from './components/NucleoIconsSection';
 import SignupForm from './components/SignupForm';
 import ExamplesSection from './components/ExamplesSection';
-import DownloadSection from './components/DownloadSection';
 
 export default {
   name: 'index',
@@ -98,7 +72,6 @@ export default {
     NucleoIconsSection,
     SignupForm,
     ExamplesSection,
-    DownloadSection
   }
 };
 </script>

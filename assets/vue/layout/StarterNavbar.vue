@@ -12,7 +12,7 @@
         trigger="hover"
       >
         <div class="popover-body">
-          Designed by Invision. Coded by Creative Tim
+          Ontworpen en gemaakt door studenten van ROC Mondriaan.
         </div>
       </el-popover>
     </template>
