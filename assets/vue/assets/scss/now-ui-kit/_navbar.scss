@@ -9,7 +9,7 @@
         vertical-align: middle;
 
         &:not(.btn):not(.dropdown-item){
-            color: $white-color;
+            color: $black-color;
         }
     }
 
@@ -44,8 +44,7 @@
         }
 
         .nav-link:not(.btn){
-            text-transform: uppercase;
-            font-size: $font-size-mini;
+            font-size: $font-size-large;
             padding: $padding-base-vertical $padding-base-horizontal;
             line-height: $line-height-nav-link;
 
@@ -100,8 +99,7 @@
     }
 
     .navbar-brand{
-        text-transform: uppercase;
-        font-size: $font-size-small;
+        font-size: $font-size-large;
         padding-top: $padding-base-vertical;
         padding-bottom: $padding-base-vertical;
         line-height: $line-height-nav-link;
