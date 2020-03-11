@@ -15,11 +15,23 @@
       class="jumbotron text-center"
     >
       <div class="overlay">
-        <div class="title">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo dolore praesentium, quasi nihil</p>
+        <div class="row">
+          <div class="col-2" />
+          <div class="col-8">
+            <div class="title">
+              <p>OPTIMALISERING AANSLUITING ONDERWIJS / ARBEIDSMARKT IN ZORG & WELZIJN.</p>
+            </div>
+          </div>
+          <div class="col-2" />
         </div>
-        <div class="explanation">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam sunt beatae consectetur corporis expedita obcaecati dolores, consequuntur, praesentium cupiditate sapiente aspernatur est porro soluta molestiae sequi enim! Eius, doloribus vel.</p>
+        <div class="row">
+          <div class="col-3" />
+          <div class="col-6">
+            <div class="explanation">
+              <p>Extra strong is een initiatief om de aansluiting van het onderwijs op de arbeidsmarkt in de Zorg & Welzijnssector te optimaliseren. Een samenwerkingsverband om “De Nieuwe Medewerker” te creëren die klaar is voor de arbeidsmarkt van de toekomst. Extra strong is hét platform voor innovatief vakmanschap waar werkgevers, sociale partners, mbo/hbo instellingen elkaar ontmoeten</p>
+            </div>
+          </div>
+          <div class="col-3" />
         </div>
       </div>
     </section>
@@ -38,14 +50,14 @@ export default {
 }
 
 #introduction {
-  background-color: tomato;
+  background-color: white;
   text-align: center;
 }
 
 .title {
-  font-size: 1em;
+  font-size: 2.0em;
   font-weight: bold;
-  font-family: 'Lato', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Didact Gothic";
   text-transform: uppercase;
   float: none;
   letter-spacing: 1px;
@@ -55,6 +67,6 @@ export default {
 }
 
 .explanation {
-  width: 50%;
+
 }
 </style>
