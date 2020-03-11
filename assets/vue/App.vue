@@ -1,28 +1,12 @@
 <template>
-  <div class="layout">
-    <Navigation />
-    <Footer />
+  <div id="app">
+    <router-view name="header" />
+    <div class="wrapper">
+      <router-view />
+    </div>
+    <router-view name="footer" />
   </div>
 </template>
-
 <script>
-import Navigation from './components/Navigation.vue'
-import Footer from './components/Footer.vue'
-  
-export default {
-  name: "App",
-  components: {
-    Navigation,
-    Footer
-  }
-}
+export default {};
 </script>
-
-<style scoped>
-.layout {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-}
-</style>
