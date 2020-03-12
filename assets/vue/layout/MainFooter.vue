@@ -4,7 +4,7 @@
             :class="{ [`footer-${type}`]: type }"
             :data-background-color="backgroundColor"
     >
-        <div class="container">
+        <div class="container" style="text-align: center;">
             &copy; {{ year }}, ontworpen en gemaakt door studenten van
             <a href="https://www.rocmondriaan.nl" target="_blank" rel="noopener"
             >ROC Mondriaan</a
