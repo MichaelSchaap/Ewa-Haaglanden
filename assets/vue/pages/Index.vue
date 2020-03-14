@@ -29,10 +29,13 @@ Extra strong is een initiatief om de aansluiting van het onderwijs op de arbeids
       </div>
     </div>
 
+    <PartnerSection></PartnerSection>
+
   </div>
 </template>
 <script>
 import { Parallax } from '../components';
+import PartnerSection from '../pages/components/PartnerSection';
 
 
 
@@ -41,6 +44,7 @@ export default {
   bodyClass: 'index-page',
   components: {
     Parallax,
+    PartnerSection,
 
 
   }
