@@ -5,7 +5,7 @@ export default {
     barStyle: Object,
     duration: {
       type: String,
-      default: '45s'
+      default: '60s'
     },
     direction: {
       type: String,
