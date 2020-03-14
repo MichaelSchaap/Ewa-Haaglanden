@@ -1,7 +1,7 @@
 <template>
   <div id="PartnerSection" style="margin-bottom: 5px">
      <div class="container" style="text-align: center">
-          <h2 class="title" style="color: black">PARTNERS</h2>
+          <h2 class="title" style="color: black">PARTNERS.</h2>
       </div>
       <div class="container">
     <infinite-slide-bar :barStyle="{  }" > 
