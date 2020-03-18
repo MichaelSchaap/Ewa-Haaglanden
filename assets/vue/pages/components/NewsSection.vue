@@ -1,5 +1,5 @@
 <template>
-<section style="background-color: black">
+<section style="background-color: orange">
   <div id="NewsSection" style="margin-bottom: 5px">
      <div class="container" style="text-align: center">
           <h2 class="title" style="color: black">NIEUWS.</h2>
