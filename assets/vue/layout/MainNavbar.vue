@@ -51,8 +51,9 @@
       </drop-down>
       <li class="nav-item">
         <a
-          class="nav-link btn btn-warning"
+          class="nav-link btn"
           href="#/login"
+          style="background-color: #FFB300"
         >
           <i class="now-ui-icons users_single-02"></i>
           <p>Login</p>
