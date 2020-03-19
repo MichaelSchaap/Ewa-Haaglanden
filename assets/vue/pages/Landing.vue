@@ -8,7 +8,7 @@
       </parallax>
       <div class="content-center">
         <div class="container">
-          <h1 class="title">Informatie over Ewa Haaglanden</h1>
+          <h1 class="title" style="font-size:50px;">Informatie over Ewa Haaglanden</h1>
           <div class="text-center">
             <a href="#" class="btn btn-primary btn-icon btn-round">
               <i class="fab fa-facebook-square"></i>
@@ -27,7 +27,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Introductie</h2>
+            <h2 class="title" style="font-size:50px; color:black;">Introductie</h2>
             <h5 class="description" style="color:black; text-align:left;">
               Het zal u niet zijn ontgaan.
               De arbeidsmarkt is krap. 
@@ -43,7 +43,7 @@
         <div class="section-story-overview">
           <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Ewa Haaglanden! De noodzakelijke alliantie voor arbeidsparticipatie</h2>
+            <h2 class="title" style="font-size:50px; color:black;">Ewa Haaglanden! De noodzakelijke alliantie voor arbeidsparticipatie</h2>
             <h5 class="description" style="color:black; text-align:left">
             Ewa staat voor Entree Wegen naar Arbeid en is tevens straattaal voor ‘Hallo!’. 
             Dat is wat wij zeggen tegen kandidaten en bedrijven in de regio Haaglanden. 
@@ -70,7 +70,7 @@
             tot de arbeidsmarkt in onze regio met behulp van relevante scholing aan het werk te helpen. 
             Dat staat nog in de kinderschoenen. 
              <div class="separator separator-secondary"></div>
-            <h4 class="title">Het is duidelijk: we kunnen vraag en aanbod alleen in gezamenlijkheid effectief bij elkaar brengen.</h4>
+            <h4 class="title" style="font-size:50px; color:black;">Het is duidelijk: we kunnen vraag en aanbod alleen in gezamenlijkheid effectief bij elkaar brengen.</h4>
             <br>
             Wij, partners binnen Ewa Haaglanden, willen daarom sámen jonge mensen zonder 
             diploma begeleiden, opleiden en doorschakelen naar een diploma én een fijne werkplek. 
@@ -80,13 +80,13 @@
             In ons samenwerkingsverband gaan we daarom de komende jaren, tot en met 2024:
             <br><br>
             <ul class="list-group" style="text-align:left">
-            <li class="list-group-item list-group-item-dark">minimaal 216 jongeren, via een entreeopleiding die plaatsvindt in het bedrijf, een 
+            <li class="list-group-item list-group-item-dark">Minimaal 216 jongeren, via een entreeopleiding die plaatsvindt in het bedrijf, een 
             grotere kans bieden op een ononderbroken loopbaan via scholing naar werk</li>
-            <li class="list-group-item list-group-item-dark">minimaal 133 jongeren, voor wie de entreeopleiding te hoog gegrepen is op dat moment in 
+            <li class="list-group-item list-group-item-dark">Minimaal 133 jongeren, voor wie de entreeopleiding te hoog gegrepen is op dat moment in 
             hun leven, zoveel mogelijk scholing meegeven en direct doorschakelen naar werk</li> 
-            <li class="list-group-item list-group-item-dark">minimaal 1692 kandidaten die doorstromen naar niveau 2 een meer arbeidsmarktrelevante leeromgeving bieden</li> 
-            <li class="list-group-item list-group-item-dark">minimaal 47 kandidaten binnen bedrijven relevant verder opleiden</li>
-            <li class="list-group-item list-group-item-dark">in een samenwerkingsverband van ROC, gemeenten en betrokken bedrijven één of 
+            <li class="list-group-item list-group-item-dark">Minimaal 1692 kandidaten die doorstromen naar niveau 2 een meer arbeidsmarktrelevante leeromgeving bieden</li> 
+            <li class="list-group-item list-group-item-dark">Minimaal 47 kandidaten binnen bedrijven relevant verder opleiden</li>
+            <li class="list-group-item list-group-item-dark">In een samenwerkingsverband van ROC, gemeenten en betrokken bedrijven één of 
             meerdere certificaten ontwikkelen en uitvoeren voor minimaal 27 laaggeschoolde kandidaten die nog geen onderwijs volgen</li>
             </ul>
             </h5>
@@ -96,7 +96,7 @@
            
     <div class="section section-team text-center">
       <div class="container">
-        <h2 class="title">Dit is ons team</h2>
+        <h2 class="title" style="font-size:50px; color:black;">Dit is ons team</h2>
         <div class="team">
           <div class="row">
             <div class="col-md-4">
@@ -180,7 +180,7 @@
     </div>
     <div class="section section-contact-us text-center">
       <div class="container">
-        <h2 class="title">Neem contact met ons op</h2>
+        <h2 class="title" style="font-size:40px;">Neem contact met ons op</h2>
         <p class="description" style="color:black;">Wij willen graag van je horen</p>
         <div class="row">
           <div class="col-lg-6 text-center ml-auto mr-auto col-md-8">
