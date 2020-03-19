@@ -39,8 +39,8 @@
             </h5>
           </div>
         </div>
-        <div class="separator separator-primary"></div>
-        <div class="section-story-overview">
+
+
           <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <h2 class="title" style="font-size:40px; color:black;">Ewa Haaglanden! De noodzakelijke alliantie voor arbeidsparticipatie</h2>
@@ -92,7 +92,7 @@
             </h5>
           </div>
           </div>
-        </div>
+
            
     <div class="section section-team text-center">
       <div class="container">
@@ -102,11 +102,11 @@
             <div class="col-md-4">
               <div class="team-player">
                 <img
-                  src="img/person1.jpg"
+                  src="images/person2.jpg"
                   alt="Foto van ..."
                   class="rounded-circle img-fluid img-raised"
                 />
-                <h4 class="title">Romina Hadid</h4>
+                <h4 class="title">Andrew Ryan</h4>
                 <p class="category text-primary">Directeur scholen voor Zorg & Welzijn</p>
                 <p class="description" style="color:black;">
                   You can write here details about one of your team members. You
@@ -128,7 +128,7 @@
             <div class="col-md-4">
               <div class="team-player">
                 <img
-                  src="img/person2.jpg"
+                  src="images/person1.jfif"
                   alt="Foto van ..."
                   class="rounded-circle img-fluid img-raised"
                 />

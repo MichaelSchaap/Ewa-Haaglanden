@@ -28,24 +28,24 @@
           class="nav-link"
           href="#/landing"
         >
-          <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+          <i class="now-ui-icons files_single-copy-04"></i>
           <p>Informatie</p>
         </a>
       </li>
       <drop-down
         tag="li"
         title="Ontwikkelpaden"
-        icon="now-ui-icons design_app"
+        icon="now-ui-icons design_bullet-list-67"
         class="nav-item"
       >
         <nav-link to="/">
-          <i class="now-ui-icons business_chart-pie-36"></i> Ontwikkelpad A
+          <i class="now-ui-icons design_app"></i> Ontwikkelpad A
         </nav-link>
         <nav-link to="/">
-          <i class="now-ui-icons business_chart-pie-36"></i> Ontwikkelpad B
+          <i class="now-ui-icons design_app"></i> Ontwikkelpad B
         </nav-link>
         <nav-link to="/">
-          <i class="now-ui-icons business_chart-pie-36"></i> Ontwikkelpad C
+          <i class="now-ui-icons design_app"></i> Ontwikkelpad C
         </nav-link>
 
       </drop-down>
