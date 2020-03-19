@@ -38,13 +38,13 @@
         icon="now-ui-icons design_app"
         class="nav-item"
       >
-        <nav-link to="/login">
+        <nav-link to="/">
           <i class="now-ui-icons business_chart-pie-36"></i> Ontwikkelpad A
         </nav-link>
-        <nav-link to="/profile">
+        <nav-link to="/">
           <i class="now-ui-icons business_chart-pie-36"></i> Ontwikkelpad B
         </nav-link>
-        <nav-link to="/landing">
+        <nav-link to="/">
           <i class="now-ui-icons business_chart-pie-36"></i> Ontwikkelpad C
         </nav-link>
 
@@ -52,7 +52,7 @@
       <li class="nav-item">
         <a
           class="nav-link btn"
-          href="#/login"
+          href="#/"
           style="background-color: #FFB300"
         >
           <i class="now-ui-icons users_single-02"></i>
