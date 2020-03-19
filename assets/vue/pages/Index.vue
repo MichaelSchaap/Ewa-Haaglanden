@@ -33,6 +33,7 @@ Extra strong is een initiatief om de aansluiting van het onderwijs op de arbeids
     <PartnerSection></PartnerSection>
     <NewsSection></NewsSection>
 
+
   </div>
 </template>
 <script>
