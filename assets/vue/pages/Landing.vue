@@ -27,7 +27,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title" style="font-size:50px; color:black;">Introductie</h2>
+            <h2 class="title" style="font-size:50px; color:black;">INTRODUCTIE.</h2>
             <h5 class="description" style="color:black; text-align:left;">
               Het zal u niet zijn ontgaan.
               De arbeidsmarkt is krap. 
@@ -42,8 +42,8 @@
         <div class="separator separator-primary"></div>
         <div class="section-story-overview">
           <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title" style="font-size:50px; color:black;">Ewa Haaglanden! De noodzakelijke alliantie voor arbeidsparticipatie</h2>
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="title" style="font-size:40px; color:black;">Ewa Haaglanden! De noodzakelijke alliantie voor arbeidsparticipatie</h2>
             <h5 class="description" style="color:black; text-align:left">
             Ewa staat voor Entree Wegen naar Arbeid en is tevens straattaal voor ‘Hallo!’. 
             Dat is wat wij zeggen tegen kandidaten en bedrijven in de regio Haaglanden. 
@@ -70,7 +70,7 @@
             tot de arbeidsmarkt in onze regio met behulp van relevante scholing aan het werk te helpen. 
             Dat staat nog in de kinderschoenen. 
              <div class="separator separator-secondary"></div>
-            <h4 class="title" style="font-size:50px; color:black;">Het is duidelijk: we kunnen vraag en aanbod alleen in gezamenlijkheid effectief bij elkaar brengen.</h4>
+            <h4 class="title" style="font-size:40px; color:black;">Het is duidelijk: we kunnen vraag en aanbod alleen in gezamenlijkheid effectief bij elkaar brengen.</h4>
             <br>
             Wij, partners binnen Ewa Haaglanden, willen daarom sámen jonge mensen zonder 
             diploma begeleiden, opleiden en doorschakelen naar een diploma én een fijne werkplek. 
@@ -96,7 +96,7 @@
            
     <div class="section section-team text-center">
       <div class="container">
-        <h2 class="title" style="font-size:50px; color:black;">Dit is ons team</h2>
+        <h2 class="title" style="font-size:50px; color:black; margin-bottom:100px;">TEAM.</h2>
         <div class="team">
           <div class="row">
             <div class="col-md-4">
@@ -107,7 +107,7 @@
                   class="rounded-circle img-fluid img-raised"
                 />
                 <h4 class="title">Romina Hadid</h4>
-                <p class="category text-primary">CEO</p>
+                <p class="category text-primary">Directeur scholen voor Zorg & Welzijn</p>
                 <p class="description" style="color:black;">
                   You can write here details about one of your team members. You
                   can give more details about what they do. Feel free to add
@@ -133,7 +133,7 @@
                   class="rounded-circle img-fluid img-raised"
                 />
                 <h4 class="title">Ryan Tompson</h4>
-                <p class="category text-primary">Leraar</p>
+                <p class="category text-primary">Programma Manager</p>
                 <p class="description" style="color:black;">
                   You can write here details about one of your team members. You
                   can give more details about what they do. Feel free to add
@@ -156,7 +156,7 @@
                   class="rounded-circle img-fluid img-raised"
                 />
                 <h4 class="title">Eva Jenner</h4>
-                <p class="category text-primary">Leraar</p>
+                <p class="category text-primary">Team Manager</p>
                 <p class="description" style="color:black;">
                   You can write here details about one of your team members. You
                   can give more details about what they do. Feel free to add
