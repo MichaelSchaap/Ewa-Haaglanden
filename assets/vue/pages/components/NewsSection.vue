@@ -1,6 +1,6 @@
 <template>
 <section style="background-color: #FFB300">
-  <div id="NewsSection" style="margin-top:50px;margin-bottom: 50px">
+  <div id="NewsSection" style="margin-top:50px;">
      <div class="container" style="text-align: center">
           <h2 class="title" style="color: black; font-size:50px;">LAATSTE BERICHTEN.</h2>
             <div class="card">
