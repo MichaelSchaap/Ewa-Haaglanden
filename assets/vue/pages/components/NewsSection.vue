@@ -1,5 +1,5 @@
 <template>
-<section style="background-color: #CC0029">
+<section style="background-color: #CC0029;">
   <div id="NewsSection" style="margin-top:50px;">
      <div class="container" style="text-align: center">
           <h2 class="title" style="color: white; font-size:50px;">LAATSTE BERICHTEN.</h2>
@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 body {
   margin: 0 !important;
 }
@@ -37,5 +37,11 @@ body {
    width: 100%;
    background-color:#000;
    opacity:.6;
+}
+
+@import "../../assets/scss/now-ui-kit/mixins.scss";
+
+section{
+@include angled-edge('outside top', 'upper left', #CC0029);
 }
 </style>

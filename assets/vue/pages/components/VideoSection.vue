@@ -19,9 +19,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 body {
   margin: 0 !important;
+}
+
+@import "../../assets/scss/now-ui-kit/mixins.scss";
+
+section{
+@include angled-edge('outside bottom', 'lower right', #FFB300);
 }
 </style>
 

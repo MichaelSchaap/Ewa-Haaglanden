@@ -25,7 +25,7 @@
  <IntroductionSection></IntroductionSection>
 
 
-    <section class="ewa-for" style="margin-bottom:25px;">
+    <section class="ewa-for" style="margin-top:3%;margin-bottom:5%">
       <div class="container">
           <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
@@ -110,7 +110,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/now-ui-kit/mixins.scss";
+
 
 </style>
 

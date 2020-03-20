@@ -1,5 +1,5 @@
 <template>
-  <div id="PartnerSection" style="margin-top:50px;margin-bottom: 50px">
+  <div id="PartnerSection" style="margin-top:5%;margin-bottom: 5%">
      <div class="container" style="text-align: center; margin-bottom: 30px;">
           <h2 class="title" style="color: black; font-size:50px;">ONZE PARTNERS.</h2>
       </div>

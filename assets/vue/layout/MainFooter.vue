@@ -5,24 +5,43 @@
             :class="{ [`footer-${type}`]: type }"
             :data-background-color="backgroundColor"
     >
-        <div class="container text-left">
+        <div class="container">
               <div class="row">
-                <div class="col sm-6">
-                  <h5 class="title">Footer Content</h5>
-                  <p>Here you can use rows and columns here to organize your footer content.</p>
+                <div class="col sm-1"></div>
+                <div class="col sm-3">
+                  <h5 class="title">EWA HAAGLANDEN</h5>
+                  <nav-link to="#/">
+                   <p> Home </p>
+                  </nav-link>
+                  <nav-link to="#/landing">
+                   <p> Informatie </p>
+                  </nav-link>
+                  <nav-link to="/">
+                   <p> Ontwikkelpad A </p>
+                  </nav-link>
+                  <nav-link to="/">
+                   <p> Ontwikkelpad B </p>
+                  </nav-link>
+                  <nav-link to="/">
+                   <p> Ontwikkelpad C </p>
+                  </nav-link>
+                    
                 </div>
-                 <div class="col sm-6">
-                  <h5 class="title">Links</h5>
-                  <ul>
-                    <li class="list-unstyled"><a href="#!">Link 1</a></li>
-                    <li class="list-unstyled"><a href="#!">Link 2</a></li>
-                    <li class="list-unstyled"><a href="#!">Link 3</a></li>
-                    <li class="list-unstyled"><a href="#!">Link 4</a></li>
-                  </ul>
-                </div>
+                
+                <div class="col sm-7">
+                  <h5 class="title">CONTACT</h5>
+                  <p>Neem vrijblijvend contact met ons op. Als u vragen heeft of graag een afspraak wilt inplannen, dan zien we uw bericht graag tegemoet.</p>
+                  <p>Aspasialaan 19</p>
+                  <p>2493 WN Den Haag</p>
+                  <p>088-6661299</p>
+                  <br>
+                  <p>info@extrastrong.pro</p>
+                  <p>k.geelen@rocmondriaan.nl</p>
+                </div>  
+                <div class="col sm-1"></div>  
               </div>
-        </div>
-            <div class="footer-copyright text-center py-3">
+      </div>
+            <div class="footer-copyright text-center py-3" style="margin-top:1.5%">
              <div class="container" style="text-align: center;">
             &copy; {{ year }}, ontworpen en gemaakt door studenten van
             <a href="https://www.rocmondriaan.nl" target="_blank" rel="noopener"
@@ -52,7 +71,11 @@
 
 
 footer{
-@include angled-edge('inside top', 'upper left', darkgray);
+@include angled-edge('outside top', 'upper left', #2c2c2c);
+}
+
+p{
+  line-height: 1.4;
 }
 </style>
 

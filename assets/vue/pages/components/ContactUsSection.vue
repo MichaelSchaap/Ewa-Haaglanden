@@ -1,8 +1,8 @@
 <template>
- <section class="contact text-center" style="margin-bottom:25px;">
+ <section class="contact text-center" style="margin-bottom:7%;margin-top:3%">
       <div class="container">
         <h2 class="title" style="font-size:40px;">Neem contact met ons op</h2>
-        <p class="description" style="color:black;">Wij willen graag van je horen</p>
+        <p class="description" style="color:black; margin-bottom:2.5%">Wij willen graag van je horen</p>
         <div class="row">
           <div class="col-lg-6 text-center ml-auto mr-auto col-md-8">
             <fg-input
@@ -63,5 +63,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+
 
 </style>
