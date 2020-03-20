@@ -1,6 +1,11 @@
+
+
+
 /**
  * You can register global mixins here
  */
+
+
 
 const GlobalMixins = {
   install(Vue) {

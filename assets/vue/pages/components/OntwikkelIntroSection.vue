@@ -1,5 +1,7 @@
 <template>
+
 <section style="background-color: #66BFFF;">
+
   <div id="OntwikkelIntroSection" style="margin-top:0px;margin-bottom: 0px; padding-bottom: 50px;">>
      <div class="container" style="text-align: center;">
           <h2 class="title" style="color: black; font-size:50px;">ONTWIKKELPADEN EWA HAAGLANDEN.</h2>
@@ -29,17 +31,21 @@
 
 <script>
 
-
 export default {
   name: 'OntwikkelIntroSection',
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../../assets/scss/now-ui-kit/angled-edges.scss";
+
 body {
   margin: 0 !important;
 }
 .img-padding {
   padding-left: 20px;
+}
+section {
+ @include angled-edge("outside top", "upper left", #66BFFF);
 }
 </style>

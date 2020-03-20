@@ -7,7 +7,6 @@
       >
       </parallax>
       <div class="content-center">
-        <div class="container">
           <h1 class="title" style="font-size:50px;">Informatie over Ewa Haaglanden</h1>
           <div class="text-center">
             <a href="#" class="btn btn-primary btn-icon btn-round">
@@ -20,7 +19,6 @@
               <i class="fab fa-google-plus"></i>
             </a>
           </div>
-        </div>
       </div>
     </div>
     <div class="section section-about-us">
@@ -38,6 +36,7 @@
               Het is hoog tijd voor een nieuwe aanpak. Mogen wij aan u voorstellen:
             </h5>
           </div>
+        </div>
         </div>
 
 
@@ -94,7 +93,7 @@
           </div>
 
            
-    <div class="section section-team text-center">
+    <div class="section section-team text-center" style="background-color: #66BFFF;">
       <div class="container">
         <h2 class="title" style="font-size:50px; color:black; margin-bottom:100px;">TEAM.</h2>
         <div class="team">
@@ -219,7 +218,7 @@
     </div>
   </div>
 </div>
-</div>
+
 </template>
 <script>
 import { Button, FormGroupInput } from '../components';

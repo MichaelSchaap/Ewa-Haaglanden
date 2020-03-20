@@ -1,7 +1,7 @@
 <template>
   <div id="PartnerSection" style="margin-top:50px;margin-bottom: 50px">
      <div class="container" style="text-align: center; margin-bottom: 30px;">
-          <h2 class="title" style="color: black; font-size:50px;">PARTNERS.</h2>
+          <h2 class="title" style="color: black; font-size:50px;">ONZE PARTNERS.</h2>
       </div>
       <div class="container">
     <infinite-slide-bar :barStyle="{  }" > 
@@ -50,11 +50,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../../assets/scss/now-ui-kit/angled-edges.scss";
+
 body {
   margin: 0 !important;
 }
 .img-padding {
   padding-left: 20px;
+}
+#PartnerSection {
+@include angled-edge('outside bottom', 'lower left', white);
 }
 </style>
