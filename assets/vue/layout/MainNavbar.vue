@@ -24,22 +24,16 @@
     </template>
     <template slot="navbar-menu">
       <li class="nav-item">
-        <a
-          class="nav-link"
-          href="#/"
-        >
+        <router-link class="nav-link" to="/">
           <i class="now-ui-icons files_single-copy-04"></i>
           <p>Home</p>
-        </a>
+        </router-link>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link"
-          href="#/landing"
-        >
+        <router-link class="nav-link" to="/landing">
           <i class="now-ui-icons files_single-copy-04"></i>
           <p>Informatie</p>
-        </a>
+        </router-link>
       </li>
       <drop-down
         tag="li"
@@ -50,7 +44,7 @@
         <nav-link to="/">
           <i class="now-ui-icons design_app"></i> Ontwikkelpad A
         </nav-link>
-        <nav-link to="/">
+        <nav-link to="/landing">
           <i class="now-ui-icons design_app"></i> Ontwikkelpad B
         </nav-link>
         <nav-link to="/">
