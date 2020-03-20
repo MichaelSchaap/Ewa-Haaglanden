@@ -1,45 +1,32 @@
 <template>
   <div>
-    <div class="page-header page-header-small" >
-      <parallax
-        class="page-header-image"
-        style="background-image: url('images/EWAHeader2.png')"
-      >
-      </parallax>
-      <div class="content-center">
-          <h1 class="title" style="font-size:50px;">Informatie over Ewa Haaglanden</h1>
-          <div class="text-center">
-            <a href="#" class="btn btn-primary btn-icon btn-round">
-              <i class="fab fa-facebook-square"></i>
-            </a>
-            <a href="#" class="btn btn-primary btn-icon btn-round">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="btn btn-primary btn-icon btn-round">
-              <i class="fab fa-google-plus"></i>
-            </a>
-          </div>
+      <div class="page-header page-header-small" >
+        <parallax
+          class="page-header-image"
+          style="background-image: url('images/EWAHeader2.png')"
+        >
+        </parallax>
+      <div class="content-center"> 
+            <h1 class="title" style="font-size:50px;">Informatie over Ewa Haaglanden</h1>
+            <div class="text-center">
+              <a href="#" class="btn btn-primary btn-icon btn-round">
+                <i class="fab fa-facebook-square"></i>
+              </a>
+              <a href="#" class="btn btn-primary btn-icon btn-round">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="btn btn-primary btn-icon btn-round">
+                <i class="fab fa-google-plus"></i>
+              </a>
+            </div>
+        </div>
       </div>
-    </div>
-    <div class="section section-about-us">
+ 
+ <IntroductionSection></IntroductionSection>
+
+
+    <section class="ewa-for" style="margin-bottom:25px;">
       <div class="container">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title" style="font-size:50px; color:black;">INTRODUCTIE.</h2>
-            <h5 class="description" style="color:black; text-align:left;">
-              Het zal u niet zijn ontgaan.
-              De arbeidsmarkt is krap. 
-              Werkgevers zitten te springen om gekwalificeerd personeel. 
-              Zelfs de economische groei loopt terug door een gebrek aan arbeidsaanbod. 
-              Terwijl nog steeds veel mensen aan de kant staan. 
-              Mensen die graag aan de slag willen om zo hun steentje bij te dragen aan de maatschappij. 
-              Het is hoog tijd voor een nieuwe aanpak. Mogen wij aan u voorstellen:
-            </h5>
-          </div>
-        </div>
-        </div>
-
-
           <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <h2 class="title" style="font-size:40px; color:black;">Ewa Haaglanden! De noodzakelijke alliantie voor arbeidsparticipatie</h2>
@@ -68,9 +55,9 @@
             En dat er nog geen breed opleidingsaanbod beschikbaar is om mensen met een afstand
             tot de arbeidsmarkt in onze regio met behulp van relevante scholing aan het werk te helpen. 
             Dat staat nog in de kinderschoenen. 
-             <div class="separator separator-secondary"></div>
-            <h4 class="title" style="font-size:40px; color:black;">Het is duidelijk: we kunnen vraag en aanbod alleen in gezamenlijkheid effectief bij elkaar brengen.</h4>
-            <br>
+            <div class="separator separator-secondary"></div>
+            <h2 class="title" style="font-size:40px; color:black;">Het is duidelijk: we kunnen vraag en aanbod alleen in gezamenlijkheid effectief bij elkaar brengen.</h2>
+
             Wij, partners binnen Ewa Haaglanden, willen daarom sámen jonge mensen zonder 
             diploma begeleiden, opleiden en doorschakelen naar een diploma én een fijne werkplek. 
             We willen kandidaten binnen bedrijven verder opleiden. 
@@ -91,153 +78,39 @@
             </h5>
           </div>
           </div>
+      </div>
+        </section>
 
-           
-    <div class="section section-team text-center" style="background-color: #66BFFF;">
-      <div class="container">
-        <h2 class="title" style="font-size:50px; color:black; margin-bottom:100px;">TEAM.</h2>
-        <div class="team">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="team-player">
-                <img
-                  src="images/person2.jpg"
-                  alt="Foto van ..."
-                  class="rounded-circle img-fluid img-raised"
-                />
-                <h4 class="title">Andrew Ryan</h4>
-                <p class="category text-primary">Directeur scholen voor Zorg & Welzijn</p>
-                <p class="description" style="color:black;">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
-                </p>
-                <a href="#" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a href="#" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-facebook-square"></i
-                ></a>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-player">
-                <img
-                  src="images/person1.jfif"
-                  alt="Foto van ..."
-                  class="rounded-circle img-fluid img-raised"
-                />
-                <h4 class="title">Ryan Tompson</h4>
-                <p class="category text-primary">Programma Manager</p>
-                <p class="description" style="color:black;">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
-                </p>
-                <a href="#" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a href="#" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-linkedin"></i
-                ></a>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-player">
-                <img
-                  src="images/person3.jpg"
-                  alt="Foto van ..."
-                  class="rounded-circle img-fluid img-raised"
-                />
-                <h4 class="title">Eva Jenner</h4>
-                <p class="category text-primary">Team Manager</p>
-                <p class="description" style="color:black;">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
-                </p>
-                <a href="#" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-google-plus"></i
-                ></a>
-                <a href="#" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-youtube"></i
-                ></a>
-                <a href="#" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-twitter"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+          
+
+   <TeamSection></TeamSection>
+   <ContactUsSection></ContactUsSection>
+
+
     </div>
-    <div class="section section-contact-us text-center">
-      <div class="container">
-        <h2 class="title" style="font-size:40px;">Neem contact met ons op</h2>
-        <p class="description" style="color:black;">Wij willen graag van je horen</p>
-        <div class="row">
-          <div class="col-lg-6 text-center ml-auto mr-auto col-md-8">
-            <fg-input
-              class="input-lg"
-              placeholder="Voornaam..."
-              v-model="form.firstName"
-              addon-left-icon="now-ui-icons users_circle-08"
-            >
-            </fg-input>
-            <fg-input
-              class="input-lg"
-              placeholder="Email Hier..."
-              v-model="form.email"
-              addon-left-icon="now-ui-icons ui-1_email-85"
-            >
-            </fg-input>
-            <div class="textarea-container">
-              <textarea
-                class="form-control"
-                name="name"
-                rows="4"
-                cols="80"
-                v-model="form.message"
-                placeholder="Schrijf een bericht..."
-              ></textarea>
-            </div>
-            <div class="send-button">
-              <n-button type="primary" round block size="lg"
-                >Stuur bericht</n-button
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 
 </template>
 <script>
-import { Button, FormGroupInput } from '../components';
+import IntroductionSection from '../pages/components/IntroductionSection';
+import ContactUsSection from '../pages/components/ContactUsSection';
+import TeamSection from '../pages/components/TeamSection';
+
 export default {
   name: 'landing',
-  bodyClass: 'landing-page',
-  components: {
-    [Button.name]: Button,
-    [FormGroupInput.name]: FormGroupInput
-  },
-  data() {
-    return {
-      form: {
-        firstName: '',
-        email: '',
-        message: ''
-      }
-    };
+   components: {
+    ContactUsSection,
+    IntroductionSection,
+    TeamSection
   }
+
 };
 </script>
-<style></style>
+
+<style lang="scss" scoped>
+@import "../assets/scss/now-ui-kit/angled-edges.scss";
+
+</style>
+

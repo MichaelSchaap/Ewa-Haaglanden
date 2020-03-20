@@ -50,16 +50,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import "../../assets/scss/now-ui-kit/angled-edges.scss";
-
+<style>
 body {
   margin: 0 !important;
 }
 .img-padding {
   padding-left: 20px;
-}
-#PartnerSection {
-@include angled-edge('outside bottom', 'lower left', white);
 }
 </style>
