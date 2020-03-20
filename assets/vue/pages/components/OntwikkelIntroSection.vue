@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/scss/now-ui-kit/angled-edges.scss";
+@import "../../assets/scss/now-ui-kit/mixins.scss";
 
 body {
   margin: 0 !important;
