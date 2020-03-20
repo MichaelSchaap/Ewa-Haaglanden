@@ -77,7 +77,7 @@
 /// @param  {Number}  $width
 /// @output '::before' and/or '::after' with svg background image
 ///
-@mixin angled-edge($location, $hypotenuse, $fill, $height: 30, $width: null) {
+@mixin angled-edge($location, $hypotenuse, $fill, $height: 40, $width: null) {
 
 	position: relative;
 

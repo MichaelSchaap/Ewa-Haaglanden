@@ -2,9 +2,9 @@
 
 <section style="background-color: #66BFFF;">
 
-  <div id="OntwikkelIntroSection" style="margin-top:0px;margin-bottom: 0px; padding-bottom: 50px;">>
+  <div id="OntwikkelIntroSection" style="margin-top:0px;margin-bottom: 0px; padding-bottom: 50px;">
      <div class="container" style="text-align: center;">
-          <h2 class="title" style="color: black; font-size:50px;">ONTWIKKELPADEN EWA HAAGLANDEN.</h2>
+          <h2 class="title" style="color: black; font-size:40px;">ONTWIKKELPADEN EWA HAAGLANDEN.</h2>
       </div>
         <div class="container">
         <div class="row">

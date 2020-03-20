@@ -1,9 +1,9 @@
 <template>
 <section style="background-color: #CC0029;">
-  <div id="NewsSection" style="margin-top:50px;">
+  <div id="NewsSection" style="margin-top:10%;">
      <div class="container" style="text-align: center">
           <h2 class="title" style="color: white; font-size:50px;">LAATSTE BERICHTEN.</h2>
-            <div class="card">
+            <div class="card" style="width: 21rem;">
               <img class="card-img" src="images/place.jfif" alt="Artikel foto">
                 <div class="card-img-overlay d-flex align-items-center container">
                   <h5 class="card-title text-white" style="text-size:20px;" >ROC Mondriaan's innovatiehuis opent op 21 Mei!</h5>

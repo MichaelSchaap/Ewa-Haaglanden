@@ -15,9 +15,7 @@
     </div>
 
 
-
-    <div class="section">
-      <div class="container text-center">
+      <div class="container text-center" style="margin-bottom:5%">
         <div class="row justify-content-md-center">
           <div class="col-md-12 col-lg-8">
             <h2 class="title" style="color: black; font-size:40px;">OPTIMALISERING AANSLUITING ONDERWIJS / ARBEIDSMARKT IN ZORG & WELZIJN.</h2>
@@ -27,7 +25,7 @@ Extra strong is een initiatief om de aansluiting van het onderwijs op de arbeids
           </div>
         </div>
       </div>
-    </div>
+
 
     <OntwikkelIntroSection></OntwikkelIntroSection>
     <VideoSection></VideoSection>

@@ -5,10 +5,10 @@
             :class="{ [`footer-${type}`]: type }"
             :data-background-color="backgroundColor"
     >
-        <div class="container">
+        <div class="container text-center">
               <div class="row">
-                <div class="col sm-1"></div>
-                <div class="col sm-3">
+ 
+                <div class="col sm-5">
                   <h5 class="title">EWA HAAGLANDEN</h5>
                   <nav-link to="#/">
                    <p> Home </p>
@@ -27,18 +27,18 @@
                   </nav-link>
                     
                 </div>
-                
-                <div class="col sm-7">
+                     
+                <div class="col sm-5">
                   <h5 class="title">CONTACT</h5>
                   <p>Neem vrijblijvend contact met ons op. Als u vragen heeft of graag een afspraak wilt inplannen, dan zien we uw bericht graag tegemoet.</p>
-                  <p>Aspasialaan 19</p>
-                  <p>2493 WN Den Haag</p>
-                  <p>088-6661299</p>
+                  <p style="line-height: 0.7;">Aspasialaan 19</p>
+                  <p style="line-height: 0.7;">2493 WN Den Haag</p>
+                  <p style="line-height: 0.7;">088-6661299</p>
                   <br>
-                  <p>info@extrastrong.pro</p>
-                  <p>k.geelen@rocmondriaan.nl</p>
+                  <p style="line-height: 0.7;">info@extrastrong.pro</p>
+                  <p style="line-height: 0.7;">k.geelen@rocmondriaan.nl</p>
                 </div>  
-                <div class="col sm-1"></div>  
+           
               </div>
       </div>
             <div class="footer-copyright text-center py-3" style="margin-top:1.5%">
@@ -67,12 +67,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/now-ui-kit/mixins.scss";
 
-
-footer{
-@include angled-edge('outside top', 'upper left', #2c2c2c);
-}
 
 p{
   line-height: 1.4;
