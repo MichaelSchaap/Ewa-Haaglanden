@@ -6,26 +6,12 @@
           style="background-image: url('images/EWAHeader2.png')"
         >
         </parallax>
-      <div class="content-center"> 
-            <h1 class="title" style="font-size:50px;">Informatie over Ewa Haaglanden</h1>
-            <div class="text-center">
-              <a href="#" class="btn btn-primary btn-icon btn-round">
-                <i class="fab fa-facebook-square"></i>
-              </a>
-              <a href="#" class="btn btn-primary btn-icon btn-round">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="btn btn-primary btn-icon btn-round">
-                <i class="fab fa-google-plus"></i>
-              </a>
-            </div>
-        </div>
       </div>
  
  <IntroductionSection></IntroductionSection>
 
 
-    <section class="ewa-for" style="margin-top:3%;margin-bottom:5%">
+    <section class="ewa-for" style="margin-top:3%;margin-bottom:8%">
       <div class="container">
           <div class="row">
           <div class="col-md-8 ml-auto mr-auto">

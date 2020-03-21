@@ -98,6 +98,7 @@ export default {
 
 section{
 @include angled-edge('outside bottom', 'lower right', #CC0029);
+@include angled-edge('outside top', 'upper left', #CC0029);
 }
 
 .team-player {
