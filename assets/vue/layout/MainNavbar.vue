@@ -24,16 +24,23 @@
     </template>
     <template slot="navbar-menu">
       <li class="nav-item">
-        <router-link class="nav-link" to="/">
+        <nav-link
+          class="nav-link"
+          to="/"
+        >
           <i class="now-ui-icons files_single-copy-04"></i>
           <p>Home</p>
-        </router-link>
+        </nav-link>
       </li>
       <li class="nav-item">
-        <router-link class="nav-link" to="/landing">
+       <nav-link
+          class="nav-link"
+          to="/landing"
+          
+        >
           <i class="now-ui-icons files_single-copy-04"></i>
           <p>Informatie</p>
-        </router-link>
+       </nav-link>
       </li>
       <drop-down
         tag="li"
@@ -75,14 +82,14 @@ export default {
   name: 'main-navbar',
   props: {
     transparent: Boolean,
-    colorOnScroll: Number
+    colorOnScroll: Number,
   },
   components: {
     DropDown,
     Navbar,
     NavLink,
     [Popover.name]: Popover
-  }
+  },
 };
 </script>
 
