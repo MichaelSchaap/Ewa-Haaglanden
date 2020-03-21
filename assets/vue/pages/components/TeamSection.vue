@@ -12,7 +12,7 @@
                   class="rounded-circle img-fluid img-raised"
                 />
                 <h4 class="title">Andrew Ryan</h4>
-                <p class="category text-primary">Directeur scholen voor Zorg & Welzijn</p>
+                <p class="category text-primary">Directeur scholen</p>
                 <p class="description" style="color:white;">
                   You can write here details about one of your team members. You
                   can give more details about what they do. Feel free to add

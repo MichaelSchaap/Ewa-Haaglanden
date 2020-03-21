@@ -4,7 +4,6 @@
     :to="to"
     class="dropdown-item"
     @click.native.stop="closeNav"
-   
   >
     <slot></slot>
   </component>
@@ -36,4 +35,6 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+
+</style>
