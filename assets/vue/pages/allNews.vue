@@ -5,15 +5,16 @@
   </div>
   <div>
      <div class="container" style=" margin-bottom:5%">
-      
+      <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" 
+      v-for="article in articleData.articles"
+      :key="article.title"  >
        <div 
             class="card" 
-            v-for="article in articleData.articles"
-            :key="article.title"  
-            style="width: 30rem; margin-right:6%; margin-bottom:5%">
+            style="margin-right:6%; margin-bottom:5%">
         <img 
               class="card-img-top" 
-             
+              style="width:100%;height:auto;"
               :src="getImgUrl(article.img)"
               alt="Artikel foto">
         <div class="card-body">
@@ -28,6 +29,8 @@
           </div>
         </div>
       </div>
+      </div>
+        </div>
        </div>
      </div>
 
