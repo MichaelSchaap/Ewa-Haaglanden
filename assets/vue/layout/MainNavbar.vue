@@ -57,13 +57,13 @@
         icon="now-ui-icons design_bullet-list-67"
         class="nav-item"
       >
-        <nav-link to="/">
+        <nav-link to="/fake">
           <i class="now-ui-icons design_app"></i> Ontwikkelpad A
         </nav-link>
-        <nav-link to="/landing">
+        <nav-link to="/fake">
           <i class="now-ui-icons design_app"></i> Ontwikkelpad B
         </nav-link>
-        <nav-link to="/">
+        <nav-link to="/fake">
           <i class="now-ui-icons design_app"></i> Ontwikkelpad C
         </nav-link>
 
