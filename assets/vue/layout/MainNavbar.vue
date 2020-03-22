@@ -28,7 +28,7 @@
           class="nav-link"
           to="/"
         >
-          <i class="now-ui-icons files_single-copy-04"></i>
+          <i class="now-ui-icons objects_planet"></i>
           <p>Home</p>
         </nav-link>
       </li>
@@ -47,7 +47,7 @@
           class="nav-link"
           to="/nieuws"
         >
-          <i class="now-ui-icons files_single-copy-04"></i>
+          <i class="now-ui-icons files_paper"></i>
           <p>Nieuws</p>
         </nav-link>
       </li>
