@@ -42,6 +42,15 @@
           <p>Informatie</p>
        </nav-link>
       </li>
+      <li class="nav-item">
+        <nav-link
+          class="nav-link"
+          to="/nieuws"
+        >
+          <i class="now-ui-icons files_single-copy-04"></i>
+          <p>Nieuws</p>
+        </nav-link>
+      </li>
       <drop-down
         tag="li"
         title="Ontwikkelpaden"
