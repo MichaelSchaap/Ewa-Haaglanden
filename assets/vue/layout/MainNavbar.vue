@@ -18,7 +18,7 @@
         trigger="hover"
       >
         <div class="popover-body">
-         Ontworpen door EWA. Gemaakt door Michael Schaap
+         Ontworpen en gemaakt door studenten.
         </div>
       </el-popover>
     </template>

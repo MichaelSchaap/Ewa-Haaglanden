@@ -1,6 +1,6 @@
 <template>
 <section style="background-color: #CC0029;">
-  <div id="NewsSection" style="margin-top:10%;">
+  <div id="NewsSection" style="margin-top:10%;padding-bottom:2%">
      <div class="container" style="text-align: center">
           <h2 class="title" style="color: white; font-size:50px;">{{ header }}</h2>
           
