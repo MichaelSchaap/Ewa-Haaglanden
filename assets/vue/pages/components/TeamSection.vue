@@ -14,10 +14,9 @@
                 <h4 class="title">Andrew Ryan</h4>
                 <p class="category text-primary">Directeur scholen</p>
                 <p class="description" style="color:white;">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Sumque, expedita? Numquam dolorum ut esse sint adipisci veniam. 
+                  Voluptatum itaque nulla, ex deleniti ut iure nostrum tenetur, eos velit quasi ea.
                 </p>
                 <a href="#" class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-twitter"></i
@@ -40,10 +39,9 @@
                 <h4 class="title">Ryan Tompson</h4>
                 <p class="category text-primary">Programma Manager</p>
                 <p class="description" style="color:white;">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Sumque, expedita? Numquam dolorum ut esse sint adipisci veniam. 
+                  Voluptatum itaque nulla, ex deleniti ut iure nostrum tenetur, eos velit quasi ea.
                 </p>
                 <a href="#" class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-twitter"></i
@@ -63,10 +61,9 @@
                 <h4 class="title">Eva Jenner</h4>
                 <p class="category text-primary">Team Manager</p>
                 <p class="description" style="color:white;">
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#">links</a> for people to be able to follow
-                  them outside the site.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Sumque, expedita? Numquam dolorum ut esse sint adipisci veniam. 
+                  Voluptatum itaque nulla, ex deleniti ut iure nostrum tenetur, eos velit quasi ea.
                 </p>
                 <a href="#" class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-google-plus"></i
