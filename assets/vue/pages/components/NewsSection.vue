@@ -2,22 +2,48 @@
 <section style="background-color: #CC0029;">
   <div id="NewsSection" style="margin-top:10%;">
      <div class="container" style="text-align: center">
-          <h2 class="title" style="color: white; font-size:50px;">LAATSTE BERICHTEN.</h2>
-            <div class="card" style="width: 21rem;">
-              <img class="card-img" src="images/place.jfif" alt="Artikel foto">
-                <div class="card-img-overlay d-flex align-items-center container">
-                  <h5 class="card-title text-white" style="text-size:20px;" >ROC Mondriaan's innovatiehuis opent op 21 Mei!</h5>
+          <h2 class="title" style="color: white; font-size:50px;">{{ header }}</h2>
+          
+            <div 
+            class="card" 
+            v-for="article in articleData.articles.slice(0, 6)"
+            :key="article.title"  
+            style="width: 21rem; margin-right:2%; margin-bottom:2%">
+              <img 
+              class="card-img" 
+              
+              height="251px"
+              width="190px"
+              :src="getImgUrl(article.img)"
+              alt="Artikel foto">
+                <div class="card-img-overlay d-flex container">
+                  <h5 class="card-title text-white" style="text-size:20px;font-weight:bold" >{{ article.title }}</h5>
+                  <p class="card-text text-white" style="text-size:12px;font-weight:bold" >{{ article.date }}</p>
                 </div>
             </div>
+
      </div>
   </div>
   </section>
 </template>
 
 <script>
+import articleData from "../../data/articleData";
 
 export default {
   name: 'NewsSection',
+  data() {
+    return {
+      articleData,
+      header: 'LAATSTE BERICHTEN.'
+    }
+  },
+  methods: {
+    getImgUrl(img) {
+      console.log(img);
+      return require('../../../../public/images/articleData/' + img );
+    }
+  }
 }
 </script>
 
