@@ -5,26 +5,53 @@
             :class="{ [`footer-${type}`]: type }"
             :data-background-color="backgroundColor"
     >
-        <div class="container text-center">
-              <div class="row">
- 
-                <div class="col sm-5">
+
+              <div class="row text-left">
+                <div class="col sm-1"></div>
+                <div class="col sm-1">
                   <h5 class="title">EWA HAAGLANDEN</h5>
-                  <nav-link to="#/">
-                   <p> Home </p>
-                  </nav-link>
-                  <nav-link to="#/landing">
-                   <p> Informatie </p>
-                  </nav-link>
-                  <nav-link to="/">
-                   <p> Ontwikkelpad A </p>
-                  </nav-link>
-                  <nav-link to="/">
-                   <p> Ontwikkelpad B </p>
-                  </nav-link>
-                  <nav-link to="/">
-                   <p> Ontwikkelpad C </p>
-                  </nav-link>
+                  <ul class="list-group">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="#/"             
+                    >           
+                      <p>Home</p>
+                    </a>
+                  </li>
+                  <li class="nav-item" >
+                    <a
+                      class="nav-link"
+                      href="#/landing"             
+                    >           
+                      <p>Informatie</p>
+                    </a>
+                  </li>
+                  <li class="nav-item" >
+                    <a
+                      class="nav-link"
+                      href="#/"             
+                    >           
+                      <p>Ontwikkelpad A</p>
+                    </a>
+                  </li>
+                  <li class="nav-item" >
+                    <a
+                      class="nav-link"
+                      href="#/"             
+                    >           
+                      <p>Ontwikkelpad B</p>
+                    </a>
+                  </li>
+                  <li class="nav-item" >
+                    <a
+                      class="nav-link"
+                      href="#/"             
+                    >           
+                      <p>Ontwikkelpad C</p>
+                    </a>
+                  </li>
+                  </ul>
                     
                 </div>
                      
@@ -37,10 +64,11 @@
                   <br>
                   <p style="line-height: 0.7;">info@extrastrong.pro</p>
                   <p style="line-height: 0.7;">k.geelen@rocmondriaan.nl</p>
-                </div>  
+                </div> 
+                <div class="col sm-1"></div> 
            
               </div>
-      </div>
+
             <div class="footer-copyright text-center py-3" style="margin-top:1.5%">
              <div class="container" style="text-align: center;">
             &copy; {{ year }}, ontworpen en gemaakt door studenten van
@@ -71,6 +99,11 @@
 
 p{
   line-height: 1.4;
+  text-transform: lowercase;
+  
+}
+p::first-letter {
+  text-transform: capitalize;
 }
 </style>
 
