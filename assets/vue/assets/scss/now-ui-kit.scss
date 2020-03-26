@@ -3,7 +3,6 @@
 @import 'now-ui-kit/variables';
 @import 'now-ui-kit/mixins';
 
-
 // Core CSS
 @import "now-ui-kit/buttons";
 @import "now-ui-kit/inputs";
@@ -12,26 +11,18 @@
 @import "now-ui-kit/typography";
 @import "now-ui-kit/misc";
 
-
 // components
 @import "now-ui-kit/nucleo-outline";
-
 @import "now-ui-kit/navbar";
 @import "now-ui-kit/dropdown";
-
-
 @import "now-ui-kit/popups";
-
-
-
-
+ 
 // Cards
 @import "now-ui-kit/cards";
 @import "now-ui-kit/cards/card-plain";
 @import "now-ui-kit/cards/card-signup";
 
-// example pages and sections
-@import "now-ui-kit/example-pages";
+// Sections
 @import "now-ui-kit/sections";
 
 
