@@ -32,3 +32,8 @@ yarn-error.log
 ###< symfony/web-server-bundle ###
 =======
 >>>>>>> Stashed changes
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###

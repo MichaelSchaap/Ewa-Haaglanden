@@ -4,6 +4,7 @@ import Index from './pages/Index.vue';
 import Landing from './pages/Landing.vue';
 import Login from './pages/Login.vue';
 import News from './pages/News.vue';
+import NewsDetails from './pages/NewsDetails.vue';
 import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
 
@@ -42,6 +43,15 @@ export default new Router({
       path: '/nieuws',
       name: 'News',
       components: { default: News, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 0 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/nieuws/:newsId',
+      name: 'NewsDetails',
+      components: { default: NewsDetails, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }

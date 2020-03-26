@@ -16,12 +16,17 @@
   <div>
      <div class="container" style=" margin-bottom:5%">
       <div class="row">
+        
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" 
       v-for="article in articleData.articles"
-      :key="article.title"  >
+      :key="article.title"
+        >
        <div 
             class="card" 
-            style="margin-right:6%; margin-bottom:5%">
+            style="margin-right:6%; margin-bottom:5%"
+            @click="goToDetail(article.id)"
+            >
+            
         <img 
               class="card-img-top" 
               style="width:100%;height:auto;"
@@ -62,7 +67,10 @@ export default {
     getImgUrl(img) {
       console.log(img);
       return require('../../../public/images/articleData/' + img );
-    }
+    },
+    goToDetail(id) {
+    this.$router.push({name:'NewsDetails',params:{newsId:id}})
+  }
   }
 }
 </script>
