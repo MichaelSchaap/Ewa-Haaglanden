@@ -35,7 +35,7 @@
       <li class="nav-item">
        <nav-link
           class="nav-link"
-          to="/landing"
+          to="/informatie"
           
         >
           <i class="now-ui-icons files_single-copy-04"></i>

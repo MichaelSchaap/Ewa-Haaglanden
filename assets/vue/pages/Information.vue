@@ -85,7 +85,7 @@ import ContactUsSection from '../pages/components/ContactUsSection';
 import TeamSection from '../pages/components/TeamSection';
 
 export default {
-  name: 'landing',
+  name: 'information',
    components: {
     ContactUsSection,
     IntroductionSection,

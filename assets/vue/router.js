@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Index from './pages/Index.vue';
-import Landing from './pages/Landing.vue';
-import Login from './pages/Login.vue';
+import Information from './pages/Information.vue';
 import News from './pages/News.vue';
 import NewsDetails from './pages/NewsDetails.vue';
 import MainNavbar from './layout/MainNavbar.vue';
@@ -23,20 +22,12 @@ export default new Router({
       }
     },
     {
-      path: '/landing',
-      name: 'landing',
-      components: { default: Landing, header: MainNavbar, footer: MainFooter },
+      path: '/informatie',
+      name: 'information',
+      components: { default: Information, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: 'black' }
-      }
-    },
-    {
-      path: '/login',
-      name: 'login',
-      components: { default: Login, header: MainNavbar },
-      props: {
-        header: { colorOnScroll: 400 }
       }
     },
     {
