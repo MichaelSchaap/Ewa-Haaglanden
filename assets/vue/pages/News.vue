@@ -51,7 +51,7 @@
 import articleData from "../data/articleData";
 
 export default {
-  name: 'allNews',
+  name: 'News',
   data() {
     return {
       articleData,

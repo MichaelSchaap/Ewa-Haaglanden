@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import Index from './pages/Index.vue';
 import Landing from './pages/Landing.vue';
 import Login from './pages/Login.vue';
-import allNews from './pages/allNews.vue';
+import News from './pages/News.vue';
 import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
 
@@ -40,8 +40,8 @@ export default new Router({
     },
     {
       path: '/nieuws',
-      name: 'allNews',
-      components: { default: allNews, header: MainNavbar, footer: MainFooter },
+      name: 'News',
+      components: { default: News, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }

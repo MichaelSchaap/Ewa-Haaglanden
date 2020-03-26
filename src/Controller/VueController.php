@@ -6,8 +6,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse; 
 
-final class IndexController extends AbstractController
+final class VueController extends AbstractController
 {
 
     /**
@@ -19,4 +20,6 @@ final class IndexController extends AbstractController
     {
         return $this->render('base.html.twig');
     }
+
+
 }

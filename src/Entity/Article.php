@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  */
-class rticle
+class Article
 {
     /**
      * @ORM\Id()
@@ -17,24 +17,19 @@ class rticle
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=100)
      */
-    private $name;
+    private $title;
 
     /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $author;
-
-    /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=75)
      */
     private $category;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=20000)
      */
-    private $mainImage;
+    private $content;
 
     /**
      * @ORM\Column(type="date")
@@ -42,35 +37,28 @@ class rticle
     private $date;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $content;
+    private $reaction;
+
+    /**
+     * @ORM\Column(type="blob")
+     */
+    private $img;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getTitle(): ?string
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName(string $name): self
+    public function setTitle(string $title): self
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author): self
-    {
-        $this->author = $author;
+        $this->title = $title;
 
         return $this;
     }
@@ -87,14 +75,14 @@ class rticle
         return $this;
     }
 
-    public function getMainImage(): ?string
+    public function getContent(): ?string
     {
-        return $this->mainImage;
+        return $this->content;
     }
 
-    public function setMainImage(string $mainImage): self
+    public function setContent(string $content): self
     {
-        $this->mainImage = $mainImage;
+        $this->content = $content;
 
         return $this;
     }
@@ -111,14 +99,26 @@ class rticle
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getReaction(): ?int
     {
-        return $this->content;
+        return $this->reaction;
     }
 
-    public function setContent(string $content): self
+    public function setReaction(?int $reaction): self
     {
-        $this->content = $content;
+        $this->reaction = $reaction;
+
+        return $this;
+    }
+
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    public function setImg($img): self
+    {
+        $this->img = $img;
 
         return $this;
     }
