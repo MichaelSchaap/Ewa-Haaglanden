@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,20 +14,14 @@ class ArticleController extends AbstractController
      */
     public function index()
     {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
+        return $this->render('article/index.html.twig', ['controller_name' => 'ArticleController']);
     }
 
      /**
-     * @Route("/nieuws", name="News")
-     */
+      * @Route("/nieuws", name="News")
+      */
     public function nieuws()
     {
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
+        return $this->render('article/index.html.twig', ['controller_name' => 'ArticleController']);
     }
-
-
 }

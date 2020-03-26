@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,34 +19,22 @@ class Article
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
+    /** @ORM\Column(type="string", length=100) */
     private $title;
 
-    /**
-     * @ORM\Column(type="string", length=75)
-     */
+    /** @ORM\Column(type="string", length=75) */
     private $category;
 
-    /**
-     * @ORM\Column(type="string", length=20000)
-     */
+    /** @ORM\Column(type="string", length=20000) */
     private $content;
 
-    /**
-     * @ORM\Column(type="date")
-     */
+    /** @ORM\Column(type="date") */
     private $date;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
+    /** @ORM\Column(type="integer", nullable=true) */
     private $reaction;
 
-    /**
-     * @ORM\Column(type="blob")
-     */
+    /** @ORM\Column(type="blob") */
     private $img;
 
     public function getId(): ?int
@@ -87,12 +78,12 @@ class Article
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?DateTimeInterface
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDate(DateTimeInterface $date): self
     {
         $this->date = $date;
 
