@@ -2,7 +2,7 @@
 
     <footer
             class="footer"
-            :class="{ [`footer-${type}`]: type }"
+           
             :data-background-color="backgroundColor"
     >
 
@@ -22,7 +22,7 @@
                   <li class="nav-item" >
                     <a
                       class="nav-link"
-                      href="#/information"             
+                      href="#/informatie"             
                     >           
                       <p>Informatie</p>
                     </a>
@@ -104,6 +104,14 @@ p{
 }
 p::first-letter {
   text-transform: capitalize;
+}
+
+li {
+  list-style-type: none;
+
+}
+a {
+  padding: 0px;
 }
 </style>
 
