@@ -66,10 +66,10 @@ export default {
       header: 'NIEUWS.'
     }
   },
-  created(){
-    this.$http.get("http://192.168.1.171:8000/#/nieuws")
-      .then(response => response.json(), error => console.log(error))
-      .then(json => this.posts = json, error => console.log(error));
+  mounted () {
+    axios
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => (this.info = response))
   },
   methods: {
     getImgUrl(img) {

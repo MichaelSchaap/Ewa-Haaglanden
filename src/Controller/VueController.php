@@ -17,6 +17,6 @@ final class VueController extends AbstractController
      */
     public function indexAction(): Response
     {
-        return $this->render('base.html.twig');
+        return $this->render('base.html.twig', []);
     }
 }
