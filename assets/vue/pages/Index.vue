@@ -3,7 +3,7 @@
     <div class="page-header clear-filter" filter-color="white">
       <parallax
         class="page-header-image"
-        style="background-image:url('images/EWAHeader2.png')"
+        style="background-image:url('images/EWAHaaglanden_bg.jpg'); "
       >
       </parallax>
       <div class="container">
@@ -28,10 +28,13 @@ Extra strong is een initiatief om de aansluiting van het onderwijs op de arbeids
       </div>
 
 
-    <OntwikkelIntroSection></OntwikkelIntroSection>
+    
     <VideoSection></VideoSection>
-    <PartnerSection></PartnerSection>
     <NewsSection></NewsSection>
+    <HomeContactSection></HomeContactSection>
+    <PartnerSection></PartnerSection>
+
+    
     
 
 
@@ -42,7 +45,7 @@ import { Parallax } from '../components';
 import VideoSection from '../pages/components/VideoSection';
 import PartnerSection from '../pages/components/PartnerSection';
 import NewsSection from '../pages/components/NewsSection';
-import OntwikkelIntroSection from '../pages/components/OntwikkelIntroSection';
+import HomeContactSection from '../pages/components/HomeContactSection';
 
 
 
@@ -52,11 +55,9 @@ export default {
   components: {
     Parallax,
     VideoSection,
-    PartnerSection,
     NewsSection,
-    OntwikkelIntroSection
-
-
+    HomeContactSection,
+    PartnerSection,
   }
 };
 </script>

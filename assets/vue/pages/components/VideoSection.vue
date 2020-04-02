@@ -26,8 +26,6 @@ body {
 
 @import "../../assets/scss/now-ui-kit/mixins.scss";
 
-section{
-@include angled-edge('outside bottom', 'lower right', #FFB300);
-}
+
 </style>
 

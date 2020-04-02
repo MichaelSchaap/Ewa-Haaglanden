@@ -51,23 +51,7 @@
           <p>Nieuws</p>
         </nav-link>
       </li>
-      <drop-down
-        tag="li"
-        title="Ontwikkelpaden"
-        icon="now-ui-icons design_bullet-list-67"
-        class="nav-item"
-      >
-        <nav-link to="/fake">
-          <i class="now-ui-icons design_app"></i> Ontwikkelpad A
-        </nav-link>
-        <nav-link to="/fake">
-          <i class="now-ui-icons design_app"></i> Ontwikkelpad B
-        </nav-link>
-        <nav-link to="/fake">
-          <i class="now-ui-icons design_app"></i> Ontwikkelpad C
-        </nav-link>
-
-      </drop-down>
+      
       <li class="nav-item">
         <a
           class="nav-link btn"
@@ -85,7 +69,7 @@
 </template>
 
 <script>
-import { DropDown, Navbar, NavLink } from '../components';
+import { Navbar, NavLink } from '../components';
 import { Popover } from 'element-ui';
 export default {
   name: 'main-navbar',
@@ -94,7 +78,6 @@ export default {
     colorOnScroll: Number,
   },
   components: {
-    DropDown,
     Navbar,
     NavLink,
     [Popover.name]: Popover
