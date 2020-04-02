@@ -14,7 +14,7 @@
 </section>
 
   <div>
-     <div class="container" style=" margin-bottom:5%">
+     <div class="container" style=" margin-bottom:5%;color:black;">
       <div class="row">
         
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" 
@@ -24,7 +24,7 @@
        <div 
             class="card" 
             style="margin-right:6%; margin-bottom:5%"
-            @click="goToDetail(article.id)"
+            
             >
             
         <img 
@@ -36,7 +36,9 @@
           <h5 class="card-title" style="text-size:20px;font-weight:bold" >{{ article.title }}</h5>
           <p class="card-text"><small class="text-muted">{{ article.date }} </small></p>
           <p class="card-text" style="text-size:12px;" >{{ article.content.slice(0, 200) + '...' }}</p>
+          <router-link :to="'/nieuws/' + article.id">
           <a href="#" class="card-link">Lees meer ></a>
+          </router-link>
           <div class="container-fluid">
           <div class="row" style="margin-top:3%">
             <p class="card-text"><small class="text-muted">{{ article.category + ' ' + '/' + ' ' + article.reacties + ' ' + 'Reacties'}} </small></p>
@@ -44,6 +46,7 @@
           </div>
         </div>
       </div>
+      
       </div>
         </div>
        </div>
@@ -63,14 +66,16 @@ export default {
       header: 'NIEUWS.'
     }
   },
+  created(){
+    this.$http.get("http://192.168.1.171:8000/#/nieuws")
+      .then(response => response.json(), error => console.log(error))
+      .then(json => this.posts = json, error => console.log(error));
+  },
   methods: {
     getImgUrl(img) {
       console.log(img);
       return require('../../../public/images/articleData/' + img );
     },
-    goToDetail(id) {
-    this.$router.push({name:'NewsDetails',params:{newsId:id}})
-  }
   }
 }
 </script>
@@ -78,6 +83,7 @@ export default {
 <style lang="scss" scoped>
 body {
   margin: 0 !important;
+
 }
 
 @import "../assets/scss/now-ui-kit/mixins.scss";

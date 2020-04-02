@@ -30,25 +30,15 @@ export default {
   name: 'NewsDetails',
   data() {
     return {
-      articleData,
+      articleData: {}
     }
   },
+  
   methods: {
     getImgUrl(img) {
       console.log(img);
       return require('../../../public/images/articleData/' + img );
     }
-  },
-  data: function() {
-    return {
-      id: this.$route.params.newsId, // this is fine - you can access $route because it's global
-      title: "", // empty object or some object type containing placeholder props
-      category: "",
-      content: "",
-      date: "",
-      reacties: [],
-      img: "",
-    };
   },
 }
 </script>

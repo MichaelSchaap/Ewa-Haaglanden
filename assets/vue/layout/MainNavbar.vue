@@ -26,7 +26,7 @@
       <li class="nav-item">
         <nav-link
           class="nav-link"
-          to="/"
+          to="/home"
         >
           <i class="now-ui-icons objects_planet"></i>
           <p>Home</p>
@@ -55,7 +55,7 @@
       <li class="nav-item">
         <a
           class="nav-link btn"
-          href="#/"
+          href="/"
           style="background-color: #FFB300"
         >
           <i class="now-ui-icons users_single-02"></i>
