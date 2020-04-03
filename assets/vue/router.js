@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import Index from './pages/Index.vue';
 import Information from './pages/Information.vue';
 import News from './pages/News.vue';
-import NewsDetails from './pages/NewsDetails.vue';
+import Posts from './pages/Posts.vue';
 import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
 
@@ -44,9 +44,9 @@ export default new VueRouter({
       }
     },
     {
-      path: '/nieuws/:id',
-      name: 'NewsDetails',
-      components: { default: NewsDetails, header: MainNavbar, footer: MainFooter },
+      path: '/posts',
+      name: 'Posts',
+      components: { default: Posts, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }
