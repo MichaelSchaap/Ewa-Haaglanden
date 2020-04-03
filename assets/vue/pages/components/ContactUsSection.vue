@@ -1,5 +1,5 @@
 <template>
- <section class="contact text-center" style="margin-bottom:7%;margin-top:3%">
+ <section class="contact text-center" style="margin-bottom:7%;">
       <div class="container">
         <h2 class="title" style="font-size:40px;">Neem contact met ons op</h2>
         <p class="description" style="color:black; margin-bottom:2.5%">Wij willen graag van je horen</p>

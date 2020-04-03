@@ -11,7 +11,7 @@
  <IntroductionSection></IntroductionSection>
 
 
-    <section class="ewa-for" style="margin-top:3%;margin-bottom:8%">
+    <section class="ewa-for" style="margin-top:3%;margin-bottom:2%">
       <div class="container">
           <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
@@ -67,10 +67,6 @@
       </div>
         </section>
 
-
-          
-
-   <TeamSection></TeamSection>
    <ContactUsSection></ContactUsSection>
 
 
@@ -82,14 +78,12 @@
 <script>
 import IntroductionSection from '../pages/components/IntroductionSection';
 import ContactUsSection from '../pages/components/ContactUsSection';
-import TeamSection from '../pages/components/TeamSection';
 
 export default {
   name: 'information',
    components: {
     ContactUsSection,
     IntroductionSection,
-    TeamSection
   }
 
 };
