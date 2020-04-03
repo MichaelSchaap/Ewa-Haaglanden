@@ -35,7 +35,7 @@ class Post
     /** @ORM\Column(type="integer", nullable=true) */
      private $reaction;
 
-    /** @ORM\Column(type="string", length=191, nullable=false) */
+    /** @ORM\Column(type="string", nullable=false) */
      private $img;
 
     /** @ORM\Column(name="created", type="datetime") */

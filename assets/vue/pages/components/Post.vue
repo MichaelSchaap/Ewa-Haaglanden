@@ -1,28 +1,34 @@
 <template>
-<section>
 
-  <div>
-     <div class="container" style=" margin-bottom:5%">
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
-        <div style="margin-right:6%; margin-bottom:5%">
-            <h5 class="title" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
-            <p class="text"><small class="text-muted">{{ category }} </small></p>
-            <img 
-                style="width:100%;height:auto;"
-                alt="Artikel foto"
-                >  {{ img }}
-                
-                
-            <p class="text" style="text-size:12px;" >{{ content }}</p>
-            <p class="text"><small class="text-muted">{{ date }} </small></p>
-            </div>
+
+      
+      
+       <div 
+            class="card" 
+            style="margin-right:6%; margin-bottom:5%;"
+            > 
+        <img 
+              class="card-img-top" 
+              style="width:100%;height:auto;"
+              
+              alt="Artikel foto">
+        <div class="card-body">
+          <h5 class="card-title" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
+          <p class="card-text"><small class="text-muted">{{ created }} </small></p>
+          <p class="card-text" style="text-size:12px;" >{{ content + '...' }}</p>
+          <router-link :to="'/nieuws/'">
+          <a href="#" class="card-link">Lees meer ></a>
+          </router-link>
+          <div class="container-fluid">
+          <div class="row" style="margin-top:3%">
+            <p class="card-text"><small class="text-muted">{{ category }} </small></p>
+          </div>
+          </div>
         </div>
       </div>
-     </div>
-    </div>
+      
+ 
 
-  </section>
 </template>
 
 <script>
@@ -43,6 +49,10 @@ export default {
       required: true
     },
     img: {
+      type: String,
+      required: true
+    },
+    created: {
       type: String,
       required: true
     },
