@@ -1,11 +1,11 @@
 <template>
 
     <footer
-            class="footer"
+            class="footer "
            
             :data-background-color="backgroundColor"
     >
-            <div class="footer-copyright text-center py-3" style="margin-top:1.5%">
+            <div class="footer-copyright text-center py-3" style="">
              <div class="container" style="text-align: center;">
             &copy; {{ year }}, ontworpen en gemaakt door studenten van
             <a href="https://www.rocmondriaan.nl" target="_blank" rel="noopener"

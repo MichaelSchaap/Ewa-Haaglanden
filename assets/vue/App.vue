@@ -12,9 +12,14 @@ export default {};
 </script>
 
 <style scoped>
-#app {
-  min-height: calc(100vh - 53px);
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 94vh;
 }
 
-
+#app {
+  flex: 1;
+}
 </style>
