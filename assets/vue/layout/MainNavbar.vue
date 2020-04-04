@@ -45,7 +45,7 @@
       <li class="nav-item">
         <nav-link
           class="nav-link"
-          to="/nieuws"
+          to="/posts"
         >
           <i class="now-ui-icons files_paper"></i>
           <p>Nieuws</p>

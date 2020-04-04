@@ -34,8 +34,7 @@ final class PostController extends AbstractController
     /**
      * @throws BadRequestHttpException
      *
-     * @Rest\Post("/posts/create", name="CreatePost")
-     * @IsGranted("ROLE_ADMIN")
+     * @Rest\Post("/posts/create", name="createPost") 
      */
     public function createAction(Request $request): JsonResponse
     {

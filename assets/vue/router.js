@@ -54,7 +54,7 @@ export default new VueRouter({
       }
     },
     {
-      path: '/posts/create',
+      path: '/aanmaken',
       name: 'CreatePost',
       components: { default: CreatePost, header: MainNavbar, footer: MainFooter },
       props: {
