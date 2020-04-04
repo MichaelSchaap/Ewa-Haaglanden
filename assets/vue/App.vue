@@ -10,3 +10,11 @@
 <script>
 export default {};
 </script>
+
+<style scoped>
+#app {
+  min-height: calc(100vh - 53px);
+}
+
+
+</style>

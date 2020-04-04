@@ -4,6 +4,7 @@ import Index from './pages/Index.vue';
 import Information from './pages/Information.vue';
 import News from './pages/News.vue';
 import Posts from './pages/Posts.vue';
+import CreatePost from './pages/CreatePost.vue';
 import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
 
@@ -47,6 +48,15 @@ export default new VueRouter({
       path: '/posts',
       name: 'Posts',
       components: { default: Posts, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 0 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/posts/create',
+      name: 'CreatePost',
+      components: { default: CreatePost, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }

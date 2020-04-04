@@ -13,7 +13,7 @@
 
    <div class="container" style=" margin-top:5%;">
 
-    <!-- <div class="row col">
+    <div class="row col">
       <form>
         <div class="form-row">
           <div class="col-2">
@@ -56,62 +56,8 @@
           </div>
         </div>
       </form>
-    </div> -->
-<div class="row">
-
-    <div
-      v-if="isLoading"
-      class="container"
-    >
-
-
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-     </div>
-
     </div>
 
-  
-
-    <div
-      v-else-if="hasError"
-      class="row"
-    >
-      <div
-        class="alert alert-danger"
-        role="alert"
-      >
-        {{ error }}
-      </div>
-    </div>
-
-    <div
-      v-else-if="!hasPosts"
-      class="row"
-    >
-      No posts!
-    </div>
-
-    
-    <div
-      v-for="post in posts"
-      v-else
-      :key="post.id"
-      class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
-    >
-
-
-      <post 
-      :title="post.title"
-      :category="post.category"
-      :content="post.content"
-      :img="post.img"
-      :created="post.created"
-       />
-     </div>
-
-
-  </div>
 
 </div>
 </div>
@@ -120,13 +66,10 @@
 </template>
 
 <script>
-import Post from "../pages/components/Post";
+
 
 export default {
-  name: "Posts",
-  components: {
-    Post
-  },
+  name: "CreatePost",
   data() {
     return {
       title: "",
@@ -182,9 +125,5 @@ export default {
 }
 
 
-@import "../assets/scss/now-ui-kit/mixins.scss";
 
-.news-intro{
-@include angled-edge('outside bottom', 'lower right', #FFB300);
-}
 </style>

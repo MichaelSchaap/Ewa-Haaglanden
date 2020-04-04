@@ -1,8 +1,5 @@
 <template>
 
-
-      
-      
        <div 
             class="card" 
             style="margin-right:6%; margin-bottom:5%;"

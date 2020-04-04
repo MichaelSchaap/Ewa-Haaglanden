@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\Post;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,11 +21,9 @@ use Symfony\Component\Serializer\SerializerInterface;
  */
 final class PostController extends AbstractController
 {
-    /** @var EntityManagerInterface */
-    private $em;
+    private EntityManagerInterface $em;
 
-    /** @var SerializerInterface */
-    private $serializer;
+    private SerializerInterface $serializer;
 
     public function __construct(EntityManagerInterface $em, SerializerInterface $serializer)
     {
@@ -35,7 +34,8 @@ final class PostController extends AbstractController
     /**
      * @throws BadRequestHttpException
      *
-     * @Rest\Post("/posts", name="createPost")
+     * @Rest\Post("/posts/create", name="CreatePost")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function createAction(Request $request): JsonResponse
     {
@@ -43,14 +43,17 @@ final class PostController extends AbstractController
         if (empty($title)) {
             throw new BadRequestHttpException('title cannot be empty');
         }
+
         $category = $request->request->get('category');
         if (empty($category)) {
             throw new BadRequestHttpException('category cannot be empty');
         }
+
         $content = $request->request->get('content');
         if (empty($content)) {
             throw new BadRequestHttpException('content cannot be empty');
         }
+
         $post = new Post();
         $post->setTitle($title);
         $post->setCategory($category);
