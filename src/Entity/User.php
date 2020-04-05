@@ -22,37 +22,53 @@ class User implements UserInterface
     /**
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
+     *
+     * @var UuidInterface
      */
-    private UuidInterface $id;
+    private $id;
 
     /**
      * @ORM\Column(name="login", type="string", unique=true)
      *
+     * @var string
      * @Assert\NotBlank()
      */
-    private string $login;
+    private $login;
 
     /**
+     * @var string|null
      * @Assert\NotBlank()
      * @Assert\Length(max=4096)
      */
-    private ?string $plainPassword = null;
+    private $plainPassword;
 
-    /** @ORM\Column(name="password", type="string") */
-    private ?string $password = null;
+    /**
+     * @ORM\Column(name="password", type="string")
+     *
+     * @var string|null
+     */
+    private $password;
 
     /**
      * @ORM\Column(name="roles", type="simple_array")
      *
      * @var string[]
      */
-    private array $roles;
+    private $roles;
 
-    /** @ORM\Column(name="created", type="datetime") */
-    private DateTime $created;
+    /**
+     * @ORM\Column(name="created", type="datetime")
+     *
+     * @var DateTime
+     */
+    private $created;
 
-    /** @ORM\Column(name="updated", type="datetime", nullable=true) */
-    private DateTime $updated;
+    /**
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
+     *
+     * @var DateTime
+     */
+    private $updated;
 
     public function __construct()
     {
