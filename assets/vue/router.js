@@ -4,8 +4,8 @@ import store from "../vue/store";
 import Index from './pages/Index.vue';
 import Information from './pages/Information.vue';
 import Posts from './pages/Posts.vue';
+import Dashboard from './pages/Dashboard.vue';
 import Login from './pages/Login.vue';
-import CreatePost from './pages/CreatePost.vue';
 import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
 
@@ -46,10 +46,9 @@ let router = new VueRouter({
       }
     },
     {
-      path: '/aanmaken',
-      name: 'CreatePost',
-      components: { default: CreatePost, header: MainNavbar, footer: MainFooter },
-      meta: { requiresAuth: true },
+      path: '/posts/dashboard',
+      name: 'Dashboard',
+      components: { default: Dashboard, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }

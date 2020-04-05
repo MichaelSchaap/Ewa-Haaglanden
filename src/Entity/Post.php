@@ -26,21 +26,21 @@ class Post
     private $id;
 
     /**
-     * @ORM\Column(name="title", type="string")
+     * @ORM\Column(name="title", length=100, type="string")
      *
      * @var string
      */
     private $title;
 
     /**
-     * @ORM\Column(name="category", type="string")
+     * @ORM\Column(name="category", length=100, type="string")
      *
      * @var string
      */
     private $category;
 
     /**
-     * @ORM\Column(name="content", type="string")
+     * @ORM\Column(name="content", length=50000, type="string")
      *
      * @var string
      */
@@ -54,7 +54,7 @@ class Post
      private $reaction;
 
     /**
-     * @ORM\Column(name="img", type="string")
+     * @ORM\Column(name="img", length=100, type="string")
      *
      * @var string
      */

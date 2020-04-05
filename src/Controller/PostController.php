@@ -33,10 +33,11 @@ final class PostController extends AbstractController
     /**
      * @throws BadRequestHttpException
      *
-     * @Rest\Post("/posts/create", name="createPost")
+     * @Rest\Post("/posts/dashboard", name="createPost")
      */
     public function createAction(Request $request): JsonResponse
     {
+
         $title = $request->request->get('title');
         if (empty($title)) {
             throw new BadRequestHttpException('title cannot be empty');
@@ -52,12 +53,18 @@ final class PostController extends AbstractController
             throw new BadRequestHttpException('content cannot be empty');
         }
 
+        $img = $request->request->get('img');
+        if (empty($img)) {
+            throw new BadRequestHttpException('img cannot be empty');
+        }
+
+
         $post = new Post();
         $post->setTitle($title);
         $post->setCategory($category);
         $post->setContent($content);
-        $post->setReaction($reaction);
         $post->setImg($img);
+
         $this->em->persist($post);
         $this->em->flush();
         $data = $this->serializer->serialize($post, JsonEncoder::FORMAT);

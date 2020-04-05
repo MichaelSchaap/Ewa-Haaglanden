@@ -6,19 +6,19 @@
           
             <div 
             class="card" 
-            v-for="article in articleData.articles.slice(0, 6)"
-            :key="article.title"  
+            v-for="post in posts.slice(0, 6)"
+            :key="post.id"  
             style="width: 21rem; margin-right:2%; margin-bottom:2%">
               <img 
               class="card-img" 
               
               height="251px"
               width="190px"
-              :src="getImgUrl(article.img)"
+              
               alt="Artikel foto">
                 <div class="card-img-overlay d-flex container">
-                  <h5 class="card-title text-white" style="text-size:20px;font-weight:bold" >{{ article.title }}</h5>
-                  <p class="card-text text-white" style="text-size:12px;font-weight:bold" >{{ article.date }}</p>
+                  <h5 class="card-title text-white" style="text-size:20px;font-weight:bold" >{{ title}}</h5>
+                  <p class="card-text text-white" style="text-size:12px;font-weight:bold" >{{ created }}</p>
                 </div>
             </div>
 
@@ -28,21 +28,55 @@
 </template>
 
 <script>
-import articleData from "../../data/articleData";
 
 export default {
   name: 'NewsSection',
   data() {
     return {
-      articleData,
       header: 'LAATSTE BERICHTEN.'
     }
   },
-  methods: {
-    getImgUrl(img) {
-      console.log(img);
-      return require('../../../../public/images/articleData/' + img );
+  computed: {
+    isLoading() {
+      return this.$store.getters["post/isLoading"];
+    },
+    hasError() {
+      return this.$store.getters["post/hasError"];
+    },
+    error() {
+      return this.$store.getters["post/error"];
+    },
+    hasPosts() {
+      return this.$store.getters["post/hasPosts"];
+    },
+    posts() {
+      return this.$store.getters["post/posts"];
     }
+  },
+   created() {
+    this.$store.dispatch("post/findAll");
+  },
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    category: {
+      type: String,
+      required: true
+    },
+    content: {
+      type: String,
+      required: true
+    },
+    img: {
+      type: String,
+      required: true
+    },
+    created: {
+      type: String,
+      required: true
+    },
   }
 }
 </script>

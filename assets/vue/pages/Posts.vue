@@ -11,53 +11,9 @@
       </div>
 </section>
 
-   <div class="container" style=" margin-top:5%;">
+   <div class="container" style=" margin-top:3%;">
 
-    <!-- <div class="row col">
-      <form>
-        <div class="form-row">
-          <div class="col-2">
-            <input
-              v-model="title"
-              type="text"
-              class="form-control"
-            >
-            </div>
-            <div class="col-2">
-            <input
-              v-model="category"
-              type="text"
-              class="form-control"
-            >
-            </div>
-            <div class="col-2">
-            <input
-              v-model="content"
-              type="text"
-              class="form-control"
-            >
-            </div>
-            <div class="col-2">
-            <input
-              v-model="img"
-              type="text"
-              class="form-control"
-            >
-          </div>
-          <div class="col-4">
-            <button
-              :disabled="title.length === 0 || category.length === 0 || content.length === 0 || isLoading"
-              type="button"
-              class="btn btn-primary"
-              @click="createPost()"
-            >
-              Create
-            </button>
-          </div>
-        </div>
-      </form>
-    </div> -->
-<div class="row">
+    <div class="row">
 
     <div
       v-if="isLoading"
@@ -67,9 +23,7 @@
         <span class="sr-only">Loading...</span>
      </div>
     </div>
-
-  
-
+    
     <div
       v-else-if="hasError"
       class="row"
@@ -124,13 +78,14 @@ export default {
   name: "Posts",
   components: {
     Post,
-    ErrorMessage
+    ErrorMessage,
   },
   data() {
     return {
       title: "",
       category: "",
       content: "",
+      reaction: null,
       img: "",
       header: 'NIEUWS.'
     };
@@ -150,22 +105,14 @@ export default {
     },
     posts() {
       return this.$store.getters["post/posts"];
+    },
+    canCreatePost() {
+      return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
     }
   },
   created() {
     this.$store.dispatch("post/findAll");
   },
-  methods: {
-    async createPost() {
-      const result = await this.$store.dispatch("post/create", this.$data.title, this.$data.category, this.$data.content, this.$data.img);
-      if (result !== null) {
-        this.$data.title = "";
-        this.$data.category = "";
-        this.$data.content = "";
-        this.$data.img = "";
-      }
-    }
-  }
 };
 </script>
 

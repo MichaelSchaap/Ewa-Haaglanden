@@ -48,6 +48,17 @@
           <p>Nieuws</p>
         </nav-link>
       </li>
+
+      <li 
+      v-if="isAuthenticated"
+      class="nav-item">
+        <nav-link
+          class="nav-link"
+          to="/posts/dashboard"
+        >
+          <p>Dashboard</p>
+        </nav-link>
+      </li>
       
       <li 
       class="nav-item">

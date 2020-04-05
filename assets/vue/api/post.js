@@ -1,9 +1,13 @@
 import axios from "axios";
 
 export default {
-  create(message) {
+  create([title, category, content, img]) {
     return axios.post("/api/posts", {
-      message: message
+      title: title,
+      category: category,
+      content: content,
+      img: img,
+      
     });
   },
   findAll() {
