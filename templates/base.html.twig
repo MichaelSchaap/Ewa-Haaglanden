@@ -17,7 +17,7 @@
 <noscript>
     <strong>We're sorry but Ewa Haaglanden doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
 </noscript>
-<div id="app"></div>
+<div id="app" data-is-authenticated="{{ isAuthenticated }}" data-user="{{ user }}"></div>
 <!-- built files will be auto injected -->
 
 {{ encore_entry_script_tags('app') }}

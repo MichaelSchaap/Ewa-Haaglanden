@@ -12,14 +12,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\SerializerInterface;
+use function assert;
 
 /**
  * @Route("/api")
  */
 final class SecurityController extends AbstractController
 {
-    /** @var SerializerInterface */
-    private $serializer;
+    private SerializerInterface $serializer;
 
     public function __construct(SerializerInterface $serializer)
     {
@@ -31,8 +31,8 @@ final class SecurityController extends AbstractController
      */
     public function loginAction(): JsonResponse
     {
-        /** @var User $user */
         $user = $this->getUser();
+        assert($user instanceof User);
         $userClone = clone $user;
         $userClone->setPassword('');
         $data = $this->serializer->serialize($userClone, JsonEncoder::FORMAT);

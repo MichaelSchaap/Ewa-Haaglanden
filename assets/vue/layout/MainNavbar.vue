@@ -28,7 +28,6 @@
           class="nav-link"
           to="/home"
         >
-          <i class="now-ui-icons objects_planet"></i>
           <p>Home</p>
         </nav-link>
       </li>
@@ -38,7 +37,6 @@
           to="/informatie"
           
         >
-          <i class="now-ui-icons files_single-copy-04"></i>
           <p>Informatie</p>
        </nav-link>
       </li>
@@ -47,20 +45,29 @@
           class="nav-link"
           to="/posts"
         >
-          <i class="now-ui-icons files_paper"></i>
           <p>Nieuws</p>
         </nav-link>
       </li>
       
-      <li class="nav-item">
-        <a
-          class="nav-link btn"
-          href="/"
-          style="background-color: #FFB300"
+      <li 
+      class="nav-item">
+        <nav-link
+          class="nav-link"
+          to="/login"
         >
-          <i class="now-ui-icons users_single-02"></i>
           <p>Login</p>
-        </a>
+        </nav-link>
+      </li>
+
+      <li 
+      v-if="isAuthenticated"
+      class="nav-item">
+        <nav-link
+          class="nav-link"
+          to="/api/security/logout"
+        >
+          <p>Logout</p>
+        </nav-link>
       </li>
 
     
@@ -82,11 +89,14 @@ export default {
     NavLink,
     [Popover.name]: Popover
   },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters['security/isAuthenticated']
+    },
+  },
 };
 </script>
 
 <style scoped>
-
-
 
 </style>

@@ -12,8 +12,7 @@ use function get_class;
 
 final class HashPasswordListener implements EventSubscriber
 {
-    /** @var UserPasswordEncoderInterface */
-    private $passwordEncoder;
+    private UserPasswordEncoderInterface $passwordEncoder;
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {

@@ -1,6 +1,6 @@
 <template>
 
-<div>
+<div v-if="canCreatePost">
 <section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:10%">
       <div class="container">
         <div class="row">
@@ -94,6 +94,9 @@ export default {
     },
     posts() {
       return this.$store.getters["post/posts"];
+    },
+    canCreatePost() {
+      return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
     }
   },
   created() {

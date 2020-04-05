@@ -20,35 +20,65 @@ class Post
     /**
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
+     *
+     * @var UuidInterface
      */
-    private UuidInterface $id;
+    private $id;
 
-    /** @ORM\Column(name="title", type="string") */
-    private string $title;
+    /**
+     * @ORM\Column(name="title", type="string")
+     *
+     * @var string
+     */
+    private $title;
 
-    /** @ORM\Column(name="category", type="string") */
-    private string $category;
+    /**
+     * @ORM\Column(name="category", type="string")
+     *
+     * @var string
+     */
+    private $category;
 
-    /** @ORM\Column(name="content", type="string") */
-    private string $content;
+    /**
+     * @ORM\Column(name="content", type="string")
+     *
+     * @var string
+     */
+    private $content;
 
-    /** @ORM\Column(type="integer", nullable=true) */
+    /**
+     * @ORM\Column(name="reaction", type="string", nullable=true)
+     *
+     * @var string|null
+     */
      private $reaction;
 
-    /** @ORM\Column(type="string", nullable=false) */
+    /**
+     * @ORM\Column(name="img", type="string")
+     *
+     * @var string
+     */
      private $img;
 
-    /** @ORM\Column(name="created", type="datetime") */
-    private DateTime $created;
+    /**
+     * @ORM\Column(name="created", type="datetime")
+     *
+     * @var DateTime
+     */
+    private $created;
 
-    /** @ORM\Column(name="updated", type="datetime", nullable=true) */
-    private ?DateTime $updated = null;
+    /**
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
+     *
+     * @var DateTime|null
+     */
+    private $updated;
 
    /**
-    * @ORM\PrePersist
-    *
-    * @throws Exception;
-    */
+     * @ORM\PrePersist
+     *
+     * @throws Exception;
+     */
     public function onPrePersist(): void
     {
         $this->id = Uuid::uuid4();
