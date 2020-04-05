@@ -59,7 +59,7 @@
         class="alert alert-danger"
         role="alert"
       >
-        {{ error }}
+        <error-message :error="error" />
       </div>
     </div>
   </div>
@@ -72,6 +72,7 @@
 <script>
 import { Button, FormGroupInput } from '../components';
 import Card from '../components/Cards/Card';
+import ErrorMessage from "../pages/components//ErrorMessage";
 
 
 export default {
@@ -79,7 +80,8 @@ export default {
   components: {
     Card,
     [Button.name]: Button,
-    [FormGroupInput.name]: FormGroupInput
+    [FormGroupInput.name]: FormGroupInput,
+    ErrorMessage,
   },
   data() {
     return {

@@ -78,7 +78,7 @@
         class="alert alert-danger"
         role="alert"
       >
-        {{ error }}
+        <error-message :error="error" />
       </div>
     </div>
 
@@ -118,11 +118,13 @@
 
 <script>
 import Post from "../pages/components/Post";
+import ErrorMessage from "../pages/components/ErrorMessage";
 
 export default {
   name: "Posts",
   components: {
-    Post
+    Post,
+    ErrorMessage
   },
   data() {
     return {
