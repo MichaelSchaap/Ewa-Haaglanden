@@ -3,7 +3,6 @@ import VueRouter from 'vue-router';
 import store from "../vue/store";
 import Index from './pages/Index.vue';
 import Information from './pages/Information.vue';
-import News from './pages/News.vue';
 import Posts from './pages/Posts.vue';
 import Login from './pages/Login.vue';
 import CreatePost from './pages/CreatePost.vue';
@@ -34,15 +33,6 @@ let router = new VueRouter({
       components: { default: Information, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
-        footer: { backgroundColor: 'black' }
-      }
-    },
-    {
-      path: '/nieuws',
-      name: 'News',
-      components: { default: News, header: MainNavbar, footer: MainFooter },
-      props: {
-        header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }
       }
     },
