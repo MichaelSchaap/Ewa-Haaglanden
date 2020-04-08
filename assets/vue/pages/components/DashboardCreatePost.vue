@@ -1,0 +1,113 @@
+<template>
+<section class="createPost">
+
+ <div class="container" style=" margin-top:3%;">
+
+     <div v-if="canCreatePost" style="margin-bottom:5%;">
+      <form>
+        <div class="content" style="">
+            <div class="container">
+              <div class="row">
+              
+                  
+                  <input
+                    class="form-control"
+                    id="title"
+                    v-model="title"
+                    type="text"
+                    placeholder="Title"
+                  >
+                
+
+                  <input
+                    class="form-control"
+                    id="category"
+                    v-model="category"
+                    type="text"
+                    placeholder="Category"
+                  >
+              
+
+                  <input
+                    class="form-control"
+                    id="content"
+                    v-model="content"
+                    type="text"
+                    placeholder="Content"
+                  >
+                
+
+                  <input
+                    class="form-control"
+                    id="img"
+                    v-model="img"
+                    type="text"
+                    placeholder="Image"
+                  >
+                
+                  
+                  <button
+                    :disabled="title.length === 0 || category.length === 0 || content.length === 0 || isLoading"
+                    type="button"
+                    class="btn btn-primary btn-lg btn-round btn-block"
+                    @click="createPost()"
+                  >
+                    Create
+                  </button>
+
+                </div>
+              </div>
+            </div>
+
+        </form>
+
+      <br>
+
+     </div>
+    </div>
+
+</section>
+</template>
+
+<script>
+
+export default {
+  name: 'DashboardCreatePost',
+  data() {
+    return {
+      title: "",
+      category: "",
+      content: "",
+      img: "",
+    };
+  },
+  computed: {
+    canCreatePost() {
+      return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
+    }
+  },
+  created() {
+    this.$store.dispatch("post/findAll");
+  },
+  methods: {
+    async createPost() {
+      let payload = {title: this.$data.title, category: this.$data.category, content: this.$data.content, img: this.$data.img};
+      
+      const result = await this.$store.dispatch("post/create", payload);
+      
+      if (result !== null) {
+        this.$data.title = "";
+        this.$data.category = "";
+        this.$data.content = "";
+        this.$data.img = "";
+      }
+    }
+  }
+};
+</script>
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>

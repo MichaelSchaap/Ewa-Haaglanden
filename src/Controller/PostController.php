@@ -33,7 +33,7 @@ final class PostController extends AbstractController
     /**
      * @throws BadRequestHttpException
      *
-     * @Rest\Post("/posts/dashboard", name="createPost")
+     * @Rest\Post("/posts", name="createPost")
      */
     public function createAction(Request $request): JsonResponse
     {
@@ -76,6 +76,17 @@ final class PostController extends AbstractController
      * @Rest\Get("/posts", name="findAllPosts")
      */
     public function findAllAction(): JsonResponse
+    {
+        $posts = $this->em->getRepository(Post::class)->findBy([], ['id' => 'DESC']);
+        $data = $this->serializer->serialize($posts, JsonEncoder::FORMAT);
+
+        return new JsonResponse($data, Response::HTTP_OK, [], true);
+    }
+
+    /**
+     * @Rest\Get("/posts/dashboard", name="findAllPosts2")
+     */
+    public function findAllAction2(): JsonResponse
     {
         $posts = $this->em->getRepository(Post::class)->findBy([], ['id' => 'DESC']);
         $data = $this->serializer->serialize($posts, JsonEncoder::FORMAT);
