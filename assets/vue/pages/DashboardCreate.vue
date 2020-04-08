@@ -19,11 +19,10 @@
 <script>
 import DashboardCreatePost from '../pages/components/DashboardCreatePost';
 
-
 export default {
   name: 'DashboardCreate',
   components:  {
-    DashboardCreatePost
+    DashboardCreatePost,
   },
   data() {
     return {

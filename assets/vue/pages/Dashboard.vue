@@ -13,7 +13,12 @@
 
 <section class="createPost">
     <div class="container" style="">
-        <a class="btn btn-primary" href="/posts/dashboard/create" role="button">Maak nieuw artikel</a>
+        <nav-link
+          class="nav-link"
+          to="/posts/dashboard/create"
+        >
+          <p>Maak nieuw artikel</p>
+        </nav-link>
     </div>
 </section>
 
@@ -29,12 +34,13 @@
 <script>
 
 import DashboardPosts from '../pages/components/DashboardPosts';
-
+import { NavLink } from '../components';
 
 export default {
   name: "Dashboard",
   components: {
-      DashboardPosts
+      DashboardPosts,
+      NavLink,
   },
   data() {
     return {
