@@ -5,7 +5,7 @@ import Index from './pages/Index.vue';
 import Information from './pages/Information.vue';
 import Posts from './pages/Posts.vue';
 import Dashboard from './pages/Dashboard.vue';
-import DashboardCreatePost from './pages/DashboardCreatePost.vue';
+import DashboardCreate from './pages/DashboardCreate.vue';
 import Login from './pages/Login.vue';
 import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
@@ -57,8 +57,8 @@ let router = new VueRouter({
     },
     {
       path: '/posts/dashboard/create',
-      name: 'DashboardCreatePost',
-      components: { default: DashboardCreatePost, header: MainNavbar, footer: MainFooter },
+      name: 'DashboardCreate',
+      components: { default: DashboardCreate, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }

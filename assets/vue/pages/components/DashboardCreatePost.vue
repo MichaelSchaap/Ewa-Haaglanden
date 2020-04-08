@@ -1,15 +1,12 @@
 <template>
-<section class="createPost">
-
+<section v-if="canCreatePost" class="createPost">
  <div class="container h-100" style="margin-top:15%">
-        <div class="row h-100 justify-content-center align-items-center">
-
-     <div v-if="canCreatePost" style="margin-bottom:5%;">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div style="margin-bottom:5%;">
       <form>
         <div class="content" style="">
             <div class="container">
               <div class="row">
-
                   <input
                     class="form-control"
                     id="title"
@@ -17,7 +14,6 @@
                     type="text"
                     placeholder="Title"
                   >
-                
                   <input
                     class="form-control"
                     id="category"
@@ -25,7 +21,6 @@
                     type="text"
                     placeholder="Category"
                   >
-              
                   <input
                     class="form-control"
                     id="content"
@@ -33,15 +28,13 @@
                     type="text"
                     placeholder="Content"
                   >        
-
                   <input
                     class="form-control"
                     id="img"
                     v-model="img"
                     type="text"
                     placeholder="Image"
-                  >               
-                  
+                  >                                 
                   <button
                     :disabled="title.length === 0 || category.length === 0 || content.length === 0 || isLoading"
                     type="button"
@@ -50,19 +43,14 @@
                   >
                     Create
                   </button>
-
                 </div>
               </div>
             </div>
-
         </form>
-
       <br>
-
      </div>
     </div>
  </div>
-
 </section>
 </template>
 
@@ -103,7 +91,8 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
-
+body {
+  margin: 0 !important;
+}
 </style>
