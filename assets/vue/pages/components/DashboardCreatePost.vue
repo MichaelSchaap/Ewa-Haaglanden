@@ -31,8 +31,9 @@
                   <input
                     class="form-control"
                     id="img"
-                    v-model="img"
                     type="text"
+                    
+                    
                     placeholder="Image"
                   >                                 
                   <button
@@ -67,6 +68,21 @@ export default {
     };
   },
   computed: {
+    isLoading() {
+      return this.$store.getters["post/isLoading"];
+    },
+    hasError() {
+      return this.$store.getters["post/hasError"];
+    },
+    error() {
+      return this.$store.getters["post/error"];
+    },
+    hasPosts() {
+      return this.$store.getters["post/hasPosts"];
+    },
+    posts() {
+      return this.$store.getters["post/posts"];
+    },
     canCreatePost() {
       return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
     }
@@ -86,6 +102,9 @@ export default {
         this.$data.content = "";
         this.$data.img = "";
       }
+    },
+    onFileSelected(event) {
+        console.log(event)
     }
   }
 };

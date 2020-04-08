@@ -1,6 +1,6 @@
 <template>
 <section style="background-color: #FFB300">
-  <div id="VideoSection" style="margin-bottom: 50px">
+  <div id="VideoSection" style="">
      <div class="container" style="text-align: center; padding-bottom:5%;">
           <h2 class="title" style="color: black; font-size:50px;">DOEL VAN EWA-HAAGLANDEN.</h2>
           <div class="embed-responsive embed-responsive-16by9">
