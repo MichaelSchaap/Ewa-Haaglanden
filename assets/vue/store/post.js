@@ -66,7 +66,7 @@ export default {
     async create({ commit }, payload) {
       commit(CREATING_POST);
       try {
-        let response = await PostAPI.create(payload.title, payload.category, payload.content, payload.img);
+        let response = await PostAPI.create(payload.title, payload.content, payload.img);
         commit(CREATING_POST_SUCCESS, response.data);
         return response.data;
       } catch (error) {

@@ -43,11 +43,6 @@ final class PostController extends AbstractController
             throw new BadRequestHttpException('title cannot be empty');
         }
 
-        $category = $request->request->get('category');
-        if (empty($category)) {
-            throw new BadRequestHttpException('category cannot be empty');
-        }
-
         $content = $request->request->get('content');
         if (empty($content)) {
             throw new BadRequestHttpException('content cannot be empty');
@@ -61,7 +56,6 @@ final class PostController extends AbstractController
 
         $post = new Post();
         $post->setTitle($title);
-        $post->setCategory($category);
         $post->setContent($content);
         $post->setImg($img);
 

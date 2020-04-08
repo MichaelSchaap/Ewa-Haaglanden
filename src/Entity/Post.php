@@ -34,13 +34,6 @@ class Post
     private $title;
 
     /**
-     * @ORM\Column(name="category", length=100, type="string")
-     *
-     * @var string
-     */
-    private $category;
-
-    /**
      * @ORM\Column(name="content", length=50000, type="string")
      *
      * @var string
@@ -107,18 +100,6 @@ class Post
     public function setTitle(string $title): void
     {
         $this->title = $title;
-    }
-
-    public function getCategory(): string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
-
-        return $this;
     }
 
     public function getContent(): string

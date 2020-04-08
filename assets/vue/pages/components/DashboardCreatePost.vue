@@ -16,13 +16,6 @@
                   >
                   <input
                     class="form-control"
-                    id="category"
-                    v-model="category"
-                    type="text"
-                    placeholder="Category"
-                  >
-                  <input
-                    class="form-control"
                     id="content"
                     v-model="content"
                     type="text"
@@ -37,7 +30,7 @@
                     placeholder="Image"
                   >                                 
                   <button
-                    :disabled="title.length === 0 || category.length === 0 || content.length === 0 || isLoading"
+                    :disabled="title.length === 0 || content.length === 0 || isLoading"
                     type="button"
                     class="btn btn-primary btn-lg btn-round btn-block"
                     @click="createPost()"
@@ -62,7 +55,6 @@ export default {
   data() {
     return {
       title: "",
-      category: "",
       content: "",
       img: "",
     };
@@ -92,13 +84,12 @@ export default {
   },
   methods: {
     async createPost() {
-      let payload = {title: this.$data.title, category: this.$data.category, content: this.$data.content, img: this.$data.img};
+      let payload = {title: this.$data.title, content: this.$data.content, img: this.$data.img};
       
       const result = await this.$store.dispatch("post/create", payload);
       
       if (result !== null) {
         this.$data.title = "";
-        this.$data.category = "";
         this.$data.content = "";
         this.$data.img = "";
       }

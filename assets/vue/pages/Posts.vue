@@ -54,7 +54,6 @@
 
       <post 
       :title="post.title"
-      :category="post.category"
       :content="post.content"
       :img="post.img"
       :created="post.created"
@@ -83,7 +82,6 @@ export default {
   data() {
     return {
       title: "",
-      category: "",
       content: "",
       reaction: null,
       img: "",

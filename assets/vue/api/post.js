@@ -1,10 +1,9 @@
 import axios from "axios";
 
 export default {
-  create([title, category, content, img]) {
-    return axios.post("/api/posts/", {
+  create([title, content, img]) {
+    return axios.post("/api/posts/dashboard/create", {
       title: title,
-      category: category,
       content: content,
       img: img,
       

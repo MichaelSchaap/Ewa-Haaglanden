@@ -16,11 +16,6 @@
           <router-link :to="'/nieuws/'">
           <a href="#" class="card-link">Lees meer ></a>
           </router-link>
-          <div class="container-fluid">
-          <div class="row" style="margin-top:3%">
-            <p class="card-text"><small class="text-muted">{{ category }} </small></p>
-          </div>
-          </div>
         </div>
       </div>
       
@@ -38,10 +33,6 @@ export default {
       required: true
     },
     title: {
-      type: String,
-      required: true
-    },
-    category: {
       type: String,
       required: true
     },
