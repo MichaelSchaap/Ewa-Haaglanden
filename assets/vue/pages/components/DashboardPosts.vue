@@ -2,7 +2,7 @@
     <section class="allPosts">
         <div class="container  h-100">
         <div class="row h-100 justify-content-center align-items-center">
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table-bordered table-hover table-responsive">
                 <thead class="thead-dark">
                     <tr>
                         <th>Title</th>

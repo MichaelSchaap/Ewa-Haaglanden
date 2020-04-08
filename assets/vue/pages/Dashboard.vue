@@ -11,12 +11,18 @@
       </div>
 </section>
 
+<section class="createPost">
+    <div class="container" style="">
+        <a class="btn btn-primary" href="/posts/dashboard/create" role="button">Maak nieuw artikel</a>
+    </div>
+</section>
+
+
 <DashboardPosts></DashboardPosts>
 
+
 </div>
-
-   
-
+<!-- End Modal -->
 
 </template>
 
@@ -35,8 +41,9 @@ export default {
       header: "News Dashboard"
     };
   },
-
 };
+
+
 </script>
 
 <style lang="scss" scoped>

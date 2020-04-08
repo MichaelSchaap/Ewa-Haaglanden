@@ -1,15 +1,15 @@
 <template>
 <section class="createPost">
 
- <div class="container" style=" margin-top:3%;">
+ <div class="container h-100" style="margin-top:15%">
+        <div class="row h-100 justify-content-center align-items-center">
 
      <div v-if="canCreatePost" style="margin-bottom:5%;">
       <form>
         <div class="content" style="">
             <div class="container">
               <div class="row">
-              
-                  
+
                   <input
                     class="form-control"
                     id="title"
@@ -18,7 +18,6 @@
                     placeholder="Title"
                   >
                 
-
                   <input
                     class="form-control"
                     id="category"
@@ -27,15 +26,13 @@
                     placeholder="Category"
                   >
               
-
                   <input
                     class="form-control"
                     id="content"
                     v-model="content"
                     type="text"
                     placeholder="Content"
-                  >
-                
+                  >        
 
                   <input
                     class="form-control"
@@ -43,8 +40,7 @@
                     v-model="img"
                     type="text"
                     placeholder="Image"
-                  >
-                
+                  >               
                   
                   <button
                     :disabled="title.length === 0 || category.length === 0 || content.length === 0 || isLoading"
@@ -65,6 +61,7 @@
 
      </div>
     </div>
+ </div>
 
 </section>
 </template>
@@ -105,8 +102,7 @@ export default {
   }
 };
 </script>
-}
-</script>
+
 
 <style lang="scss" scoped>
 

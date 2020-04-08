@@ -33,7 +33,7 @@ final class PostController extends AbstractController
     /**
      * @throws BadRequestHttpException
      *
-     * @Rest\Post("/posts", name="createPost")
+     * @Rest\Post("/posts/dashboard/create", name="createPost")
      */
     public function createAction(Request $request): JsonResponse
     {
