@@ -1,16 +1,12 @@
 <template>
   <div>
-    <div class="page-header clear-filter" filter-color="white">
-      <parallax
-        class="page-header-image"
-        style="background-image:url('images/EWAHaaglanden_logo.png'); "
-      >
-      </parallax>
-      <div class="container">
-        <div class="content-center brand">
-
-        </div>
-
+    <div class="page-header clear-filter">
+      <div>
+        <img 
+        class="img-responsive"
+        style="width:90%; position: absolute; left: 5%; bottom:25%"
+        src="images/EWAHaaglanden_logo.jpg" 
+        alt="Ewa Haaglanden logo" />
       </div>
     </div>
     

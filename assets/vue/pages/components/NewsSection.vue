@@ -1,6 +1,6 @@
 <template>
 <section style="background-color: #CC0029;">
-  <div id="NewsSection" style=";padding-bottom:2%">
+  <div id="NewsSection" style=";padding-bottom:5%">
      <div class="container" style="text-align: center">
           <h2 class="title" style="color: white; font-size:50px;">{{ header }}</h2>
           
@@ -33,6 +33,7 @@ export default {
   name: 'NewsSection',
   data() {
     return {
+
       header: 'LAATSTE BERICHTEN.'
     }
   },
@@ -58,10 +59,6 @@ export default {
   },
   props: {
     title: {
-      type: String,
-      required: true
-    },
-    content: {
       type: String,
       required: true
     },
