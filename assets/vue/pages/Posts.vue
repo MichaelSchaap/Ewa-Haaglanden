@@ -83,7 +83,6 @@ export default {
     return {
       title: "",
       content: "",
-      reaction: null,
       img: "",
       header: 'NIEUWS.'
     };

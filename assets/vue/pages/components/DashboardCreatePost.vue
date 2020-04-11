@@ -25,8 +25,7 @@
                     class="form-control"
                     id="img"
                     type="text"
-                    
-                    
+                    v-model="img"
                     placeholder="Image"
                   >                                 
                   <button

@@ -1,8 +1,7 @@
 <template>
-
        <div 
             class="card" 
-            style="margin-right:6%; margin-bottom:5%;"
+            style="margin-right:6%; margin-bottom:5%; height: 45vh"
             > 
         <img 
               class="card-img-top" 
@@ -13,9 +12,11 @@
           <h5 class="card-title" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
           <p class="card-text"><small class="text-muted">{{ created }} </small></p>
           <p class="card-text" style="text-size:12px;" >{{ content.slice(0,200) + '...' }}</p>
+          <div class="card-footer">
           <router-link :to="'/nieuws/'">
           <a href="#" class="card-link">Lees meer ></a>
           </router-link>
+          </div>
         </div>
       </div>
       

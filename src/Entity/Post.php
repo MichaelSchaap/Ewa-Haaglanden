@@ -126,16 +126,14 @@ class Post
         return $this;
     }
 
-    public function getImg()
+    public function getImg(): string
     {
         return $this->img;
     }
 
-    public function setImg($img): self
+    public function setImg(string $img): void
     {
         $this->img = $img;
-
-        return $this;
     }
 
     public function getCreated(): DateTime
