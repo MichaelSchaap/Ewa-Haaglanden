@@ -61,6 +61,7 @@
       </li>
       
       <li 
+      v-if="!isAuthenticated"
       class="nav-item">
         <nav-link
           class="nav-link"
@@ -73,12 +74,12 @@
       <li 
       v-if="isAuthenticated"
       class="nav-item">
-        <nav-link
+        <a
           class="nav-link"
-          to="/api/security/logout"
+          href="/api/security/logout"
         >
           <p>Logout</p>
-        </nav-link>
+        </a>
       </li>
 
     
