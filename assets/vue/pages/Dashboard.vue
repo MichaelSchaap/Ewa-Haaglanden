@@ -1,7 +1,7 @@
 <template>
 
 <div>
-<section class="news-intro" style="background-color: #FFB300;padding-top:4%;margin-bottom:10%">
+<section class="news-intro" style="background-color: #FFB300;padding-top:6%;margin-bottom:10%">
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
@@ -17,7 +17,10 @@
           class="nav-link"
           to="/posts/dashboard/create"
         >
-          <p>Maak nieuw artikel</p>
+          <button 
+          style="background-color:black;"
+          type="button" 
+          class="btn btn-dark">Maak nieuw artikel</button>
         </nav-link>
     </div>
 </section>
@@ -27,7 +30,6 @@
 
 
 </div>
-<!-- End Modal -->
 
 </template>
 
@@ -53,17 +55,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.spinner-border {
-  display: block;
-  position: fixed;
-  z-index: 1031;
-  top: 50%;
-  right: 50%; /* or: left: 50%; */
-
-}
-
-
 @import "../assets/scss/now-ui-kit/mixins.scss";
 
 .news-intro{

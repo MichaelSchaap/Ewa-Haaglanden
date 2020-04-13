@@ -1,8 +1,10 @@
 <template>
     <section class="allPosts">
-        <div class="container  h-100">
-        <div class="row h-100 justify-content-center align-items-center">
-            <table class="table table-striped table-bordered table-hover table-responsive">
+        <div class="container">
+        <div class="row">
+            <table 
+            style="display:block;margin-bottom:10%; margin-left:2%;margin-top: 5%"
+            class="table table-striped table-hover table-responsive">
                 <thead class="thead-dark">
                     <tr>
                         <th>Title</th>
@@ -38,17 +40,16 @@
                     >
                     No posts!
                     </div>
-                    <div
+                    <tr
                     v-for="post in posts"
                     v-else
                     :key="post.id"
                     >
-                    <DashboardPost
-                        :title="post.title"
-                        :created="post.created"
-                        :updated="post.updated"
-                    />
-                    </div>
+                    <td>{{post.title}}</td>
+                    <td>{{post.created}}</td>
+                    <td>{{post.updated}}</td>
+                    <td>Edit</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -106,7 +107,7 @@ export default {
   display: block;
   position: fixed;
   z-index: 1031;
-  top: 50%;
+  top: 70%;
   right: 50%; /* or: left: 50%; */
 
 }

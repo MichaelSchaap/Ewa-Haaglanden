@@ -37,7 +37,6 @@ Ewa Haaglanden is een samenwerkingsverband tussen bedrijven, gemeente, ROC Mondr
   </div>
 </template>
 <script>
-import { Parallax } from '../components';
 import VideoSection from '../pages/components/VideoSection';
 import PartnerSection from '../pages/components/PartnerSection';
 import NewsSection from '../pages/components/NewsSection';
@@ -49,7 +48,6 @@ export default {
   name: 'index',
   bodyClass: 'index-page',
   components: {
-    Parallax,
     VideoSection,
     NewsSection,
     HomeContactSection,
