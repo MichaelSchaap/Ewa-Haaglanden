@@ -3,7 +3,7 @@
  <div class="container h-100" style="margin-top:15%">
   <div class="row h-100 justify-content-center align-items-center">
     <div style="margin-bottom:5%;">
-      <form>
+      <form method="post" enctype="multiplart/form-data">
         <div class="content" style="">
             <div class="container">
               <div class="row">
@@ -23,10 +23,12 @@
                   >        
                   <input
                     class="form-control"
-                    id="img"
-                    type="text"
-                    v-model="img"
+                    type="file"
+                    ref="files"
+                    name="files"
+                    @change="onFileSelected"
                     placeholder="Image"
+                    accept="image/jpeg, image/png"
                   >                                 
                   <button
                     :disabled="title.length === 0 || content.length === 0 || isLoading"
@@ -40,6 +42,7 @@
               </div>
             </div>
         </form>
+        <img :src="img" alt="Image">
       <br>
      </div>
     </div>
@@ -55,7 +58,7 @@ export default {
     return {
       title: "",
       content: "",
-      img: "",
+      img: null,
     };
   },
   computed: {
@@ -83,19 +86,24 @@ export default {
   },
   methods: {
     async createPost() {
-      let payload = {title: this.$data.title, content: this.$data.content, img: this.$data.img};
-      
-      const result = await this.$store.dispatch("post/create", payload);
+      const result = await this.$store.dispatch("post/create", {title: this.title, content: this.content, img: this.img});
       
       if (result !== null) {
         this.$data.title = "";
         this.$data.content = "";
-        this.$data.img = "";
+        this.$data.img = null;
       }
     },
-    onFileSelected(event) {
-        console.log(event)
-    }
+
+  onFileSelected(event){
+   let image = event.target.files[0];
+   let reader = new FileReader();
+   reader.readAsDataURL(image);
+   reader.onload = e => {
+     this.img = e.target.result
+   }
+  }
+
   }
 };
 </script>

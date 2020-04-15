@@ -7,7 +7,9 @@ export default {
       content: content,
       img: img,
       
-    });
+    }
+    
+    );
   },
   findAll() {
     return axios.get("/api/posts");

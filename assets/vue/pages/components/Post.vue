@@ -6,8 +6,8 @@
         <img 
               class="card-img-top" 
               style="width:100%;height:auto;"
-              
-              alt="Artikel foto">
+              :src="require(`../../../../public/images/news/${img}`)"
+              alt="Niews foto">
         <div class="card-body">
           <h5 class="card-title" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
           <p class="card-text"><small class="text-muted">{{ created }} </small></p>
@@ -49,7 +49,7 @@ export default {
       type: String,
       required: true
     },
-  }
+  },
   
 }
 </script>
