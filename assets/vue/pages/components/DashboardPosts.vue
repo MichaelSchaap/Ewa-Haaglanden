@@ -58,13 +58,11 @@
 </template>
 
 <script>
-import DashboardPost from '../components/DashboardPost';
 import ErrorMessage from "../../pages/components/ErrorMessage";
 
 export default {
   name: 'DashboardPosts',
   components: {
-      DashboardPost,
       ErrorMessage,
   },
   data() {

@@ -7,29 +7,30 @@
                   <h5 class="title">EWA HAAGLANDEN</h5>
                   <ul class="list-group">
                   <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="#/"             
-                    >           
-                      <p>Home</p>
-                    </a>
-                  </li>
-                  <li class="nav-item" >
-                    <a
-                      class="nav-link"
-                      href="#/informatie"             
-                    >           
-                      <p>Informatie</p>
-                    </a>
-                  </li>
-                  <li class="nav-item" >
-                    <a
-                      class="nav-link"
-                      href="#/news"             
-                    >           
-                      <p>Nieuws</p>
-                    </a>
-                  </li>               
+                  <nav-link
+                    class="nav-link"
+                    to="/home"
+                  >
+                    <p>Home</p>
+                  </nav-link>
+                </li>
+                <li class="nav-item">
+                <nav-link
+                    class="nav-link"
+                    to="/informatie"
+                    
+                  >
+                    <p>Informatie</p>
+                </nav-link>
+                </li>
+                <li class="nav-item">
+                  <nav-link
+                    class="nav-link"
+                    to="/posts"
+                  >
+                    <p>Nieuws</p>
+                  </nav-link>
+                </li>               
                   </ul>  
                 </div>
 
@@ -51,9 +52,13 @@
 </template>
 
 <script>
+import { NavLink } from '../../components';
 
 export default {
   name: 'HomeContactSection',
+  components: {
+    NavLink
+  }
 }
 </script>
 
@@ -61,9 +66,16 @@ export default {
 
 p{
   line-height: 1.4;
-  text-transform: lowercase;
+  color: white;
   
 }
+p:focus{
+  background-color:black;
+}
+p:active{
+  background-color:black;
+}
+
 p::first-letter {
   text-transform: capitalize;
 }

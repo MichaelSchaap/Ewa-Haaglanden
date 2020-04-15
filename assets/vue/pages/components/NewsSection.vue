@@ -17,8 +17,8 @@
               
               alt="Artikel foto">
                 <div class="card-img-overlay d-flex container">
-                  <h5 class="card-title text-white" style="text-size:20px;font-weight:bold" >{{ title}}</h5>
-                  <p class="card-text text-white" style="text-size:12px;font-weight:bold" >{{ created }}</p>
+                  <h5 class="card-title text-white" style="text-size:20px;font-weight:bold" >{{ post.title}}</h5>
+                  <p class="card-text text-white" style="text-size:12px;font-weight:bold" >{{ post.created }}</p>
                 </div>
             </div>
 
@@ -33,7 +33,8 @@ export default {
   name: 'NewsSection',
   data() {
     return {
-
+      title: "",
+      img: "",
       header: 'LAATSTE BERICHTEN.'
     }
   },
@@ -57,20 +58,6 @@ export default {
    created() {
     this.$store.dispatch("post/findAll");
   },
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    img: {
-      type: String,
-      required: true
-    },
-    created: {
-      type: String,
-      required: true
-    },
-  }
 }
 </script>
 

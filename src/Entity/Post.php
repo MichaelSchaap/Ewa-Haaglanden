@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Exception;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -48,9 +51,10 @@ class Post
      private $reaction;
 
     /**
-     * @ORM\Column(name="img", length=100, type="string")
+     * @ORM\Column(type="string")
      *
-     * @var string
+     * @Assert\NotBlank(message="Please, upload the image as a png or jpeg file.")
+     * @Assert\File(mimeTypes={ "image/png", "image/jpeg" })
      */
      private $img;
 
