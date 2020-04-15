@@ -11,7 +11,7 @@
             style="width: 21rem; margin-right:2%; margin-bottom:2%">
               <img 
               class="card-img" 
-              
+              :src="require(`../../../../public/images/news/${post.img}`)"
               height="251px"
               width="190px"
               
