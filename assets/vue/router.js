@@ -4,6 +4,7 @@ import store from "../vue/store";
 import Index from './pages/Index.vue';
 import Information from './pages/Information.vue';
 import Posts from './pages/Posts.vue';
+import PostDetails from './pages/PostDetails.vue';
 import Dashboard from './pages/Dashboard.vue';
 import DashboardCreate from './pages/DashboardCreate.vue';
 import Login from './pages/Login.vue';
@@ -42,6 +43,16 @@ let router = new VueRouter({
       name: 'Posts',
       components: { default: Posts, header: MainNavbar, footer: MainFooter },
       props: {
+        header: { colorOnScroll: 0 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/posts/details/:Pid',
+      name: 'PostDetails',
+      components: { default: PostDetails, header: MainNavbar, footer: MainFooter },
+      props: {
+        default: true,
         header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }
       }

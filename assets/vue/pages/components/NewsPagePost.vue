@@ -11,10 +11,8 @@
         <div class="card-body">
           <h5 class="card-title" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
           <p class="card-text"><small class="text-muted">{{ created }} </small></p>
-          <p class="card-text" style="text-size:12px;" >{{ content.slice(0,200) + '...' }}</p>
+          <p class="card-text" style="text-size:12px;" >{{ content}}</p>
           <div class="card-footer">
-          
-          <h3>Lees meer ></h3>
           
           </div>
         </div>
@@ -27,7 +25,7 @@
 <script>
 
 export default {
-  name: 'Post',
+  name: 'NewsPagePost',
   props: {
     id: {
       type: Number,
@@ -49,7 +47,6 @@ export default {
       type: String,
       required: true
     },
-    
   },
   
 }

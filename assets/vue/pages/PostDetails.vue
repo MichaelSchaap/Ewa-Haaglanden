@@ -1,20 +1,12 @@
 <template>
 
 <div>
-<section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:10%">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-             <h2 class="title" style="color: black; font-size:50px; ">{{ header }}</h2>
-          </div>
-        </div>
-      </div>
-</section>
+
 
    <div class="container" style=" margin-top:3%;">
 
     <div class="row">
-
+    
     <div
       v-if="isLoading"
       class="container"
@@ -51,15 +43,19 @@
       class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
     >
 
+    <div v-if="postId == post.id">
 
-      <post 
+      <NewsPagePost 
       :title="post.title"
       :content="post.content"
       :img="post.img"
       :created="post.created"
-      @click.native="goToNews(post.id)"
        />
      </div>
+
+    </div>
+
+   
 
 
   </div>
@@ -71,13 +67,13 @@
 </template>
 
 <script>
-import Post from "../pages/components/Post";
+import NewsPagePost from "../pages/components/NewsPagePost";
 import ErrorMessage from "../pages/components/ErrorMessage";
 
 export default {
-  name: "Posts",
+  name: "PostDetails",
   components: {
-    Post,
+    NewsPagePost,
     ErrorMessage,
   },
   data() {
@@ -85,13 +81,8 @@ export default {
       title: "",
       content: "",
       img: "",
-      header: 'NIEUWS.'
+      postId:this.$route.params.Pid,
     };
-  },
-  methods: {
-    goToNews(postId) {
-      this.$router.push({name:'PostDetails',params: { Pid:postId }})
-    }
   },
   computed: {
     isLoading() {
@@ -130,10 +121,4 @@ export default {
 
 }
 
-
-@import "../assets/scss/now-ui-kit/mixins.scss";
-
-.news-intro{
-@include angled-edge('outside bottom', 'lower right', #FFB300);
-}
 </style>
