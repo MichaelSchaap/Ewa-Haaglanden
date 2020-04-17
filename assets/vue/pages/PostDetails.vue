@@ -5,7 +5,7 @@
 
    <div class="container" style=" margin-top:3%;">
 
-    <div class="row">
+
     
     <div
       v-if="isLoading"
@@ -36,14 +36,14 @@
     </div>
 
     
+ 
     <div
-      v-for="post in posts"
+      v-for="post in filteredPosts"
       v-else
       :key="post.id"
-      class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
     >
 
-    <div v-if="postId == post.id">
+    <div v-if="postId == post.id"> 
 
       <NewsPagePost 
       :title="post.title"
@@ -51,17 +51,13 @@
       :img="post.img"
       :created="post.created"
        />
+
      </div>
-
     </div>
-
-   
-
-
   </div>
 
 </div>
-</div>
+
 
 
 </template>
@@ -78,6 +74,7 @@ export default {
   },
   data() {
     return {
+      id: null,
       title: "",
       content: "",
       img: "",
@@ -102,7 +99,10 @@ export default {
     },
     canCreatePost() {
       return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
-    }
+    },
+    filteredPosts() {
+      return this.$store.getters["post/filteredPosts"];
+    },
   },
   created() {
     this.$store.dispatch("post/findAll");

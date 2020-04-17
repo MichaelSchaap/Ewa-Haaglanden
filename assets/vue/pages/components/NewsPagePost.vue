@@ -1,22 +1,22 @@
 <template>
-       <div 
-            class="card" 
-            style="margin-right:6%; margin-bottom:5%; "
-            > 
+<div id="target" class="col-lg-10 col-md-10 col-sm-12 col-xs-12" style="margin-top:5%;margin-bottom:5%;">
+      <div class="container">
         <img 
-              class="card-img-top" 
+              class="" 
               style="width:100%;height:auto;"
               :src="require(`../../../../public/images/news/${img}`)"
               alt="Niews foto">
-        <div class="card-body">
-          <h5 class="card-title" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
-          <p class="card-text"><small class="text-muted">{{ created }} </small></p>
-          <p class="card-text" style="text-size:12px;" >{{ content}}</p>
-          <div class="card-footer">
+        <div class="">
+          <h5 class="" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
+          <p class=""><small class="text-muted">{{ created }} </small></p>
+          <p class="" style="text-size:12px;" >{{ content}}</p>
+          <div class="">
           
           </div>
         </div>
       </div>
+</div>
+
       
  
 
@@ -27,10 +27,6 @@
 export default {
   name: 'NewsPagePost',
   props: {
-    id: {
-      type: Number,
-      required: true
-    },
     title: {
       type: String,
       required: true
@@ -55,5 +51,10 @@ export default {
 <style lang="scss" scoped>
 body {
   margin: 0 !important;
+}
+
+#target {
+  position: relative;
+  margin-left: 5%;
 }
 </style>
