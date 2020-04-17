@@ -3,11 +3,20 @@
   <div id="NewsSection" style=";padding-bottom:5%">
      <div class="container" style="text-align: center">
           <h2 class="title" style="color: white; font-size:50px;">{{ header }}</h2>
-          
+          <div
+          v-if="isLoading"
+          class="container"
+        >
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        </div>
             <div 
             class="card" 
             v-for="post in posts.slice(0, 6)"
             :key="post.id"  
+            v-else
+            @click="goToNews(post.id)"
             style="width: 21rem; margin-right:2%; margin-bottom:2%">
               <img 
               class="card-img" 
@@ -36,6 +45,11 @@ export default {
       title: "",
       img: "",
       header: 'LAATSTE BERICHTEN.'
+    }
+  },
+  methods: {
+    goToNews(postId) {
+      this.$router.push({name:'PostDetails',params: { Pid:postId }})
     }
   },
   computed: {

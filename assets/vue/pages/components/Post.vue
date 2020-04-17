@@ -5,7 +5,7 @@
             > 
         <img 
               class="card-img-top" 
-              style="width:100%;height:auto;"
+              style="width:100%;height:auto;cursor:pointer;"
               :src="require(`../../../../public/images/news/${img}`)"
               alt="Niews foto">
         <div class="card-body">
@@ -14,7 +14,7 @@
           <p class="card-text" style="text-size:12px;" >{{ content.slice(0,200) + '...' }}</p>
           <div class="card-footer">
           
-          <h3>Lees meer ></h3>
+          <p style="cursor:pointer;">Lees meer ></p>
           
           </div>
         </div>

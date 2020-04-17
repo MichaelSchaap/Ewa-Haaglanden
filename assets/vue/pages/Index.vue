@@ -52,7 +52,7 @@ export default {
     NewsSection,
     HomeContactSection,
     PartnerSection,
-  }
+  },
 };
 </script>
 <style></style>
