@@ -61,8 +61,6 @@
       </div>
         </section>
 
-   <ContactUsSection></ContactUsSection>
-
 
     </div>
 
@@ -71,12 +69,10 @@
 </template>
 <script>
 import IntroductionSection from '../pages/components/IntroductionSection';
-import ContactUsSection from '../pages/components/ContactUsSection';
 
 export default {
   name: 'information',
    components: {
-    ContactUsSection,
     IntroductionSection,
   }
 
