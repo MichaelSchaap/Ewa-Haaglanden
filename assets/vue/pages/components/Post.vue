@@ -10,7 +10,7 @@
               alt="Niews foto">
         <div class="card-body">
           <h5 class="card-title" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
-          <p class="card-text"><small class="text-muted">{{ created }} </small></p>
+          <p class="card-text" style="color: #b4b4b4;font-size: .895em;">{{ created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10) }} </p>
           <p class="card-text" style="text-size:12px;white-space: pre-line" >{{ content.slice(0,200) + '...' }}</p>
           <div class="card-footer mx-auto">
           

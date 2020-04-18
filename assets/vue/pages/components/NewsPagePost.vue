@@ -8,7 +8,7 @@
               alt="Niews foto">
         <div class="">
           <h5 class="" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
-          <p class=""><small class="text-muted">{{ created }} </small></p>
+          <p class="card-text" style="color: #b4b4b4;font-size: .895em;">{{ created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10) }} </p>
           <p class="" style="text-size:12px;white-space: pre-line" >{{ content}}</p>
           <div class="">
           

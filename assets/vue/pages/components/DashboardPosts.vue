@@ -46,7 +46,7 @@
                     :key="post.id"
                     >
                     <td>{{post.title}}</td>
-                    <td>{{post.created}}</td>
+                    <td>{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
                     <td>{{post.updated}}</td>
                     <td>Edit</td>
                     </tr>

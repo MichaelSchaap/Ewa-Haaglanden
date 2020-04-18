@@ -27,8 +27,9 @@
               
               alt="Artikel foto">
                 <div class="card-img-overlay d-flex container">
-                  <h5 class="card-title text-white" style="text-size:20px;font-weight:bold" >{{ post.title}}</h5>
-                  <p class="card-text text-white" style="text-size:12px;font-weight:bold" >{{ post.created }}</p>
+                  <h5 class="card-title text-white" style="color: #b4b4b4;text-size:20px;font-weight:bold;" >{{ post.title}}</h5>
+                  <p class="card-text text-white" style="color: #b4b4b4;font-size: .895em;">{{ post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10) }} </p>
+
                 </div>
             </div>
 
