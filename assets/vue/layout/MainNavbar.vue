@@ -41,6 +41,15 @@
        </nav-link>
       </li>
       <li class="nav-item">
+       <nav-link
+          class="nav-link"
+          to="/partners"
+          
+        >
+          <p>Partners</p>
+       </nav-link>
+      </li>
+      <li class="nav-item">
         <nav-link
           class="nav-link"
           to="/posts"

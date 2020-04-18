@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import store from "../vue/store";
 import Index from './pages/Index.vue';
 import Information from './pages/Information.vue';
+import Partners from './pages/Partners.vue';
 import Posts from './pages/Posts.vue';
 import PostDetails from './pages/PostDetails.vue';
 import Dashboard from './pages/Dashboard.vue';
@@ -34,7 +35,16 @@ let router = new VueRouter({
       name: 'information',
       components: { default: Information, header: MainNavbar, footer: MainFooter },
       props: {
-        header: { colorOnScroll: 400 },
+        header: { colorOnScroll: 0 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/partners',
+      name: 'Partners',
+      components: { default: Partners, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }
       }
     },

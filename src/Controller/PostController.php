@@ -61,6 +61,8 @@ final class PostController extends AbstractController
         $post = new Post();
         $post->setTitle($title);
         $post->setContent($content);
+        
+        
 
         define('UPLOAD_DIR', 'images/news/');
         $post->setImg($img);

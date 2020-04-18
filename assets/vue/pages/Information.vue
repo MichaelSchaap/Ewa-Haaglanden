@@ -1,12 +1,6 @@
 <template>
   <div>
-      <div class="page-header page-header-small" >
-        <parallax
-          class="page-header-image"
-          style="background-image: url('images/EWAHeader2.png')"
-        >
-        </parallax>
-      </div>
+
  
  <IntroductionSection></IntroductionSection>
 

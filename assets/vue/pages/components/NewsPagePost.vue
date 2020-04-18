@@ -9,7 +9,7 @@
         <div class="">
           <h5 class="" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
           <p class=""><small class="text-muted">{{ created }} </small></p>
-          <p class="" style="text-size:12px;" >{{ content}}</p>
+          <p class="" style="text-size:12px;white-space: pre-line" >{{ content}}</p>
           <div class="">
           
           </div>

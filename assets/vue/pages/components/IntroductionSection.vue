@@ -1,5 +1,5 @@
 <template>
-<section class="about-us" style="background-color: #FFB300;">
+<section class="about-us" style="background-color: #FFB300;padding-top:8%;margin-bottom:10%">
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">

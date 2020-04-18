@@ -1,31 +1,38 @@
 <template>
 <section v-if="canCreatePost" class="createPost">
- <div class="container h-100" style="margin-top:15%">
+ <div class="container h-100" style="">
   <div class="row h-100 justify-content-center align-items-center">
-    <div style="margin-bottom:5%;">
+    <div style="">
       <form method="post" enctype="multiplart/form-data">
         <div class="content" style="">
-            <div class="container">
+            <div class="container" style="width:85%">
               <div class="row">
                   <input
                     class="form-control"
                     id="title"
                     v-model="title"
                     type="text"
-                    placeholder="Title"
+                    placeholder="Titel"
+                    style="margin-bottom:2%;"
                   >
-                  <input
+                  <span style="white-space: pre;">
+                  <textarea
                     class="form-control"
                     id="content"
+                    rows="4"
+                    cols="80"
                     v-model="content"
                     type="text"
-                    placeholder="Content"
-                  >        
+                    placeholder="Vul in de inhoud van de artikel"
+                    style="margin-bottom:2%;"
+                  ></textarea>      
+                  </span>
                   <input
                     class="form-control"
                     type="file"
                     ref="files"
                     name="files"
+                    style="width:25%;border:none;margin-bottom:2%;"
                     @change="onFileSelected"
                     placeholder="Image"
                     accept="image/jpeg, image/png"
@@ -36,7 +43,7 @@
                     class="btn btn-primary btn-lg btn-round btn-block"
                     @click="createPost()"
                   >
-                    Create
+                    Aanmaken
                   </button>
                 </div>
               </div>
@@ -102,7 +109,8 @@ export default {
    reader.onload = e => {
      this.img = e.target.result
    }
-  }
+  },
+
 
   }
 };
