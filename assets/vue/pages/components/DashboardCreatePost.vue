@@ -7,6 +7,7 @@
         <div class="content" style="">
             <div class="container" style="width:85%">
               <div class="row">
+                <div class="col-12">
                   <input
                     class="form-control"
                     id="title"
@@ -15,6 +16,8 @@
                     placeholder="Titel"
                     style="margin-bottom:2%;"
                   >
+                </div>
+                <div class="col-6">
                   <span style="white-space: pre;">
                   <textarea
                     class="form-control"
@@ -27,19 +30,24 @@
                     style="margin-bottom:2%;"
                   ></textarea>      
                   </span>
+                </div>
+                <div class="col-6">
                   <input
                     class="form-control"
                     type="file"
                     ref="files"
                     name="files"
-                    style="width:25%;border:none;margin-bottom:2%;"
+                    style="width:100%;border:none;margin-bottom:2%;padding-left:0px;"
                     @change="onFileSelected"
                     placeholder="Image"
                     accept="image/jpeg, image/png"
-                  >                                 
+                  >          
+                  <img :src="img" alt="Afbeelding voorbeeld" style="width:150px; height:auto;">     
+                </div>                  
                   <button
                     :disabled="title.length === 0 || content.length === 0 || isLoading"
                     type="button"
+                    style="background-color:#CC0029"
                     class="btn btn-primary btn-lg btn-round btn-block"
                     @click="createPost()"
                   >
@@ -49,7 +57,7 @@
               </div>
             </div>
         </form>
-        <img :src="img" alt="Image">
+        
       <br>
      </div>
     </div>

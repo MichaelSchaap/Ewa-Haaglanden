@@ -1,7 +1,7 @@
 <template>
        <div 
             class="card" 
-            style="margin-right:6%; margin-bottom:5%; "
+            style="margin-right:6%; margin-bottom:5%;"
             > 
         <img 
               class="card-img-top" 
@@ -12,7 +12,7 @@
           <h5 class="card-title" style="text-size:20px;font-weight:bold" >{{ title }}</h5>
           <p class="card-text"><small class="text-muted">{{ created }} </small></p>
           <p class="card-text" style="text-size:12px;white-space: pre-line" >{{ content.slice(0,200) + '...' }}</p>
-          <div class="card-footer">
+          <div class="card-footer mx-auto">
           
           <p style="cursor:pointer;">Lees meer ></p>
           
@@ -59,4 +59,5 @@ export default {
 body {
   margin: 0 !important;
 }
+
 </style>
