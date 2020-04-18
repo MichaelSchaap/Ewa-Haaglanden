@@ -73,8 +73,7 @@
 
       <li 
       v-if="isAuthenticated"
-      class="nav-item"
-      style="color:black;">
+      class="nav-item">
         <a
           class="nav-link"
           href="/api/security/logout"

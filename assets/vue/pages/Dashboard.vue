@@ -16,7 +16,6 @@
         <nav-link
           class="nav-link"
           to="/posts/dashboard/create"
-          style="display:inline; padding-right: 0%; padding-left:0%;"
         >
           <button 
           style="background-color:black;"
