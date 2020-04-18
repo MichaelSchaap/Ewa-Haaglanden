@@ -14,11 +14,10 @@
                     type="text"
                     placeholder="Title"
                   >
-                  <input
+                  <textarea
                     class="form-control"
                     id="content"
                     v-model="content"
-                    type="text"
                     placeholder="Content"
                   >        
                   <input

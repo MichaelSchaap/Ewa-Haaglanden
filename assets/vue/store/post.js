@@ -1,5 +1,4 @@
 import PostAPI from "../api/post";
-import router from "../router";
 
 const CREATING_POST = "CREATING_POST",
   CREATING_POST_SUCCESS = "CREATING_POST_SUCCESS",
@@ -13,7 +12,7 @@ export default {
   state: {
     isLoading: false,
     error: null,
-    posts: [],
+    posts: []
   },
   getters: {
     isLoading(state) {
@@ -29,9 +28,6 @@ export default {
       return state.posts.length > 0;
     },
     posts(state) {
-      return state.posts;
-    },
-    filteredPosts(state) {
       return state.posts;
     }
   },
