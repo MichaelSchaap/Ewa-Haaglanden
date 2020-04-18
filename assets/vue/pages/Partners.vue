@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row">
     <div
-      v-for="partner in partners"
+      v-for="partner in randomList(partners)"
       :key="partner.id"
       class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
     >
@@ -39,7 +39,7 @@
             alt="Partner logo">
         <div class="card-body">
             <h5 class="card-title" style="text-size:20px;font-weight:bold;text-align:center;" >{{ partner.name }}</h5>
-            <a :href="partner.website" target="_blank" style="cursor:pointer;text-size:6px;display:inline-block;!text-align:center;">Link to website</a>
+            <a :href="partner.website" target="_blank" style="cursor:pointer;text-size:6px;display:inline-block;!text-align:center;">{{ partner.name + "'s" + " " + "website..." }}</a>
         </div>
     </div>
 
@@ -55,6 +55,11 @@
 
 export default {
   name: "Partners",
+  methods: {
+    randomList: function(rand){
+      return rand.sort(function(){return 0.5 - Math.random()});
+    }
+  },
   data: function() {
     return {
         header: 'PARTNERS.',

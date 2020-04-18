@@ -2,7 +2,7 @@
  <section class="contact" style="margin-bottom:2%;">
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="contactIntro text-center">
         <h2 class="title" style="font-size:40px;">Neem contact met ons op</h2>
         <p class="description" style="color:black; margin-bottom:2.5%">Wij willen graag van je horen</p>
@@ -53,9 +53,8 @@
           </div>
         </div>
         </div>
-      
 
-          <div class="col-6" id="subscribeForm">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="subscribeForm">
             <div class="contactIntro text-center">
               <h2 class="title" style="font-size:40px;">Altijd op de hoogte blijven van het laatste nieuws?</h2>
               <p class="description" style="color:black; margin-bottom:2.5%">Meld je dan aan bij onze nieuwsbrief!</p>
