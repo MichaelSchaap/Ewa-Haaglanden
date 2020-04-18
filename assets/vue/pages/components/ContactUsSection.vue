@@ -41,13 +41,12 @@
 </template>
 
 <script>
-import { Button, FormGroupInput } from '../../components';
+import { Button } from '../../components';
 
 export default {
   name: 'ContactUsSection',
   components: {
     [Button.name]: Button,
-    [FormGroupInput.name]: FormGroupInput,
   },
   data() {
     return {

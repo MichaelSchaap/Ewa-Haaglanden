@@ -38,7 +38,7 @@
     
  
     <div
-      v-for="post in filteredPosts"
+      v-for="post in posts"
       v-else
       :key="post.id"
     >
@@ -99,9 +99,6 @@ export default {
     },
     canCreatePost() {
       return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
-    },
-    filteredPosts() {
-      return this.$store.getters["post/filteredPosts"];
     },
   },
   created() {

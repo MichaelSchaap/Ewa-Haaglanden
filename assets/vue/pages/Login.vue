@@ -7,24 +7,29 @@
             <div slot="header" class="logo-container">
               <img v-lazy="'images/EWAHaaglanden.jpg'" alt="" />
             </div>
-             
-            <fg-input
+            <div class="row">
+            <div class="col-12">
+            <input
               class="no-border input-lg"
               v-model="login"
               type="text"
               addon-left-icon="now-ui-icons users_circle-08"
               placeholder="Gebruikersnaam..."
+              style="margin-bottom:5%;width:100%"
             >
-            </fg-input>
-
-            <fg-input
+            </div>
+            <div class="col-12">
+            <input
               class="no-border input-lg"
               v-model="password"
               type="password"
               addon-left-icon="now-ui-icons text_caps-small"
               placeholder="Wachtwoord..."
+              style="width:100%"
             >
-            </fg-input>
+            </div>
+            </div>
+      
 
             <template slot="raw-content">
               <div class="card-footer text-center">
@@ -70,7 +75,7 @@
 </template>
 
 <script>
-import { Button, FormGroupInput } from '../components';
+import { Button } from '../components';
 import Card from '../components/Cards/Card';
 import ErrorMessage from "../pages/components//ErrorMessage";
 
@@ -80,7 +85,6 @@ export default {
   components: {
     Card,
     [Button.name]: Button,
-    [FormGroupInput.name]: FormGroupInput,
     ErrorMessage,
   },
   data() {
@@ -136,7 +140,7 @@ export default {
   display: block;
   position: fixed;
   z-index: 1031;
-  top: 50%;
+  top: 60%;
   right: 50%; /* or: left: 50%; */
 
 }

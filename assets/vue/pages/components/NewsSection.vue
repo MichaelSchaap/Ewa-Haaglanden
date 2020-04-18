@@ -23,6 +23,7 @@
               :src="require(`../../../../public/images/news/${post.img}`)"
               height="251px"
               width="190px"
+              style="cursor:pointer"
               
               alt="Artikel foto">
                 <div class="card-img-overlay d-flex container">
