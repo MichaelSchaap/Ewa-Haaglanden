@@ -190,7 +190,8 @@ final class PostController extends AbstractController
         $this->em->flush();
 
         $data = $this->serializer->serialize($post, JsonEncoder::FORMAT);
-
+        
         return new JsonResponse($data, Response::HTTP_CREATED, [], true);
+    
     }
 }

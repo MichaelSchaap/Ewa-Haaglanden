@@ -109,6 +109,8 @@ export default {
         this.$data.content = "";
         this.$data.img = null;
       }
+      
+      this.$router.push({ path: "/posts/dashboard" });
     },
 
     onFileSelected(event) {

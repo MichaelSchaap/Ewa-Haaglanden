@@ -107,7 +107,7 @@ export default {
       .catch(error => {
         console.log(error)
       });
-      
+      this.$router.push({ path: "/posts/dashboard" });
     },
     onFileSelected(event) {
       let image = event.target.files[0];

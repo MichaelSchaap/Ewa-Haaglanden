@@ -10,7 +10,6 @@
             <tr>
               <th>Title</th>
               <th>Date created</th>
-              <th>Date updated</th>
               <th>Acties</th>
             </tr>
           </thead>
@@ -30,7 +29,6 @@
             <tr v-for="post in sortFunc()" v-else :key="post.id">
               <td>{{post.title}}</td>
               <td>{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
-              <td>{{post.updated}}</td>
               <td>
                 <button
                   type="button"
@@ -79,6 +77,7 @@ export default {
       this.$store.dispatch("post/DELETE_POST", {
         postId
       });
+      this.$router.go();
     },
     goToNews(postId) {
       this.$router.push({ name: "PostDetails", params: { Pid: postId } });

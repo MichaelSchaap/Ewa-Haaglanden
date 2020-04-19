@@ -43,7 +43,7 @@ export default {
     created: {
       type: String,
       required: true
-    }
+    },
   }
 };
 </script>
