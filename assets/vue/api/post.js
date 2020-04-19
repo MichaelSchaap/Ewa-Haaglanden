@@ -13,5 +13,9 @@ export default {
   },
   findAll() {
     return axios.get("/api/posts");
+  },
+
+  delete(postId) {
+    return axios.delete('/api/posts/dashboard/delete/' + postId);
   }
 };

@@ -1,11 +1,13 @@
 import PostAPI from "../api/post";
+import axios from "axios";
 
 const CREATING_POST = "CREATING_POST",
   CREATING_POST_SUCCESS = "CREATING_POST_SUCCESS",
   CREATING_POST_ERROR = "CREATING_POST_ERROR",
   FETCHING_POSTS = "FETCHING_POSTS",
   FETCHING_POSTS_SUCCESS = "FETCHING_POSTS_SUCCESS",
-  FETCHING_POSTS_ERROR = "FETCHING_POSTS_ERROR";
+  FETCHING_POSTS_ERROR = "FETCHING_POSTS_ERROR",
+  DELETING_POST = "DELETING_POST";
   
 
 export default {
@@ -61,7 +63,24 @@ export default {
       state.isLoading = false;
       state.error = error;
       state.posts = [];
+    },
+    REMOVE_POST: (state, {postId,}) => {
+      state.isLoading = true;
+      let posts = state.posts;
+
+      let rs = posts.filter(currentPost => {
+        return currentPost.id !== postId;
+      })
+
+      state.posts = [...rs];
+
+
+
     }
+    // [DELETING_POST](state, id){
+    //   let idx = state.posts.indexOf(id)
+    //   state.posts.splice(idx,1)
+    //  }
   },
   actions: {
     async create({ commit }, payload) {
@@ -85,6 +104,28 @@ export default {
         commit(FETCHING_POSTS_ERROR, error);
         return null;
       }
-    }
+    },
+    async DELETE_POST ({ commit }, { postId }) {
+      return new Promise((resolve, reject) => {
+         PostAPI.delete(postId)
+        .then(({status}) => {
+          if (status === 204) {
+            commit("REMOVE_POST", {
+              postId
+            })
+            resolve(status);
+          }
+        })
+        .catch(error => {
+          reject(error);
+        })
+      })
+    },
+  
+    // async delete ({ commit }, id) {
+    //   let response = await PostAPI.delete(id);
+    //   commit(DELETING_POST, response.data);
+    //   return response.data;
+    // }
   }
 };

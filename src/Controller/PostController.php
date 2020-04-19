@@ -114,4 +114,31 @@ final class PostController extends AbstractController
 
         return new JsonResponse($data, Response::HTTP_OK, [], true);
     }
+
+    /**
+    * @Rest\Post("/posts/dashboard/delete/{id}", name="deletePost", methods={"DELETE"})
+     */
+    public function delete(Request $request, $id): JsonResponse
+    {
+        // $em = $this->getDoctrine()->getManager();
+
+        // $qb = $em->createQueryBuilder()
+        // ->delete(Post::class, 'post')
+        // ->where('post.id = :id')
+        // ->setParameter('id', $id, 'uuid');
+        // $qb->getQuery()->execute();
+
+        $em = $this->getDoctrine()->getManager();
+        $post = $em->getRepository(Post::class)->find($id);
+
+        $em->remove($post);
+        $em->flush();
+
+            
+
+
+            $data = $this->serializer->serialize($post, JsonEncoder::FORMAT);
+
+            return new JsonResponse($data, Response::HTTP_OK, [], true);
+    }
 }

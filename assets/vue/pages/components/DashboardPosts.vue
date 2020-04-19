@@ -52,7 +52,13 @@
                     <td>{{post.title}}</td>
                     <td>{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
                     <td>{{post.updated}}</td>
-                    <td>Edit</td>
+                    <td>
+                          <button 
+                          type="button" 
+                          class="btn btn-danger"
+                          @click.prevent="deletePost(post.id)">Delete
+                          </button>
+                      </td>
                     </tr>
                 </tbody>
             </table>
@@ -74,6 +80,7 @@ export default {
   },
   data() {
     return {
+      id: "",
       title: "",
       content: "",
       img: "",
@@ -84,7 +91,12 @@ export default {
       return this.posts.slice().sort(function(a, b){
         return (a.created < b.created) ? 1 : -1;
       });
-    }
+    },
+    deletePost(postId) {
+      this.$store.dispatch("post/DELETE_POST", {
+        postId
+      })
+    },
   },
   computed: {
     isLoading() {
