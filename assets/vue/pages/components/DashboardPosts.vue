@@ -56,7 +56,12 @@
                           <button 
                           type="button" 
                           class="btn btn-danger"
-                          @click.prevent="deletePost(post.id)">Delete
+                          @click.prevent="deletePost(post.id)">Verwijderen
+                          </button>
+                          <button 
+                          type="button" 
+                          class="btn btn-info"
+                          @click="goToNews(post.id)">Bekijken
                           </button>
                       </td>
                     </tr>
@@ -96,6 +101,9 @@ export default {
       this.$store.dispatch("post/DELETE_POST", {
         postId
       })
+    },
+    goToNews(postId) {
+      this.$router.push({name:'PostDetails',params: { Pid:postId }})
     },
   },
   computed: {
