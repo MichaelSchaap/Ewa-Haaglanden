@@ -13,7 +13,7 @@
         </div>
             <div 
             class="card" 
-            v-for="post in posts.slice(0, 6)"
+            v-for="post in sortFunc()"
             :key="post.id"  
             v-else
             @click="goToNews(post.id)"
@@ -52,6 +52,11 @@ export default {
   methods: {
     goToNews(postId) {
       this.$router.push({name:'PostDetails',params: { Pid:postId }})
+    },
+    sortFunc: function (){
+      return this.posts.slice(0,6).sort(function(a, b){
+        return (a.created < b.created) ? 1 : -1;
+      });
     }
   },
   computed: {

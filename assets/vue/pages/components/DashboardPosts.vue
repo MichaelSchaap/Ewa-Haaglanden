@@ -1,10 +1,14 @@
 <template>
     <section class="allPosts">
         <div class="container">
+          
+          
         <div class="row">
             <table 
             style="display:block;margin-bottom:10%; margin-left:2%;margin-top: 5%"
-            class="table table-striped table-hover table-responsive">
+            class="table table-striped table-hover table-responsive"
+            
+            >
                 <thead class="thead-dark">
                     <tr>
                         <th>Title</th>
@@ -41,7 +45,7 @@
                     No posts!
                     </div>
                     <tr
-                    v-for="post in posts"
+                    v-for="post in sortFunc()"
                     v-else
                     :key="post.id"
                     >
@@ -53,7 +57,9 @@
                 </tbody>
             </table>
         </div>
-        </div>
+        
+      </div>
+        
     </section>
 </template>
 
@@ -64,6 +70,7 @@ export default {
   name: 'DashboardPosts',
   components: {
       ErrorMessage,
+
   },
   data() {
     return {
@@ -71,6 +78,13 @@ export default {
       content: "",
       img: "",
     };
+  },
+  methods: {
+    sortFunc: function (){
+      return this.posts.slice().sort(function(a, b){
+        return (a.created < b.created) ? 1 : -1;
+      });
+    }
   },
   computed: {
     isLoading() {
@@ -90,7 +104,7 @@ export default {
     },
     canCreatePost() {
       return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
-    }
+    },
   },
   created() {
     this.$store.dispatch("post/findAll");

@@ -45,7 +45,7 @@
 
     
     <div
-      v-for="post in posts"
+      v-for="post in sortFunc()"
       v-else
       :key="post.id"
       class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
@@ -91,6 +91,11 @@ export default {
   methods: {
     goToNews(postId) {
       this.$router.push({name:'PostDetails',params: { Pid:postId }})
+    },
+    sortFunc: function (){
+      return this.posts.slice().sort(function(a, b){
+        return (a.created < b.created) ? 1 : -1;
+      });
     }
   },
   computed: {
