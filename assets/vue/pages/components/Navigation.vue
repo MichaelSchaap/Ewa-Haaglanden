@@ -58,22 +58,16 @@
             </button>
             <template slot="navbar-menu">
               <li class="nav-item">
-                <a class="nav-link" href="#pablo"
-                  ><i class="now-ui-icons ui-1_send" aria-hidden="true"></i
-                ></a>
+                <a class="nav-link" href="#pablo">
+                  <i class="now-ui-icons ui-1_send" aria-hidden="true"></i>
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#pablo"
-                  ><i
-                    class="now-ui-icons users_single-02"
-                    aria-hidden="true"
-                  ></i
-                ></a>
+                <a class="nav-link" href="#pablo">
+                  <i class="now-ui-icons users_single-02" aria-hidden="true"></i>
+                </a>
               </li>
-              <drop-down
-                class="nav-item dropdown"
-                icon="now-ui-icons ui-1_settings-gear-63"
-              >
+              <drop-down class="nav-item dropdown" icon="now-ui-icons ui-1_settings-gear-63">
                 <a class="dropdown-header">Dropdown header</a>
                 <a class="dropdown-item" href="#">Action</a>
                 <a class="dropdown-item" href="#">Another action</a>
@@ -90,10 +84,7 @@
       <h4>Navigation</h4>
     </div>
     <div id="navbar">
-      <div
-        class="navigation-example"
-        style="background-image:url('images/bg7.jpg')"
-      >
+      <div class="navigation-example" style="background-image:url('images/bg7.jpg')">
         <!-- Navbar Primary  -->
         <navbar type="primary" menu-classes="ml-auto">
           <div class="navbar-translate">
@@ -336,7 +327,7 @@
   </div>
 </template>
 <script>
-import { Navbar, DropDown } from '../../components';
+import { Navbar, DropDown } from "../../components";
 
 export default {
   components: {

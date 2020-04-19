@@ -1,16 +1,15 @@
 <template>
-    <tr>
-        <td>{{title}}</td>
-        <td>{{created}}</td>
-        <td>{{updated}}</td>
-        <td>Edit</td>
-    </tr>
+  <tr>
+    <td>{{title}}</td>
+    <td>{{created}}</td>
+    <td>{{updated}}</td>
+    <td>Edit</td>
+  </tr>
 </template>
 
 <script>
-
 export default {
-  name: 'DashboardPost',
+  name: "DashboardPost",
   props: {
     title: {
       type: String,
@@ -23,10 +22,9 @@ export default {
     updated: {
       type: String,
       required: true
-    },
+    }
   }
-  
-}
+};
 </script>
 
 <style lang="scss" scoped>

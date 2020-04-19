@@ -8,7 +8,7 @@
   >
     <template>
       <router-link v-popover:popover1 class="navbar-brand" to="/">
-        <img class="n-logo" src="images/EWAHaaglanden_logo.png" alt="" style="width: 200px" />
+        <img class="n-logo" src="images/EWAHaaglanden_logo.png" alt style="width: 200px" />
       </router-link>
       <el-popover
         ref="popover1"
@@ -17,94 +17,60 @@
         width="200"
         trigger="hover"
       >
-        <div class="popover-body">
-         Ontworpen en gemaakt door studenten.
-        </div>
+        <div class="popover-body">Ontworpen en gemaakt door studenten.</div>
       </el-popover>
     </template>
     <template slot="navbar-menu">
       <li class="nav-item">
-        <nav-link
-          class="nav-link"
-          to="/home"
-        >
+        <nav-link class="nav-link" to="/home">
           <p>Home</p>
         </nav-link>
       </li>
       <li class="nav-item">
-       <nav-link
-          class="nav-link"
-          to="/informatie"
-          
-        >
+        <nav-link class="nav-link" to="/informatie">
           <p>Informatie</p>
-       </nav-link>
+        </nav-link>
       </li>
       <li class="nav-item">
-       <nav-link
-          class="nav-link"
-          to="/partners"
-          
-        >
+        <nav-link class="nav-link" to="/partners">
           <p>Partners</p>
-       </nav-link>
+        </nav-link>
       </li>
       <li class="nav-item">
-        <nav-link
-          class="nav-link"
-          to="/posts"
-        >
+        <nav-link class="nav-link" to="/posts">
           <p>Nieuws</p>
         </nav-link>
       </li>
 
-      <li 
-      v-if="isAuthenticated"
-      class="nav-item">
-        <nav-link
-          class="nav-link"
-          to="/posts/dashboard"
-        >
+      <li v-if="isAuthenticated" class="nav-item">
+        <nav-link class="nav-link" to="/posts/dashboard">
           <p>Dashboard</p>
         </nav-link>
       </li>
-      
-      <li 
-      v-if="!isAuthenticated"
-      class="nav-item">
-        <nav-link
-          class="nav-link"
-          to="/login"
-        >
+
+      <li v-if="!isAuthenticated" class="nav-item">
+        <nav-link class="nav-link" to="/login">
           <p>Login</p>
         </nav-link>
       </li>
 
-      <li 
-      v-if="isAuthenticated"
-      class="nav-item"
-      style="color:black;">
-        <a
-          class="nav-link"
-          href="/api/security/logout"
-        >
+      <li v-if="isAuthenticated" class="nav-item" style="color:black;">
+        <a class="nav-link" href="/api/security/logout">
           <p>Logout</p>
         </a>
       </li>
-
-    
     </template>
   </navbar>
 </template>
 
 <script>
-import { Navbar, NavLink } from '../components';
-import { Popover } from 'element-ui';
+import { Navbar, NavLink } from "../components";
+import { Popover } from "element-ui";
 export default {
-  name: 'main-navbar',
+  name: "main-navbar",
   props: {
     transparent: Boolean,
-    colorOnScroll: Number,
+    colorOnScroll: Number
   },
   components: {
     Navbar,
@@ -113,12 +79,11 @@ export default {
   },
   computed: {
     isAuthenticated() {
-      return this.$store.getters['security/isAuthenticated']
-    },
-  },
+      return this.$store.getters["security/isAuthenticated"];
+    }
+  }
 };
 </script>
 
 <style scoped>
-
 </style>

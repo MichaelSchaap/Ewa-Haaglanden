@@ -1,5 +1,4 @@
 import PostAPI from "../api/post";
-import axios from "axios";
 
 const CREATING_POST = "CREATING_POST",
   CREATING_POST_SUCCESS = "CREATING_POST_SUCCESS",
@@ -7,8 +6,9 @@ const CREATING_POST = "CREATING_POST",
   FETCHING_POSTS = "FETCHING_POSTS",
   FETCHING_POSTS_SUCCESS = "FETCHING_POSTS_SUCCESS",
   FETCHING_POSTS_ERROR = "FETCHING_POSTS_ERROR",
-  DELETING_POST = "DELETING_POST";
-  
+  REMOVE_POST = "REMOVE_POST",
+  UPDATE_POST = "UPDATE_POST";
+
 
 export default {
   namespaced: true,
@@ -64,18 +64,22 @@ export default {
       state.error = error;
       state.posts = [];
     },
-    REMOVE_POST: (state, {postId,}) => {
+    [REMOVE_POST](state, { postId, }) {
       state.isLoading = true;
-      let posts = state.posts;
+      let posts = state.posts.find(post => post.id === postId).posts;
 
       let rs = posts.filter(currentPost => {
         return currentPost.id !== postId;
       })
 
-      state.posts = [...rs];
-
-
-
+      state.posts.find(post => post.id === postId).posts = [...rs];
+    },
+    [UPDATE_POST](state, {postId, title, content, img}) {
+      if (postId && title && content && img) {
+        state.posts.find(post => post.id === postId).title = title;
+        state.posts.find(post => post.id === postId).content = content;
+        state.posts.find(post => post.id === postId).img = img;
+      }
     }
     // [DELETING_POST](state, id){
     //   let idx = state.posts.indexOf(id)
@@ -94,6 +98,22 @@ export default {
         return null;
       }
     },
+    edit({ commit }, { postId, title, content, img }) {
+      return new Promise(async (resolve, reject) => {
+        let {data, status} = await PostAPI.edit(postId, title, content, img)
+        if (status === 204 || status === 200) {
+          commit(UPDATE_POST, {
+            postId,
+            title,
+            content,
+            img
+          });
+          resolve({data, status});
+        } else {
+          reject({data, status});
+        }
+      })
+    },
     async findAll({ commit }) {
       commit(FETCHING_POSTS);
       try {
@@ -105,23 +125,23 @@ export default {
         return null;
       }
     },
-    async DELETE_POST ({ commit }, { postId }) {
+    async DELETE_POST({ commit }, { postId }) {
       return new Promise((resolve, reject) => {
-         PostAPI.delete(postId)
-        .then(({status}) => {
-          if (status === 204) {
-            commit("REMOVE_POST", {
-              postId
-            })
-            resolve(status);
-          }
-        })
-        .catch(error => {
-          reject(error);
-        })
+        PostAPI.delete(postId)
+          .then(({ status }) => {
+            if (status === 204) {
+              commit(REMOVE_POST, {
+                postId
+              })
+              resolve(status);
+            }
+          })
+          .catch(error => {
+            reject(error);
+          })
       })
     },
-  
+
     // async delete ({ commit }, id) {
     //   let response = await PostAPI.delete(id);
     //   commit(DELETING_POST, response.data);

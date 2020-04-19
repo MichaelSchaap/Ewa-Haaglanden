@@ -4,9 +4,8 @@
       <div class="row">
         <div class="col-md-6">
           <h4>Progress Bars</h4>
-          <n-progress :value="25" label="Default" show-value> </n-progress>
-          <n-progress type="primary" :value="60" label="Default" show-value>
-          </n-progress>
+          <n-progress :value="25" label="Default" show-value></n-progress>
+          <n-progress type="primary" :value="60" label="Default" show-value></n-progress>
           <h4>Navigation Pills</h4>
           <tabs pills tab-nav-classes="nav-pills-just-icons" type="primary">
             <tab-pane>
@@ -25,19 +24,9 @@
         </div>
         <div class="col-md-6">
           <h4>Pagination</h4>
-          <n-pagination
-            type="primary"
-            :page-count="10"
-            v-model="pagination.simple"
-          >
-          </n-pagination>
+          <n-pagination type="primary" :page-count="10" v-model="pagination.simple"></n-pagination>
 
-          <n-pagination
-            type="default"
-            :page-count="10"
-            v-model="pagination.default"
-          >
-          </n-pagination>
+          <n-pagination type="default" :page-count="10" v-model="pagination.default"></n-pagination>
 
           <br />
           <h4>Labels</h4>
@@ -54,7 +43,7 @@
   </div>
 </template>
 <script>
-import { Progress, Pagination, Badge, Tabs, TabPane } from '../../components';
+import { Progress, Pagination, Badge, Tabs, TabPane } from "../../components";
 
 export default {
   components: {

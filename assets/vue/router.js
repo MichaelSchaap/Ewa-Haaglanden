@@ -8,6 +8,7 @@ import Posts from './pages/Posts.vue';
 import PostDetails from './pages/PostDetails.vue';
 import Dashboard from './pages/Dashboard.vue';
 import DashboardCreate from './pages/DashboardCreate.vue';
+import DashboardEdit from './pages/DashboardEdit.vue';
 import Login from './pages/Login.vue';
 import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
@@ -81,6 +82,16 @@ let router = new VueRouter({
       name: 'DashboardCreate',
       components: { default: DashboardCreate, header: MainNavbar, footer: MainFooter },
       props: {
+        header: { colorOnScroll: 0 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/posts/dashboard/edit/:Pid',
+      name: 'DashboardEdit',
+      components: { default: DashboardEdit, header: MainNavbar, footer: MainFooter },
+      props: {
+        default: true,
         header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }
       }

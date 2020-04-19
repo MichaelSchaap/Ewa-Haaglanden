@@ -1,87 +1,65 @@
 <template>
-    <section class="allPosts">
-        <div class="container">
-          
-          
-        <div class="row">
-            <table 
-            style="display:block;margin-bottom:10%; margin-left:2%;margin-top: 5%"
-            class="table table-striped table-hover table-responsive"
-            
-            >
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Title</th>
-                        <th>Date created</th>
-                        <th>Date updated</th>
-                        <th>Acties</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <div
-                    v-if="isLoading"
-                    class="container"
-                    >
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                    </div>
-                    <div
-                    v-else-if="hasError"
-                    class="row"
-                    >
-                    <div
-                        class="alert alert-danger"
-                        role="alert"
-                    >
-                        <error-message :error="error" />
-                    </div>
-                    </div>
+  <section class="allPosts">
+    <div class="container">
+      <div class="row">
+        <table
+          style="display:block;margin-bottom:10%; margin-left:2%;margin-top: 5%"
+          class="table table-striped table-hover table-responsive"
+        >
+          <thead class="thead-dark">
+            <tr>
+              <th>Title</th>
+              <th>Date created</th>
+              <th>Date updated</th>
+              <th>Acties</th>
+            </tr>
+          </thead>
+          <tbody>
+            <div v-if="isLoading" class="container">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            <div v-else-if="hasError" class="row">
+              <div class="alert alert-danger" role="alert">
+                <error-message :error="error" />
+              </div>
+            </div>
 
-                    <div
-                    v-else-if="!hasPosts"
-                    class="row"
-                    >
-                    No posts!
-                    </div>
-                    <tr
-                    v-for="post in sortFunc()"
-                    v-else
-                    :key="post.id"
-                    >
-                    <td>{{post.title}}</td>
-                    <td>{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
-                    <td>{{post.updated}}</td>
-                    <td>
-                          <button 
-                          type="button" 
-                          class="btn btn-danger"
-                          @click.prevent="deletePost(post.id)">Verwijderen
-                          </button>
-                          <button 
-                          type="button" 
-                          class="btn btn-info"
-                          @click="goToNews(post.id)">Bekijken
-                          </button>
-                      </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
+            <div v-else-if="!hasPosts" class="row">No posts!</div>
+            <tr v-for="post in sortFunc()" v-else :key="post.id">
+              <td>{{post.title}}</td>
+              <td>{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
+              <td>{{post.updated}}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  @click.prevent="deletePost(post.id)"
+                >Verwijderen</button>
+                <button type="button" class="btn btn-info" @click="goToNews(post.id)">Bekijken</button>
+                <button
+                  style="background-color:black;"
+                  type="button"
+                  @click="goToPost(post.id)"
+                  class="btn btn-info"
+                >Verander</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-        
-    </section>
+    </div>
+  </section>
 </template>
 
 <script>
 import ErrorMessage from "../../pages/components/ErrorMessage";
 
 export default {
-  name: 'DashboardPosts',
+  name: "DashboardPosts",
   components: {
-      ErrorMessage,
-
+    ErrorMessage
   },
   data() {
     return {
@@ -92,19 +70,22 @@ export default {
     };
   },
   methods: {
-    sortFunc: function (){
-      return this.posts.slice().sort(function(a, b){
-        return (a.created < b.created) ? 1 : -1;
+    sortFunc: function() {
+      return this.posts.slice().sort(function(a, b) {
+        return a.created < b.created ? 1 : -1;
       });
     },
     deletePost(postId) {
       this.$store.dispatch("post/DELETE_POST", {
         postId
-      })
+      });
     },
     goToNews(postId) {
-      this.$router.push({name:'PostDetails',params: { Pid:postId }})
+      this.$router.push({ name: "PostDetails", params: { Pid: postId } });
     },
+    goToPost(postId) {
+      this.$router.push({ name: "DashboardEdit", params: { Pid: postId } });
+    }
   },
   computed: {
     isLoading() {
@@ -124,24 +105,21 @@ export default {
     },
     canCreatePost() {
       return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
-    },
+    }
   },
   created() {
     this.$store.dispatch("post/findAll");
   }
-  
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
 .spinner-border {
   display: block;
   position: fixed;
   z-index: 1031;
   top: 70%;
   right: 50%; /* or: left: 50%; */
-
 }
 
 body {

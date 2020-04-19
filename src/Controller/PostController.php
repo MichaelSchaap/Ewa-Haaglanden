@@ -7,6 +7,10 @@ namespace App\Controller;
 use App\Entity\Post;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\Request\ParamFetcher;
+use FOS\RestBundle\Controller\Annotations\RequestParam;
+use FOS\RestBundle\Controller\Annotations\QueryParam;
+use FOS\RestBundle\Controller\Annotations\FileParam;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -134,11 +138,59 @@ final class PostController extends AbstractController
         $em->remove($post);
         $em->flush();
 
-            
+        $data = $this->serializer->serialize($post, JsonEncoder::FORMAT);
+
+        return new JsonResponse($data, Response::HTTP_OK, [], true);
+    }
 
 
-            $data = $this->serializer->serialize($post, JsonEncoder::FORMAT);
+    /**
+     * @throws BadRequestHttpException
+     *
+     * @REST\RequestParam(name="title", description="news title", nullable=true)
+     * @REST\RequestParam(name="content", description="news content", nullable=true)
+     * @REST\RequestParam(name="img", description="news photo", nullable=true)
+     * @Rest\Post("/posts/dashboard/edit/{id}", name="editPost", methods={"GET","PATCH"})
+     */
+    public function edit(ParamFetcher $paramFetcher, $id): JsonResponse
+    {
+        $em = $this->getDoctrine()->getManager();
+        $post = $em->getRepository(Post::class)->find($id);
 
-            return new JsonResponse($data, Response::HTTP_OK, [], true);
+        $newTitle = $paramFetcher->get('title');
+        $newContent = $paramFetcher->get('content');
+        $newImg = $paramFetcher->get('img');
+
+        if (trim($newTitle) !== '') {
+            if ($post) {
+                $post->setTitle($newTitle); 
+            }
+        }
+
+        if (trim($newContent) !== '') {
+            if ($post) {
+                $post->setContent($newContent); 
+            }
+        }
+
+        if (trim($newImg) !== '') {
+            if ($post) {
+                define('UPLOAD_DIR', 'images/news/');
+                $newImg = str_replace('data:image/jpeg;base64,', '', $newImg);
+                $newImg = str_replace(' ', '+', $newImg);
+                $data = base64_decode($newImg);
+                $file = uniqid() . '.jpeg';
+                $read = UPLOAD_DIR . $file;
+                $success = file_put_contents($read, $data);
+                $post->setImg($file);
+            }
+        }
+
+        $this->em->persist($post);
+        $this->em->flush();
+
+        $data = $this->serializer->serialize($post, JsonEncoder::FORMAT);
+
+        return new JsonResponse($data, Response::HTTP_CREATED, [], true);
     }
 }

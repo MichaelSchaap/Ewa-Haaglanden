@@ -1,22 +1,24 @@
 <template>
-<section style="background-color: #FFB300">
-  <div id="VideoSection" style="">
-     <div class="container" style="text-align: center; padding-bottom:5%;">
-          <h2 class="title" style="color: black; font-size:50px;">DOEL VAN EWA-HAAGLANDEN.</h2>
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bsPkTBn0s7I" allowfullscreen></iframe>
+  <section style="background-color: #FFB300">
+    <div id="VideoSection" style>
+      <div class="container" style="text-align: center; padding-bottom:5%;">
+        <h2 class="title" style="color: black; font-size:50px;">DOEL VAN EWA-HAAGLANDEN.</h2>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe
+            class="embed-responsive-item"
+            src="https://www.youtube.com/embed/bsPkTBn0s7I"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
-  </div>
+    </div>
   </section>
 </template>
 
 <script>
-
-
 export default {
-  name: 'VideoSection',
-}
+  name: "VideoSection"
+};
 </script>
 
 <style lang="scss" scoped>
@@ -25,7 +27,5 @@ body {
 }
 
 @import "../../assets/scss/now-ui-kit/mixins.scss";
-
-
 </style>
 

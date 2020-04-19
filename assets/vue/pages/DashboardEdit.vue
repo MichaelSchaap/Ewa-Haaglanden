@@ -10,21 +10,21 @@
       </div>
     </section>
 
-    <DashboardCreatePost></DashboardCreatePost>
+    <DashboardEditPost></DashboardEditPost>
   </div>
 </template>
 
 <script>
-import DashboardCreatePost from "../pages/components/DashboardCreatePost";
+import DashboardEditPost from "../pages/components/DashboardEditPost";
 
 export default {
-  name: "DashboardCreate",
+  name: "DashboardEdit",
   components: {
-    DashboardCreatePost
+    DashboardEditPost
   },
   data() {
     return {
-      header: "Maak artikel aan"
+      header: "Verander artikel"
     };
   }
 };

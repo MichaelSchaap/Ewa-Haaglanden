@@ -1,10 +1,5 @@
 <template>
-  <div
-    class="alert alert-danger"
-    role="alert"
-  >
-    {{ error.response.data.error }}
-  </div>
+  <div class="alert alert-danger" role="alert">{{ error.response.data.error }}</div>
 </template>
 
 <script>
@@ -15,6 +10,6 @@ export default {
       type: Error,
       required: true
     }
-  },
-}
+  }
+};
 </script>
