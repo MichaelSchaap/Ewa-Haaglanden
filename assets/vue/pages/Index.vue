@@ -26,6 +26,7 @@
     <VideoSection></VideoSection>
     <NewsSection></NewsSection>
     <ContactUsSection></ContactUsSection>
+    <hr>
     <!-- <HomeContactSection></HomeContactSection> -->
     <PartnerSection></PartnerSection>
   </div>
@@ -47,4 +48,12 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+}
+</style>

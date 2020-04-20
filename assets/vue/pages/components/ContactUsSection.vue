@@ -4,11 +4,11 @@
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
           <div class="contactIntro text-center">
-            <h2 class="title" style="font-size:40px;">Neem contact met ons op</h2>
+            <h3 class="title" style="font-size:30px;">Wilt u meer weten over Ewa Haaglanden en de mogelijkheden voor uw organisatie?</h3>
             <p
               class="description"
               style="color:black; margin-bottom:2.5%"
-            >Wij willen graag van je horen</p>
+            >Neem dan vrijblijvend contact met ons op</p>
           </div>
           <div class="row">
             <div class="col-lg-12 ml-auto mr-auto col-md-12">
@@ -63,10 +63,10 @@
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="subscribeForm">
           <div class="contactIntro text-center">
-            <h2
+            <h3
               class="title"
-              style="font-size:40px;"
-            >Altijd op de hoogte blijven van het laatste nieuws?</h2>
+              style="font-size:30px;"
+            >Altijd op de hoogte blijven van het laatste nieuws?</h3>
             <p
               class="description"
               style="color:black; margin-bottom:2.5%"

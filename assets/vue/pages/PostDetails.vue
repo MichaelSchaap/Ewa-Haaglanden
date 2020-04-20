@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container" style=" margin-top:3%;">
+  <div style="background-color: #f6f6f6;">
+    <div class="container" style=" margin-top:3%;background-color:white;">
       <div v-if="isLoading" class="container">
         <div class="spinner-border" role="status">
           <span class="sr-only">Loading...</span>
@@ -41,7 +41,6 @@ export default {
   },
   data() {
     return {
-      id: null,
       title: "",
       content: "",
       img: "",

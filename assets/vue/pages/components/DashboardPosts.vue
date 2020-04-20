@@ -25,7 +25,7 @@
               </div>
             </div>
 
-            <div v-else-if="!hasPosts" class="row">No posts!</div>
+            <div v-else-if="!hasPosts" class="row" style="margin-left:5%;">No posts!</div>
             <tr v-for="post in sortFunc()" v-else :key="post.id">
               <td>{{post.title}}</td>
               <td>{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
@@ -120,6 +120,7 @@ export default {
   top: 70%;
   right: 50%; /* or: left: 50%; */
 }
+
 
 body {
   margin: 0 !important;
