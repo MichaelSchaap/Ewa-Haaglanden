@@ -1,5 +1,5 @@
 <template>
-  <section class="contact" style="margin-bottom:2%;">
+  <section class="contact" style="padding-bottom:2%;background-color: #f6f6f6;">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -17,7 +17,7 @@
                 <div class="col-sm-10">
                   <input
                     id="inputVoornaam"
-                    class="form-control"
+                    class="big_form"
                     placeholder="Voornaam..."
                     v-model="form.firstName"
                     style="margin-bottom:2%;"
@@ -29,7 +29,7 @@
                 <div class="col-sm-10">
                   <input
                     id="inputEmail"
-                    class="form-control"
+                    class="big_form"
                     placeholder="E-mail Hier..."
                     v-model="form.email"
                     style="margin-bottom:2%;"
@@ -42,7 +42,7 @@
                   <div class="textarea-container">
                     <textarea
                       id="inputBericht"
-                      class="form-control"
+                      class="big_form"
                       name="name"
                       rows="4"
                       cols="80"
@@ -123,7 +123,7 @@ export default {
   border-width: medium medium 2px;
   border-image: none 100% / 1 / 0 stretch;
   border-radius: 0px;
-  background-color: rgb(245, 245, 245);
+
   font-family: "Exo BNNVARA", Verdana, sans-serif;
   color: rgb(16, 16, 16);
   font-size: 16px;
