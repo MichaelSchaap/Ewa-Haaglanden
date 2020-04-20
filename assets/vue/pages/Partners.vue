@@ -18,12 +18,13 @@
         >
           <div class="card" style="
         margin-right:6%; 
-        margin-bottom:5%; 
+        margin-bottom:5%
+        border:0px;; 
         ">
             <img
               style="
-            width:  150px;
-            height: auto;
+            width:  auto;
+            height: 50px;
             background-size: cover;
             display: block;
             margin-left: auto;
