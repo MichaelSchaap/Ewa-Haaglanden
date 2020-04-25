@@ -19,6 +19,8 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\SerializerInterface;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -124,6 +126,12 @@ final class PostController extends AbstractController
 
         $em = $this->getDoctrine()->getManager();
         $post = $em->getRepository(Post::class)->find($id);
+        
+        $filename = $post->getImg();
+
+        $filesystem = new Filesystem();
+        $filesystem->remove('images/news/'.$filename);
+        
 
         $em->remove($post);
         $em->flush();
