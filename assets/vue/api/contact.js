@@ -1,11 +1,10 @@
 import axios from "axios";
 
 export default {
-  create(name, email, subject, message, subscribed) {
+  create(name, email, message, subscribed) {
     return axios.post("/api/home", {
       name: name,
       email: email,
-      subject: subject,
       message: message,
       subscribed: subscribed
     }

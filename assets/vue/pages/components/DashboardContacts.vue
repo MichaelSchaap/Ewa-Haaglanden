@@ -56,7 +56,6 @@ export default {
     return {
       name: "",
       email: "",
-      subject: "",
       message: "",
     };
   },

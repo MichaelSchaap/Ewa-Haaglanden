@@ -72,7 +72,7 @@ export default {
     async create({ commit }, payload) {
       commit(CREATING_CONTACT);
       try {
-        let response = await ContactAPI.create(payload.name, payload.email, payload.subject, payload.message, payload.subscribed);
+        let response = await ContactAPI.create(payload.name, payload.email, payload.message, payload.subscribed);
         commit(CREATING_CONTACT_SUCCESS, response.data);
         return response.data;
       } catch (error) {

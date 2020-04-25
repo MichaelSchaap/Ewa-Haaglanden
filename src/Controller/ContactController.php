@@ -45,7 +45,7 @@ final class ContactController extends AbstractController
      *
      * @Rest\Post("/home", name="createContact", methods={"GET","POST"})
      */
-    public function createAction(Request $request): JsonResponse
+    public function createAction(Request $request, \Swift_Mailer $mailer): JsonResponse
     {
 
         $name = $request->request->get('name');
@@ -56,11 +56,6 @@ final class ContactController extends AbstractController
         $email = $request->request->get('email');
         if (empty($email)) {
             throw new BadRequestHttpException('email cannot be empty');
-        }
-
-        $subject = $request->request->get('subject');
-        if (empty($subject)) {
-            throw new BadRequestHttpException('subject cannot be empty');
         }
 
         $message = $request->request->get('message');
@@ -75,9 +70,26 @@ final class ContactController extends AbstractController
         $contact = new Contact();
         $contact->setName($name);
         $contact->setEmail($email);
-        $contact->setSubject($subject);
         $contact->setMessage($message);
         $contact->setSubscribed($subscribed);
+
+        // Create the message
+        $letter = (new \Swift_Message())
+
+        // Give the message a subject
+        ->setSubject($email)
+
+        // Set the From address with an associative array
+        ->setFrom([$email => $name])
+
+        // Set the To addresses with an associative array (setTo/setCc/setBcc)
+        ->setTo(['haaglandenewa@gmail.com' => 'Ewa Haaglanden'])
+
+        // Give it a body
+        ->setBody($message)
+        ;
+
+        $mailer->send($letter);
         
         $this->em->persist($contact);
         $this->em->flush();

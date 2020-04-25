@@ -1,6 +1,6 @@
 <template>
   <section class="createContact" style="padding-bottom:2%;background-color: #f6f6f6;">
-    <div class="container" style="text-align: center">
+    <div class="container">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="contactIntro text-center">
             <h3 class="title" style="font-size:30px;">Wilt u meer weten over Ewa Haaglanden en de mogelijkheden voor uw organisatie?</h3>
@@ -9,7 +9,7 @@
               style="color:black; margin-bottom:2.5%"
             >Neem dan vrijblijvend contact met ons op</p>
           </div>
-          <div v-if="isLoading" class="container">
+          <div v-if="isLoading" class="container" style="text-align: center">
               <div class="spinner-border" role="status">
                 <span class="sr-only">Loading...</span>
               </div>
@@ -43,20 +43,7 @@
                     style="margin-bottom:2%;"
                   />
                 </div>
-              </div>
-              <div class="row">
-                <label for="subject" class="col-sm-2 col-form-label">Titel</label>
-                <div class="col-sm-10">
-                  <input
-                    id="subject"
-                    class="big_form"
-                    placeholder="Titel Hier..."
-                    v-model="subject"
-                    type="text"
-                    style="margin-bottom:2%;"
-                  />
-                </div>
-              </div>
+              </div>  
               <div class="row">
                 <label for="message" class="col-sm-2 col-form-label">Bericht</label>
                 <div class="col-sm-10">
@@ -74,17 +61,19 @@
                   </div>
                 </div>
               </div>
-              <div class="form-check" style="margin-bottom:2%; margin-top:2%">
+              <div class="form-check" style="margin-bottom:2%; margin-top:2%;text-align: center">
                 <input type="checkbox" v-model="subscribed" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" style="margin-top: 2px;" for="exampleCheck1">Meld je aan bij onze nieuwsbrief</label>
               </div>
+              <div style="text-align: center">
               <button
-                :disabled="email.length === 0 || subject.length === 0 || name.length === 0 || message.length === 0"
+                :disabled="email.length === 0 || name.length === 0 || message.length === 0"
                 type="button"
-                style="background-color:#CC0029"
+                style="background-color:#CC0029;"
                 class="btn btn-danger"
                 @click="createContact()"
               >Stuur bericht</button>
+              </div>
             </div>
           </div>
           </form>
@@ -103,7 +92,6 @@ export default {
     return {
         name: "",
         email: "",
-        subject: "",
         message: "",
         subscribed: false
     };
@@ -113,7 +101,6 @@ export default {
       const result = await this.$store.dispatch("contact/create", {
         name: this.name,
         email: this.email,
-        subject: this.subject,
         message: this.message,
         subscribed: this.subscribed
       });
@@ -121,7 +108,6 @@ export default {
       if (result !== null) {
         this.$data.name = "";
         this.$data.email = "";
-        this.$data.subject = "";
         this.$data.message = "";
         this.$data.subscribed = false;
       }
