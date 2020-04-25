@@ -69,7 +69,7 @@ let router = new VueRouter({
       }
     },
     {
-      path: '/posts/dashboard',
+      path: '/admin/dashboard',
       name: 'Dashboard',
       components: { default: Dashboard, header: MainNavbar, footer: MainFooter },
       props: {
@@ -78,7 +78,7 @@ let router = new VueRouter({
       }
     },
     {
-      path: '/posts/dashboard/create',
+      path: '/admin/dashboard/create',
       name: 'DashboardCreate',
       components: { default: DashboardCreate, header: MainNavbar, footer: MainFooter },
       props: {
@@ -87,7 +87,7 @@ let router = new VueRouter({
       }
     },
     {
-      path: '/posts/dashboard/edit/:Pid',
+      path: '/admin/dashboard/edit/:Pid',
       name: 'DashboardEdit',
       components: { default: DashboardEdit, header: MainNavbar, footer: MainFooter },
       props: {

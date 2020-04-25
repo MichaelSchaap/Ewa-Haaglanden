@@ -87,11 +87,11 @@ final class ContactController extends AbstractController
     }
 
     /**
-     * @Rest\Get("/posts/dashboard", name="findAllContacts")
+     * @Rest\Get("/admin/dashboard", name="findAllContacts")
      */
     public function findAllAction(): JsonResponse
     {
-        $contacts = $this->em->getRepository(Contact::class)->findBy([], ['id' => 'DESC']);
+        $contacts = $this->em->getRepository(Contact::class)->findBy(['subscribed' => true,]);
         $data = $this->serializer->serialize($contacts, JsonEncoder::FORMAT);
 
         return new JsonResponse($data, Response::HTTP_OK, [], true);

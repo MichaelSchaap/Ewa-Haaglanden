@@ -12,6 +12,6 @@ export default {
     );
   },
   findAll() {
-    return axios.get("/api/posts/dashboard");
+    return axios.get("/api/admin/dashboard");
   },
 };

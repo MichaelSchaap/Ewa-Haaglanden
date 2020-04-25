@@ -42,7 +42,7 @@
         </nav-link>
       </li>
       <li v-if="isAuthenticated" class="nav-item">
-        <nav-link class="nav-link" to="/posts/dashboard">
+        <nav-link class="nav-link" to="/admin/dashboard">
           <p>Dashboard</p>
         </nav-link>
       </li>

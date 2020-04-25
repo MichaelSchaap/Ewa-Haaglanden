@@ -11,6 +11,7 @@
         >
           <thead class="thead-dark">
             <tr>
+              <th>Naam</th>
               <th>E-mail</th>
               <th>Created</th>
             </tr>
@@ -29,6 +30,7 @@
 
             <div v-else-if="!hasContacts" class="row" style="margin-left:5%;">No emails!</div>
             <tr v-for="contact in sortFunc()" v-else :key="contact.id">
+              <td>{{contact.name}}</td>
               <td>{{contact.email}}</td>
               <td>{{contact.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
             </tr>

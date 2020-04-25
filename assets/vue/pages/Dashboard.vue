@@ -15,24 +15,25 @@
         <nav-link
           class="nav-link"
           to="/posts/dashboard/create"
+          v-if='posts'
           style="display:inline; padding-right: 0%; padding-left:0%;"
         >
           <button
             style="background-color:black;"
             type="button"
             class="btn btn-dark"
-          >Maak nieuw artikel</button>
+          >Create news article</button>
         </nav-link>
         <button 
         type="button"
         class="btn btn-info"
-        @click='posts = !posts'> 
-        Show posts only </button>
+        @click='posts = !posts; contacts = false'> 
+        News Dashboard</button>
         <button 
         type="button"
         class="btn btn-info"
-        @click='contacts = !contacts'> 
-        Show e-mails only </button>
+        @click='contacts = !contacts; posts = false'> 
+        Newsletter Dashboard </button>
       </div>
     </section>
 
@@ -60,8 +61,8 @@ export default {
   },
   data() {
     return {
-      header: "News Dashboard",
-      posts: true,
+      header: "Admin Dashboard",
+      posts: false,
       contacts: false,
     };
   }

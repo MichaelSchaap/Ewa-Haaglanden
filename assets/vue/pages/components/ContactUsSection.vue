@@ -1,6 +1,6 @@
 <template>
   <section class="createContact" style="padding-bottom:2%;background-color: #f6f6f6;">
-    <div class="container">
+    <div class="container" style="text-align: center">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="contactIntro text-center">
             <h3 class="title" style="font-size:30px;">Wilt u meer weten over Ewa Haaglanden en de mogelijkheden voor uw organisatie?</h3>
@@ -9,7 +9,12 @@
               style="color:black; margin-bottom:2.5%"
             >Neem dan vrijblijvend contact met ons op</p>
           </div>
-          <form method="post" enctype="multiplart/form-data">
+          <div v-if="isLoading" class="container">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+          </div>
+          <form method="post" v-else enctype="multiplart/form-data">
           <div class="row">
             <div class="col-lg-12 ml-auto mr-auto col-md-12">
               <div class="row">
@@ -146,6 +151,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .big_form {
   font-size: 20px;
   height: 56px;
