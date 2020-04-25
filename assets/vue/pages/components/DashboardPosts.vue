@@ -2,6 +2,9 @@
   <section class="allPosts">
     <div class="container">
       <div class="row">
+
+
+
         <table
           style="display:block;margin-bottom:10%; margin-left:2%;margin-top: 5%"
           class="table table-striped table-hover table-responsive"
@@ -46,6 +49,9 @@
             </tr>
           </tbody>
         </table>
+
+
+
       </div>
     </div>
   </section>

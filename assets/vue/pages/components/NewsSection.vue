@@ -14,7 +14,7 @@
           :key="post.id"
           v-else
           @click="goToNews(post.id)"
-          style="width: 21rem; margin-right:2%; margin-bottom:2%"
+          style="width: 21rem; margin-right:2%; margin-bottom:2%; cursor:pointer;"
         >
           <img
             class="card-img"

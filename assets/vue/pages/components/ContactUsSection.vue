@@ -1,5 +1,5 @@
 <template>
-  <section class="contact" style="padding-bottom:2%;background-color: #f6f6f6;">
+  <section class="createContact" style="padding-bottom:2%;background-color: #f6f6f6;">
     <div class="container">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="contactIntro text-center">
@@ -9,59 +9,80 @@
               style="color:black; margin-bottom:2.5%"
             >Neem dan vrijblijvend contact met ons op</p>
           </div>
+          <form method="post" enctype="multiplart/form-data">
           <div class="row">
             <div class="col-lg-12 ml-auto mr-auto col-md-12">
-              <div class="form-group row">
-                <label for="inputVoornaam" class="col-sm-2 col-form-label">Voornaam</label>
+              <div class="row">
+                
+                <label for="name" class="col-sm-2 col-form-label">Naam</label>
                 <div class="col-sm-10">
                   <input
-                    id="inputVoornaam"
+                    id="name"
                     class="big_form"
-                    placeholder="Voornaam..."
-                    v-model="form.firstName"
+                    placeholder="Naam..."
+                    v-model="name"
+                    type="text"
                     style="margin-bottom:2%;"
                   />
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="inputEmail" class="col-sm-2 col-form-label">E-mail</label>
+              <div class="row">
+                <label for="email" class="col-sm-2 col-form-label">E-mail</label>
                 <div class="col-sm-10">
                   <input
-                    id="inputEmail"
+                    id="email"
                     class="big_form"
                     placeholder="E-mail Hier..."
-                    v-model="form.email"
+                    v-model="email"
+                    type="text"
                     style="margin-bottom:2%;"
                   />
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="inputBericht" class="col-sm-2 col-form-label">Bericht</label>
+              <div class="row">
+                <label for="subject" class="col-sm-2 col-form-label">Titel</label>
+                <div class="col-sm-10">
+                  <input
+                    id="subject"
+                    class="big_form"
+                    placeholder="Titel Hier..."
+                    v-model="subject"
+                    type="text"
+                    style="margin-bottom:2%;"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <label for="message" class="col-sm-2 col-form-label">Bericht</label>
                 <div class="col-sm-10">
                   <div class="textarea-container">
                     <textarea
-                      id="inputBericht"
+                      id="message"
                       class="big_form"
                       name="name"
                       rows="4"
                       cols="80"
-                      v-model="form.message"
+                      v-model="message"
+                      type="text"
                       placeholder="Schrijf een bericht..."
                     ></textarea>
                   </div>
                 </div>
               </div>
               <div class="form-check" style="margin-bottom:2%; margin-top:2%">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input type="checkbox" v-model="subscribed" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" style="margin-top: 2px;" for="exampleCheck1">Meld je aan bij onze nieuwsbrief</label>
               </div>
               <button
-                type="submit"
+                :disabled="email.length === 0 || subject.length === 0 || name.length === 0 || message.length === 0"
+                type="button"
                 style="background-color:#CC0029"
                 class="btn btn-danger"
+                @click="createContact()"
               >Stuur bericht</button>
             </div>
           </div>
+          </form>
         </div>
       </div>
 
@@ -70,22 +91,57 @@
 </template>
 
 <script>
-import { Button } from "../../components";
 
 export default {
   name: "ContactUsSection",
-  components: {
-    [Button.name]: Button
-  },
   data() {
     return {
-      form: {
-        firstName: "",
+        name: "",
         email: "",
-        message: ""
-      }
+        subject: "",
+        message: "",
+        subscribed: false
     };
-  }
+  },
+  methods: {
+    async createContact() {
+      const result = await this.$store.dispatch("contact/create", {
+        name: this.name,
+        email: this.email,
+        subject: this.subject,
+        message: this.message,
+        subscribed: this.subscribed
+      });
+
+      if (result !== null) {
+        this.$data.name = "";
+        this.$data.email = "";
+        this.$data.subject = "";
+        this.$data.message = "";
+        this.$data.subscribed = false;
+      }
+    }
+  },
+  computed: {
+    isLoading() {
+      return this.$store.getters["contact/isLoading"];
+    },
+    hasError() {
+      return this.$store.getters["contact/hasError"];
+    },
+    error() {
+      return this.$store.getters["contact/error"];
+    },
+    hasContacts() {
+      return this.$store.getters["contact/hasContacts"];
+    },
+    contacts() {
+      return this.$store.getters["contact/contacts"];
+    },
+  },
+  created() {
+    this.$store.dispatch("contact/findAll");
+  },
 };
 </script>
 

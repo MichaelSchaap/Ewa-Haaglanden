@@ -23,26 +23,46 @@
             class="btn btn-dark"
           >Maak nieuw artikel</button>
         </nav-link>
+        <button 
+        type="button"
+        class="btn btn-info"
+        @click='posts = !posts'> 
+        Show posts only </button>
+        <button 
+        type="button"
+        class="btn btn-info"
+        @click='contacts = !contacts'> 
+        Show e-mails only </button>
       </div>
     </section>
 
-    <DashboardPosts></DashboardPosts>
+    <DashboardPosts
+    v-if='posts'
+    ></DashboardPosts>
+    <DashboardContacts
+    v-if='contacts'
+    ></DashboardContacts>
   </div>
 </template>
 
 <script>
 import DashboardPosts from "../pages/components/DashboardPosts";
+import DashboardContacts from "../pages/components/DashboardContacts";
+
 import { NavLink } from "../components";
 
 export default {
   name: "Dashboard",
   components: {
     DashboardPosts,
+    DashboardContacts,
     NavLink
   },
   data() {
     return {
-      header: "News Dashboard"
+      header: "News Dashboard",
+      posts: true,
+      contacts: false,
     };
   }
 };
