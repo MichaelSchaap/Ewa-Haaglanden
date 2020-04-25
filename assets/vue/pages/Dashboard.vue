@@ -14,7 +14,7 @@
       <div class="container" style>
         <nav-link
           class="nav-link"
-          to="/posts/dashboard/create"
+          to="/admin/dashboard/create"
           v-if='posts'
           style="display:inline; padding-right: 0%; padding-left:0%;"
         >
@@ -26,13 +26,13 @@
         </nav-link>
         <button 
         type="button"
-        class="btn btn-info"
+        :class="{'btn btn-danger': !posts, 'btn btn-success': posts}"
         @click='posts = !posts; contacts = false'> 
         News Dashboard</button>
         <button 
         type="button"
-        class="btn btn-info"
-        @click='contacts = !contacts; posts = false'> 
+        :class="{'btn btn-danger': !contacts, 'btn btn-success': contacts}"
+        @click='contacts = !contacts; posts = false;'> 
         Newsletter Dashboard </button>
       </div>
     </section>
