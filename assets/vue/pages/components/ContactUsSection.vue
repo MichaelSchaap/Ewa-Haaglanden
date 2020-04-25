@@ -1,8 +1,7 @@
 <template>
   <section class="contact" style="padding-bottom:2%;background-color: #f6f6f6;">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="contactIntro text-center">
             <h3 class="title" style="font-size:30px;">Wilt u meer weten over Ewa Haaglanden en de mogelijkheden voor uw organisatie?</h3>
             <p
@@ -52,6 +51,10 @@
                   </div>
                 </div>
               </div>
+              <div class="form-check" style="margin-bottom:2%; margin-top:2%">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" style="margin-top: 2px;" for="exampleCheck1">Meld je aan bij onze nieuwsbrief</label>
+              </div>
               <button
                 type="submit"
                 style="background-color:#CC0029"
@@ -60,28 +63,9 @@
             </div>
           </div>
         </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="subscribeForm">
-          <div class="contactIntro text-center">
-            <h3
-              class="title"
-              style="font-size:30px;"
-            >Altijd op de hoogte blijven van het laatste nieuws?</h3>
-            <p
-              class="description"
-              style="color:black; margin-bottom:2.5%"
-            >Meld je dan aan bij onze nieuwsbrief!</p>
-          </div>
-          <input
-            id="inputEmailSub"
-            class="big_form"
-            placeholder="E-mail Hier..."
-            style="margin-bottom:2%;"
-          />
-          <button type="submit" style="background-color:#CC0029" class="btn btn-danger">Aanmelden</button>
-        </div>
       </div>
-    </div>
+
+     
   </section>
 </template>
 

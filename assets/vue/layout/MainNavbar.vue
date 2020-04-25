@@ -27,8 +27,8 @@
         </nav-link>
       </li>
       <li class="nav-item">
-        <nav-link class="nav-link" to="/informatie">
-          <p>Informatie</p>
+        <nav-link class="nav-link" to="/posts">
+          <p>Nieuws</p>
         </nav-link>
       </li>
       <li class="nav-item">
@@ -37,11 +37,10 @@
         </nav-link>
       </li>
       <li class="nav-item">
-        <nav-link class="nav-link" to="/posts">
-          <p>Nieuws</p>
+        <nav-link class="nav-link" to="/informatie">
+          <p>Informatie</p>
         </nav-link>
       </li>
-
       <li v-if="isAuthenticated" class="nav-item">
         <nav-link class="nav-link" to="/posts/dashboard">
           <p>Dashboard</p>
