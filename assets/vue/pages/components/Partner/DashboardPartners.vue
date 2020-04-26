@@ -38,7 +38,7 @@
                 <button
                   type="button"
                   class="btn btn-danger"
-                  @click.prevent="deletePartner(partner.id)"
+                  @click="deletePartner(partner.id)"
                 >Verwijderen</button>
                 <button
                   style="background-color:black;"
@@ -82,10 +82,12 @@ export default {
     },
 
     deletePartner(partnerId) {
+      let i = this.partners.map(partner => partner.id).indexOf(partnerId)
+      this.partners.splice(i, 1);
       this.$store.dispatch("partner/DELETE_PARTNER", {
         partnerId
       });
-      this.posts.splice(postId, 1);
+
       
     },
     goToPartner(partnerId) {

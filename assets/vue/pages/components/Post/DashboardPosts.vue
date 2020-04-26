@@ -29,7 +29,10 @@
             </div>
 
             <div v-else-if="!hasPosts" class="row" style="margin-left:5%;">No posts!</div>
-            <tr v-for="post in sortFunc()" v-else :key="post.id">
+            <tr v-for="post in sortFunc()" 
+            v-else 
+            :key="post.id"
+            >
               <td>{{post.title}}</td>
               <td>{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
               <td>
@@ -37,12 +40,14 @@
                   type="button"
                   class="btn btn-danger"
                   @click="deletePost(post.id)"
+                  
                 >Verwijderen</button>
                 <button type="button" class="btn btn-info" @click="goToNews(post.id)">Bekijken</button>
                 <button
                   style="background-color:black;"
                   type="button"
                   @click="goToPost(post.id)"
+                  
                   class="btn btn-info"
                 >Verander</button>
               </td>
@@ -80,10 +85,12 @@ export default {
       });
     },
     deletePost(postId) {
+      let i = this.posts.map(post => post.id).indexOf(postId)
+      this.posts.splice(i, 1);
       this.$store.dispatch("post/DELETE_POST", {
         postId
       });
-      this.posts.splice(postId, 1);
+      
       
     },
     goToNews(postId) {
