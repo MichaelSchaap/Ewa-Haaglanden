@@ -10,21 +10,21 @@
       </div>
     </section>
 
-    <DashboardEditPost></DashboardEditPost>
+    <DashboardEditPartner></DashboardEditPartner>
   </div>
 </template>
 
 <script>
-import DashboardEditPost from "../pages/components/Post/DashboardEditPost";
+import DashboardEditPartner from "../pages/components/Partner/DashboardEditPartner";
 
 export default {
-  name: "DashboardEdit",
+  name: "DashboardEditPartners",
   components: {
-    DashboardEditPost
+    DashboardEditPartner
   },
   data() {
     return {
-      header: "Verander artikel"
+      header: "Verander partner"
     };
   }
 };

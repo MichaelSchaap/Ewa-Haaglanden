@@ -9,7 +9,8 @@ import PostDetails from './pages/PostDetails.vue';
 import Dashboard from './pages/Dashboard.vue';
 import DashboardCreationPost from './pages/DashboardCreationPost.vue';
 import DashboardCreationPartner from './pages/DashboardCreationPartner.vue';
-import DashboardEdit from './pages/DashboardEdit.vue';
+import DashboardEditPosts from './pages/DashboardEditPosts.vue';
+import DashboardEditPartners from './pages/DashboardEditPartners.vue';
 import Login from './pages/Login.vue';
 import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
@@ -98,8 +99,18 @@ let router = new VueRouter({
     },
     {
       path: '/admin/dashboard/post/edit/:Pid',
-      name: 'DashboardEdit',
-      components: { default: DashboardEdit, header: MainNavbar, footer: MainFooter },
+      name: 'DashboardEditPosts',
+      components: { default: DashboardEditPosts, header: MainNavbar, footer: MainFooter },
+      props: {
+        default: true,
+        header: { colorOnScroll: 0 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/admin/dashboard/partner/edit/:Pid',
+      name: 'DashboardEditPartners',
+      components: { default: DashboardEditPartners, header: MainNavbar, footer: MainFooter },
       props: {
         default: true,
         header: { colorOnScroll: 0 },

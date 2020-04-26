@@ -14,6 +14,7 @@
               <th>Naam</th>
               <th>Website</th>
               <th>Date created</th>
+              <th>Acties</th>
             </tr>
           </thead>
           <tbody>
@@ -33,6 +34,19 @@
               <td>{{partner.name}}</td>
               <td>{{partner.website}}</td>
               <td>{{partner.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  @click.prevent="deletePartner(partner.id)"
+                >Verwijderen</button>
+                <button
+                  style="background-color:black;"
+                  type="button"
+                  @click="goToPartner(partner.id)"
+                  class="btn btn-info"
+                >Verander</button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -54,8 +68,10 @@ export default {
   },
   data() {
     return {
+      id: "",
       name: "",
       website: "",
+      img: "",
     };
   },
   methods: {
@@ -64,6 +80,17 @@ export default {
         return a.created < b.created ? 1 : -1;
       });
     },
+
+    deletePartner(partnerId) {
+      this.$store.dispatch("partner/DELETE_PARTNER", {
+        partnerId
+      });
+      this.posts.splice(postId, 1);
+      
+    },
+    goToPartner(partnerId) {
+      this.$router.push({ name: "DashboardEditPartners", params: { Pid: partnerId } });
+    }
 
   },
   computed: {

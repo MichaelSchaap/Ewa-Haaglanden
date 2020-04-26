@@ -21,8 +21,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 use Symfony\Component\Filesystem\Filesystem;
 
-use Vich\UploaderBundle\Form\Type\VichImageType;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 
 /**
@@ -117,13 +116,6 @@ final class PostController extends AbstractController
      */
     public function delete(Request $request, $id): JsonResponse
     {
-        // $em = $this->getDoctrine()->getManager();
-
-        // $qb = $em->createQueryBuilder()
-        // ->delete(Post::class, 'post')
-        // ->where('post.id = :id')
-        // ->setParameter('id', $id, 'uuid');
-        // $qb->getQuery()->execute();
 
         $em = $this->getDoctrine()->getManager();
         $post = $em->getRepository(Post::class)->find($id);
@@ -176,7 +168,7 @@ final class PostController extends AbstractController
             if ($post) {
                 define('UPLOAD_DIR', 'images/news/');
                 $newImg = str_replace('data:image/jpeg;base64,', '', $newImg);
-                $img = str_replace('data:image/png;base64,', '', $img);
+                $newImg = str_replace('data:image/png;base64,', '', $img);
                 $newImg = str_replace(' ', '+', $newImg);
                 $data = base64_decode($newImg);
                 $file = uniqid() . '.jpeg';

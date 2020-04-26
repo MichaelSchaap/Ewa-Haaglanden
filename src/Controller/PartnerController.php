@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Filesystem\Filesystem;
 
 
 
@@ -107,5 +108,80 @@ final class PartnerController extends AbstractController
        return new JsonResponse($data, Response::HTTP_OK, [], true);
    }
 
+   /**
+    * @Rest\Post("/admin/dashboard/partner/delete/{id}", name="deletePartner", methods={"DELETE"})
+     */
+    public function delete(Request $request, $id): JsonResponse
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $partner = $em->getRepository(Partner::class)->find($id);
+        
+        $filename = $partner->getImg();
+
+        $filesystem = new Filesystem();
+        $filesystem->remove('images/logo/'.$filename);
+        
+
+        $em->remove($partner);
+        $em->flush();
+
+        $data = $this->serializer->serialize($partner, JsonEncoder::FORMAT);
+
+        return new JsonResponse($data, Response::HTTP_OK, [], true);
+    }
+
+
+    /**
+     * @throws BadRequestHttpException
+     *
+     * @REST\RequestParam(name="name", description="partner name", nullable=true)
+     * @REST\RequestParam(name="website", description="partner website", nullable=true)
+     * @REST\RequestParam(name="img", description="partner logo", nullable=true)
+     * @Rest\Post("/admin/dashboard/partner/edit/{id}", name="editPartner", methods={"GET","PATCH"})
+     */
+    public function edit(ParamFetcher $paramFetcher, $id): JsonResponse
+    {
+        $em = $this->getDoctrine()->getManager();
+        $partner = $em->getRepository(Partner::class)->find($id);
+
+        $newName = $paramFetcher->get('name');
+        $newWebsite = $paramFetcher->get('website');
+        $newImg = $paramFetcher->get('img');
+
+        if (trim($newName) !== '') {
+            if ($partner) {
+                $partner->setName($newName); 
+            }
+        }
+
+        if (trim($newWebsite) !== '') {
+            if ($partner) {
+                $partner->setWebsite($newWebsite); 
+            }
+        }
+
+        if (trim($newImg) !== '') {
+            if ($partner) {
+                define('UPLOAD_DIR', 'images/logo/');
+                $newImg = str_replace('data:image/jpeg;base64,', '', $newImg);
+                $newImg = str_replace('data:image/png;base64,', '', $img);
+                $newImg = str_replace(' ', '+', $newImg);
+                $data = base64_decode($newImg);
+                $file = uniqid() . '.jpeg';
+                $read = UPLOAD_DIR . $file;
+                $success = file_put_contents($read, $data);
+                $partner->setImg($file);
+            }
+        }
+
+        $this->em->persist($partner);
+        $this->em->flush();
+
+        $data = $this->serializer->serialize($partner, JsonEncoder::FORMAT);
+        
+        return new JsonResponse($data, Response::HTTP_CREATED, [], true);
+    
+    }
    
 }

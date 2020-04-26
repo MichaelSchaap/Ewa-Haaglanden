@@ -44,6 +44,15 @@
                     />
                     <img :src="img" alt="Afbeelding voorbeeld" style="width:150px; height:auto;" />
                   </div>
+                  <div class="col-6">
+                  <button
+                    type="button"
+                    style="background-color:#CC0029"
+                    class="btn btn-primary btn-lg btn-round btn-block"
+                    @click="goBack()"
+                  >Terug</button>
+                  </div>
+                  <div class="col-6">
                   <button
                     :disabled="title.length === 0 || content.length === 0 || isLoading"
                     type="button"
@@ -51,6 +60,7 @@
                     class="btn btn-primary btn-lg btn-round btn-block"
                     @click="createPost()"
                   >Aanmaken</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -110,7 +120,11 @@ export default {
         this.$data.img = null;
       }
       
-      this.$router.push({ path: "/admin/dashboard" });
+      
+    },
+
+    goBack() {
+        this.$router.push({ path: "/admin/dashboard" });
     },
 
     onFileSelected(event) {

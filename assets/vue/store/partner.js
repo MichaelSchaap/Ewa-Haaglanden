@@ -5,7 +5,9 @@ const CREATING_PARTNER = "CREATING_PARTNER",
   CREATING_PARTNER_ERROR = "CREATING_PARTNER_ERROR",
   FETCHING_PARTNERS = "FETCHING_PARTNERS",
   FETCHING_PARTNERS_SUCCESS = "FETCHING_PARTNERS_SUCCESS",
-  FETCHING_PARTNERS_ERROR = "FETCHING_PARTNERS_ERROR";
+  FETCHING_PARTNERS_ERROR = "FETCHING_PARTNERS_ERROR",
+  REMOVE_PARTNER = "REMOVE_PARTNER",
+  UPDATE_PARTNER = "UPDATE_PARTNER";
 
 
 export default {
@@ -62,11 +64,25 @@ export default {
       state.error = error;
       state.partners = [];
     },
+    [REMOVE_PARTNER](state, { partnerId, }) {
+        state.isLoading = true;
+        let partners = state.partners.find(partner => partner.id === partnerId).partners;
+  
+        let rs = partners.filter(currentPartner => {
+          return currentPartner.id !== partnerId;
+        })
+  
+        state.partners.find(partner => partner.id === partnerId).partners = [...rs];
+      },
+      [UPDATE_PARTNER](state, {partnerId, name, website, img}) {
+        if (partnerId && name && website && img) {
+          state.partners.find(partner => partner.id === partnerId).name = name;
+          state.partners.find(partner => partner.id === partnerId).website = website;
+          state.partners.find(partner => partner.id === partnerId).img = img;
+        }
+      }
     
-    // [DELETING_POST](state, id){
-    //   let idx = state.posts.indexOf(id)
-    //   state.posts.splice(idx,1)
-    //  }
+
   },
   actions: {
     async create({ commit }, payload) {
@@ -91,6 +107,40 @@ export default {
         return null;
       }
     },
+
+    async DELETE_PARTNER({ commit }, { partnerId }) {
+        return new Promise((resolve, reject) => {
+            PartnerAPI.delete(partnerId)
+            .then(({ status }) => {
+              if (status === 204) {
+                commit(REMOVE_PARTNER, {
+                    partnerId
+                })
+                resolve(status);
+              }
+            })
+            .catch(error => {
+              reject(error);
+            })
+        })
+      },
+
+      edit({ commit }, { partnerId, name, website, img }) {
+        return new Promise(async (resolve, reject) => {
+          let {data, status} = await PartnerAPI.edit(partnerId, name, website, img)
+          if (status === 204 || status === 200) {
+            commit(UPDATE_PARTNER, {
+              partnerId,
+              name,
+              website,
+              img
+            });
+            resolve({data, status});
+          } else {
+            reject({data, status});
+          }
+        })
+      },
     
   }
 };

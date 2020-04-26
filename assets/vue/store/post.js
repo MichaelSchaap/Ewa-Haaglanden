@@ -81,10 +81,7 @@ export default {
         state.posts.find(post => post.id === postId).img = img;
       }
     }
-    // [DELETING_POST](state, id){
-    //   let idx = state.posts.indexOf(id)
-    //   state.posts.splice(idx,1)
-    //  }
+
   },
   actions: {
     async create({ commit }, payload) {

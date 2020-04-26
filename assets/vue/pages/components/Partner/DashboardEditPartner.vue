@@ -1,5 +1,5 @@
 <template>
-  <section v-if="canCreatePost" class="EditPost">
+  <section class="EditPartner">
     <div class="container h-100" style>
       <div class="row h-100 justify-content-center align-items-center">
         <div style>
@@ -11,7 +11,7 @@
                     <input
                       class="form-control"
                       id="title"
-                      v-model="newTitle"
+                      v-model="newName"
                       type="text"
                       placeholder="Titel"
                       style="margin-bottom:2%;"
@@ -24,7 +24,7 @@
                         id="content"
                         rows="4"
                         cols="80"
-                        v-model="newContent"
+                        v-model="newWebsite"
                         type="text"
                         placeholder="Vul in de inhoud van de artikel"
                         style="margin-bottom:2%;"
@@ -58,7 +58,7 @@
                     type="button"
                     style="background-color:#CC0029"
                     class="btn btn-primary btn-lg btn-round btn-block"
-                    @click="editPost()"
+                    @click="editPartner()"
                   >Veranderen</button>
                   </div>
                 </div>
@@ -75,43 +75,40 @@
 
 <script>
 export default {
-  name: "DashboardEditPost",
+  name: "DashboardEditPartner",
   data() {
     return {
-      newTitle: "",
-      newContent: "",
+      newName: "",
+      newWebsite: "",
       newImg: ""
     };
   },
   computed: {
     isLoading() {
-      return this.$store.getters["post/isLoading"];
+      return this.$store.getters["partner/isLoading"];
     },
     hasError() {
-      return this.$store.getters["post/hasError"];
+      return this.$store.getters["partner/hasError"];
     },
     error() {
-      return this.$store.getters["post/error"];
+      return this.$store.getters["partner/error"];
     },
-    hasPosts() {
-      return this.$store.getters["post/hasPosts"];
+    hasPartners() {
+      return this.$store.getters["partner/hasPartners"];
     },
-    posts() {
-      return this.$store.getters["post/posts"];
-    },
-    canCreatePost() {
-      return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
+    partners() {
+      return this.$store.getters["partner/partners"];
     }
   },
   created() {
-    this.$store.dispatch("post/findAll");
+    this.$store.dispatch("partner/findAll");
   },
   methods: {
-    async editPost() {
-      this.$store.dispatch("post/edit", {
-        postId: this.$route.params.Pid,
-        title: this.newTitle,
-        content: this.newContent,
+    async editPartner() {
+      this.$store.dispatch("partner/edit", {
+        partnerId: this.$route.params.Pid,
+        name: this.newName,
+        website: this.newWebsite,
         img: this.newImg
       })
       .catch(error => {
