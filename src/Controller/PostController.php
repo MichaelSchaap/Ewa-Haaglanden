@@ -43,7 +43,7 @@ final class PostController extends AbstractController
     /**
      * @throws BadRequestHttpException
      *
-     * @Rest\Post("/admin/dashboard/create", name="createPost", methods={"GET","POST"})
+     * @Rest\Post("/admin/dashboard/post/create", name="createPost", methods={"GET","POST"})
      */
     public function createAction(Request $request): JsonResponse
     {
@@ -74,6 +74,7 @@ final class PostController extends AbstractController
         $post->setImg($img);
         $img = $post->getImg($img);
         $img = str_replace('data:image/jpeg;base64,', '', $img);
+        $img = str_replace('data:image/png;base64,', '', $img);
         $img = str_replace(' ', '+', $img);
         $data = base64_decode($img);
         $file = uniqid() . '.jpeg';
@@ -112,7 +113,7 @@ final class PostController extends AbstractController
     }
 
     /**
-    * @Rest\Post("/admin/dashboard/delete/{id}", name="deletePost", methods={"DELETE"})
+    * @Rest\Post("/admin/dashboard/post/delete/{id}", name="deletePost", methods={"DELETE"})
      */
     public function delete(Request $request, $id): JsonResponse
     {
@@ -148,7 +149,7 @@ final class PostController extends AbstractController
      * @REST\RequestParam(name="title", description="news title", nullable=true)
      * @REST\RequestParam(name="content", description="news content", nullable=true)
      * @REST\RequestParam(name="img", description="news photo", nullable=true)
-     * @Rest\Post("/admin/dashboard/edit/{id}", name="editPost", methods={"GET","PATCH"})
+     * @Rest\Post("/admin/dashboard/post/edit/{id}", name="editPost", methods={"GET","PATCH"})
      */
     public function edit(ParamFetcher $paramFetcher, $id): JsonResponse
     {
@@ -175,6 +176,7 @@ final class PostController extends AbstractController
             if ($post) {
                 define('UPLOAD_DIR', 'images/news/');
                 $newImg = str_replace('data:image/jpeg;base64,', '', $newImg);
+                $img = str_replace('data:image/png;base64,', '', $img);
                 $newImg = str_replace(' ', '+', $newImg);
                 $data = base64_decode($newImg);
                 $file = uniqid() . '.jpeg';

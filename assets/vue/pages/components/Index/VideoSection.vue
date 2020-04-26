@@ -26,6 +26,6 @@ body {
   margin: 0 !important;
 }
 
-@import "../../assets/scss/now-ui-kit/mixins.scss";
+@import "../../../assets/scss/now-ui-kit/mixins.scss";
 </style>
 

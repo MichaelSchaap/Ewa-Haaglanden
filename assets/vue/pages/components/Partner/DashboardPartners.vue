@@ -1,5 +1,5 @@
 <template>
-  <section class="allContacts">
+  <section class="allPartners">
     <div class="container">
       <div class="row">
 
@@ -12,8 +12,8 @@
           <thead class="thead-dark">
             <tr>
               <th>Naam</th>
-              <th>E-mail</th>
-              <th>Created</th>
+              <th>Website</th>
+              <th>Date created</th>
             </tr>
           </thead>
           <tbody>
@@ -28,11 +28,11 @@
               </div>
             </div>
 
-            <div v-else-if="!hasContacts" class="row" style="margin-left:5%;">No emails!</div>
-            <tr v-for="contact in sortFunc()" v-else :key="contact.id">
-              <td>{{contact.name}}</td>
-              <td>{{contact.email}}</td>
-              <td>{{contact.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
+            <div v-else-if="!hasPartners" class="row" style="margin-left:5%;">No partners!</div>
+            <tr v-for="partner in sortFunc()" v-else :key="partner.id">
+              <td>{{partner.name}}</td>
+              <td>{{partner.website}}</td>
+              <td>{{partner.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
             </tr>
           </tbody>
         </table>
@@ -45,23 +45,22 @@
 </template>
 
 <script>
-import ErrorMessage from "../../pages/components/ErrorMessage";
+import ErrorMessage from "../../../pages/components/ErrorMessage";
 
 export default {
-  name: "DashboardContacts",
+  name: "DashboardPartners",
   components: {
     ErrorMessage
   },
   data() {
     return {
       name: "",
-      email: "",
-      message: "",
+      website: "",
     };
   },
   methods: {
     sortFunc: function() {
-      return this.contacts.slice().sort(function(a, b) {
+      return this.partners.slice().sort(function(a, b) {
         return a.created < b.created ? 1 : -1;
       });
     },
@@ -69,23 +68,23 @@ export default {
   },
   computed: {
     isLoading() {
-      return this.$store.getters["contact/isLoading"];
+      return this.$store.getters["partner/isLoading"];
     },
     hasError() {
-      return this.$store.getters["contact/hasError"];
+      return this.$store.getters["partner/hasError"];
     },
     error() {
-      return this.$store.getters["contact/error"];
+      return this.$store.getters["partner/error"];
     },
-    hasContacts() {
-      return this.$store.getters["contact/hasContacts"];
+    hasPartners() {
+      return this.$store.getters["partner/hasPartners"];
     },
-    contacts() {
-      return this.$store.getters["contact/contacts"];
+    partners() {
+      return this.$store.getters["partner/partners"];
     },
   },
   created() {
-    this.$store.dispatch("contact/findAll");
+    this.$store.dispatch("partner/findAll");
   }
 };
 </script>

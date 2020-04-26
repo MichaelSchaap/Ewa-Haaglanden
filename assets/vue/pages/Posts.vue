@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Post from "../pages/components/Post";
+import Post from "../pages/components/Post/Post";
 import ErrorMessage from "../pages/components/ErrorMessage";
 
 export default {

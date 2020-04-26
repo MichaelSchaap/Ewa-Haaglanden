@@ -1,5 +1,5 @@
 <template>
-  <section v-if="canCreatePost" class="createPost">
+  <section class="createPartner">
     <div class="container h-100" style>
       <div class="row h-100 justify-content-center align-items-center">
         <div style>
@@ -11,25 +11,21 @@
                     <input
                       class="form-control"
                       id="title"
-                      v-model="title"
+                      v-model="name"
                       type="text"
-                      placeholder="Titel"
+                      placeholder="Naam"
                       style="margin-bottom:2%;"
                     />
                   </div>
                   <div class="col-6">
-                    <span style="white-space: pre;">
-                      <textarea
-                        class="form-control"
-                        id="content"
-                        rows="4"
-                        cols="80"
-                        v-model="content"
-                        type="text"
-                        placeholder="Vul in de inhoud van de artikel"
-                        style="margin-bottom:2%;"
-                      ></textarea>
-                    </span>
+                    <input
+                      class="form-control"
+                      id="title"
+                      v-model="website"
+                      type="text"
+                      placeholder="Website"
+                      style="margin-bottom:2%;"
+                    />
                   </div>
                   <div class="col-6">
                     <input
@@ -44,13 +40,23 @@
                     />
                     <img :src="img" alt="Afbeelding voorbeeld" style="width:150px; height:auto;" />
                   </div>
+                  <div class="col-6">
                   <button
-                    :disabled="title.length === 0 || content.length === 0 || isLoading"
                     type="button"
                     style="background-color:#CC0029"
                     class="btn btn-primary btn-lg btn-round btn-block"
-                    @click="createPost()"
+                    @click="goBack()"
+                  >Terug</button>
+                  </div>
+                  <div class="col-6">
+                  <button
+                    :disabled="name.length === 0 || website.length === 0 || isLoading"
+                    type="button"
+                    style="background-color:#CC0029"
+                    class="btn btn-primary btn-lg btn-round btn-block"
+                    @click="createPartner()"
                   >Aanmaken</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -65,52 +71,52 @@
 
 <script>
 export default {
-  name: "DashboardCreatePost",
+  name: "DashboardCreatePartner",
   data() {
     return {
-      title: "",
-      content: "",
+      name: "",
+      website: "",
       img: null
     };
   },
   computed: {
     isLoading() {
-      return this.$store.getters["post/isLoading"];
+      return this.$store.getters["partner/isLoading"];
     },
     hasError() {
-      return this.$store.getters["post/hasError"];
+      return this.$store.getters["partner/hasError"];
     },
     error() {
-      return this.$store.getters["post/error"];
+      return this.$store.getters["partner/error"];
     },
-    hasPosts() {
-      return this.$store.getters["post/hasPosts"];
+    hasPartners() {
+      return this.$store.getters["partner/hasPartners"];
     },
-    posts() {
-      return this.$store.getters["post/posts"];
-    },
-    canCreatePost() {
-      return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
+    partners() {
+      return this.$store.getters["partner/partners"];
     }
   },
   created() {
-    this.$store.dispatch("post/findAll");
+    this.$store.dispatch("partner/findAll");
   },
   methods: {
-    async createPost() {
-      const result = await this.$store.dispatch("post/create", {
-        title: this.title,
-        content: this.content,
+    async createPartner() {
+      const result = await this.$store.dispatch("partner/create", {
+        name: this.name,
+        website: this.website,
         img: this.img
       });
 
       if (result !== null) {
-        this.$data.title = "";
-        this.$data.content = "";
+        this.$data.name = "";
+        this.$data.website = "";
         this.$data.img = null;
       }
       
-      this.$router.push({ path: "/posts/dashboard" });
+    },
+
+    goBack() {
+        this.$router.push({ path: "/admin/dashboard" });
     },
 
     onFileSelected(event) {

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import NewsPagePost from "../pages/components/NewsPagePost";
+import NewsPagePost from "../pages/components/Post/NewsPagePost";
 import ErrorMessage from "../pages/components/ErrorMessage";
 
 export default {

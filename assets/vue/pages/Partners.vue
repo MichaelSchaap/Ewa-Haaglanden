@@ -9,43 +9,37 @@
         </div>
       </div>
     </section>
+
     <div class="container">
       <div class="row">
-        <div
-          v-for="partner in randomList(partners)"
-          :key="partner.id"
-          class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
-        >
-          <div class="card" style="
-        margin-right:6%; 
-        margin-bottom:5%
-        border:0px;; 
-        ">
-            <img
-              style="
-            width:  auto;
-            height: 50px;
-            background-size: cover;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top:10%;
-            "
-              :src="require(`../../../public/images/logo/${partner.img}`)"
-              alt="Partner logo"
-            />
-            <div class="card-body">
-              <h5
-                class="card-title"
-                style="text-size:20px;font-weight:bold;text-align:center;"
-              >{{ partner.name }}</h5>
-              <a
-                :href="partner.website"
-                target="_blank"
-                style="cursor:pointer;text-size:6px;display:inline-block;!text-align:center;"
-              >{{ partner.name + "'s" + " " + "website..." }}</a>
+
+          <div v-if="isLoading" class="container">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
             </div>
           </div>
+
+          <div v-else-if="hasError" class="row">
+            <div class="alert alert-danger" role="alert">
+              <error-message :error="error" />
+            </div>
+          </div>
+
+          <div v-else-if="!hasPartners" class="row" style="margin-left:5%;">No partners!</div>
+
+          <div
+            v-for="partner in partners"
+            v-else
+            :key="partner.id"
+            class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
+          >
+
+           <partner
+            :name="partner.name"
+            :website="partner.website"
+            :img="partner.img"
+          />
+            
         </div>
       </div>
     </div>
@@ -53,213 +47,43 @@
 </template>
 
 <script>
+import ErrorMessage from "../pages/components/ErrorMessage";
+import Partner from "../pages/components/Partner/Partner";
+
 export default {
   name: "Partners",
-  methods: {
-    randomList: function(rand) {
-      return rand.sort(function() {
-        return 0.5 - Math.random();
-      });
-    }
+  components: {
+    ErrorMessage,
+    Partner,
   },
+
   data: function() {
     return {
       header: "PARTNERS.",
-      partners: [
-        {
-          id: 1,
-          name: "ROC Mondriaan",
-          website: "https://rocmondriaan.nl/",
-          img: "1.png"
-        },
-        {
-          id: 2,
-          name: "Florein",
-          website: "https://www.florein.nl/",
-          img: "2.png"
-        },
-        {
-          id: 3,
-          name: "Hanos",
-          website: "https://www.hanos.nl/",
-          img: "3.png"
-        },
-        {
-          id: 4,
-          name: "Rabobank Den Haag",
-          website: "https://www.rabobank.nl/lokale-bank/regio-den-haag/",
-          img: "4.png"
-        },
-        {
-          id: 5,
-          name: "Rietbroek",
-          website: "https://www.rietbroek.nl/",
-          img: "5.png"
-        },
-        {
-          id: 6,
-          name: "Gemeente Den Haag",
-          website: "https://www.denhaag.nl/nl.htm",
-          img: "6.png"
-        },
-        {
-          id: 7,
-          name: "Gemeente Delft",
-          website: "https://www.delft.nl/",
-          img: "7.png"
-        },
-        {
-          id: 8,
-          name: "Gemeente Rijswijk",
-          website: "https://www.rijswijk.nl/",
-          img: "8.png"
-        },
-        {
-          id: 9,
-          name: "Gemeente Westland",
-          website: "https://www.gemeentewestland.nl/",
-          img: "9.png"
-        },
-        {
-          id: 10,
-          name: "UWV ",
-          website: "https://www.uwv.nl/zakelijk/index.aspx",
-          img: "10.png"
-        },
-        {
-          id: 11,
-          name: "Patijnenburg",
-          website: "https://www.patijnenburg.nl/",
-          img: "11.png"
-        },
-        {
-          id: 12,
-          name: "Werkse!",
-          website: "https://www.werkse.nl/",
-          img: "12.png"
-        },
-        {
-          id: 13,
-          name: "WSP Haaglanden",
-          website: "https://wsphaaglanden.nl/",
-          img: "13.png"
-        },
-        {
-          id: 14,
-          name: "WSP Rijswijk",
-          website: "https://www.wsprijswijk.nl/",
-          img: "14.png"
-        },
-        {
-          id: 15,
-          name: "Fonds 1818",
-          website: "https://www.fonds1818.nl/",
-          img: "15.png"
-        },
-        {
-          id: 16,
-          name: "Leger des Heils",
-          website: "https://www.legerdesheils.nl/",
-          img: "16.png"
-        },
-        {
-          id: 17,
-          name: "LerenDoen",
-          website: "https://lerendoen.org/",
-          img: "17.png"
-        },
-        {
-          id: 18,
-          name: "Menskracht7",
-          website: "https://www.menskracht7.nl/",
-          img: "18.png"
-        },
-        {
-          id: 19,
-          name: "Energieacademie",
-          website: "http://www.haagseenergieacademie.nl/",
-          img: "19.png"
-        },
-        {
-          id: 20,
-          name: "Schroeder van der Kolk",
-          website: "https://www.schroeder.nl/",
-          img: "20.png"
-        },
-        {
-          id: 21,
-          name: "Randstad participatie",
-          website: "https://www.randstad.nl/werknemers/diensten/participatie",
-          img: "21.png"
-        },
-        {
-          id: 22,
-          name: "Opwerk",
-          website: "https://www.opwerk-intermediair.nl/",
-          img: "22.png"
-        },
-        {
-          id: 23,
-          name: "Juliana Plaza",
-          website: "http://www.julianaplaza.nl/",
-          img: "23.png"
-        },
-        {
-          id: 24,
-          name: "mboRijnland",
-          website: "https://mborijnland.nl/",
-          img: "24.png"
-        },
-        {
-          id: 25,
-          name: "Scholengroep Johan de Witt",
-          website: "https://www.johandewittscholengroep.nl/",
-          img: "25.png"
-        },
-        {
-          id: 26,
-          name: "De Einder",
-          website: "https://www.de-einder.nl/",
-          img: "26.png"
-        },
-        {
-          id: 27,
-          name: "De Poort",
-          website: "https://www.prodepoort.nl/",
-          img: "27.png"
-        },
-        {
-          id: 28,
-          name: "Hofstede College",
-          website: "https://hofstedecollege.nl/ons-college/examens-mbo/",
-          img: "28.png"
-        },
-        {
-          id: 29,
-          name: "Esloo College",
-          website: "https://www.esloocollege.nl/",
-          img: "29.png"
-        },
-        {
-          id: 30,
-          name: "Stanislas College",
-          website: "https://www.stanislascollege.nl/",
-          img: "30.png"
-        },
-        {
-          id: 31,
-          name: "Grotius College",
-          website: "https://www.grotiuscollege.nl/",
-          img: "31.png"
-        },
-        {
-          id: 32,
-          name: "Sbb",
-          website: "https://www.s-bb.nl/",
-          img: "32.png"
-        }
-      ]
+      name: "",
+      website: "",
+      img: ""
     };
+  },
+  computed: {
+    isLoading() {
+      return this.$store.getters["partner/isLoading"];
+    },
+    hasError() {
+      return this.$store.getters["partner/hasError"];
+    },
+    error() {
+      return this.$store.getters["partner/error"];
+    },
+    hasPartners() {
+      return this.$store.getters["partner/hasPartners"];
+    },
+    partners() {
+      return this.$store.getters["partner/partners"];
+    }
+  },
+  created() {
+    this.$store.dispatch("partner/findAll");
   }
 };
 </script>

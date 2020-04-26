@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import DashboardCreatePost from "../pages/components/DashboardCreatePost";
+import DashboardCreatePost from "../pages/components/Post/DashboardCreatePost";
 
 export default {
-  name: "DashboardCreate",
+  name: "DashboardCreationPost",
   components: {
     DashboardCreatePost
   },

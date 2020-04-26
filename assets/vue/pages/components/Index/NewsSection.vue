@@ -18,7 +18,7 @@
         >
           <img
             class="card-img"
-            :src="require(`../../../../public/images/news/${post.img}`)"
+            :src="require(`../../../../../public/images/news/${post.img}`)"
             height="251px"
             width="190px"
             style="cursor:pointer"
@@ -101,5 +101,5 @@ body {
   opacity: 0.6;
 }
 
-@import "../../assets/scss/now-ui-kit/mixins.scss";
+@import "../../../assets/scss/now-ui-kit/mixins.scss";
 </style>

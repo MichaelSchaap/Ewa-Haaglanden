@@ -7,7 +7,8 @@ import Partners from './pages/Partners.vue';
 import Posts from './pages/Posts.vue';
 import PostDetails from './pages/PostDetails.vue';
 import Dashboard from './pages/Dashboard.vue';
-import DashboardCreate from './pages/DashboardCreate.vue';
+import DashboardCreationPost from './pages/DashboardCreationPost.vue';
+import DashboardCreationPartner from './pages/DashboardCreationPartner.vue';
 import DashboardEdit from './pages/DashboardEdit.vue';
 import Login from './pages/Login.vue';
 import MainNavbar from './layout/MainNavbar.vue';
@@ -78,16 +79,25 @@ let router = new VueRouter({
       }
     },
     {
-      path: '/admin/dashboard/create',
-      name: 'DashboardCreate',
-      components: { default: DashboardCreate, header: MainNavbar, footer: MainFooter },
+      path: '/admin/dashboard/post/create',
+      name: 'DashboardCreationPost',
+      components: { default: DashboardCreationPost, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }
       }
     },
     {
-      path: '/admin/dashboard/edit/:Pid',
+      path: '/admin/dashboard/partner/create',
+      name: 'DashboardCreationPartner',
+      components: { default: DashboardCreationPartner, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 0 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/admin/dashboard/post/edit/:Pid',
       name: 'DashboardEdit',
       components: { default: DashboardEdit, header: MainNavbar, footer: MainFooter },
       props: {

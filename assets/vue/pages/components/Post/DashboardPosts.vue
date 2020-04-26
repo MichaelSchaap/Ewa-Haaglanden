@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import ErrorMessage from "../../pages/components/ErrorMessage";
+import ErrorMessage from "../../../pages/components/ErrorMessage";
 
 export default {
   name: "DashboardPosts",

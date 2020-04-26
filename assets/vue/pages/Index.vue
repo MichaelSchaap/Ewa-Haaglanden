@@ -26,15 +26,14 @@
     <VideoSection></VideoSection>
     <NewsSection></NewsSection>
     <ContactUsSection></ContactUsSection>
-    <!-- <HomeContactSection></HomeContactSection> -->
     <PartnerSection></PartnerSection>
   </div>
 </template>
 <script>
-import VideoSection from "../pages/components/VideoSection";
-import PartnerSection from "../pages/components/PartnerSection";
-import NewsSection from "../pages/components/NewsSection";
-import ContactUsSection from "../pages/components/ContactUsSection";
+import VideoSection from "../pages/components/Index/VideoSection";
+import PartnerSection from "../pages/components/Index/PartnerSection";
+import NewsSection from "../pages/components/Index/NewsSection";
+import ContactUsSection from "../pages/components/Index/ContactUsSection";
 
 export default {
   name: "index",

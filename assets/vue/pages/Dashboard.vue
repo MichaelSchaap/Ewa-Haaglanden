@@ -14,7 +14,7 @@
       <div class="container" style>
         <nav-link
           class="nav-link"
-          to="/admin/dashboard/create"
+          to="/admin/dashboard/post/create"
           v-if='posts'
           style="display:inline; padding-right: 0%; padding-left:0%;"
         >
@@ -24,31 +24,55 @@
             class="btn btn-dark"
           >Create news article</button>
         </nav-link>
+        <nav-link
+          class="nav-link"
+          to="/admin/dashboard/partner/create"
+          v-if='partners'
+          style="display:inline; padding-right: 0%; padding-left:0%;"
+        >
+          <button
+            style="background-color:black;"
+            type="button"
+            class="btn btn-dark"
+          >Create partner</button>
+        </nav-link>
         <button 
         type="button"
         :class="{'btn btn-danger': !posts, 'btn btn-success': posts}"
-        @click='posts = !posts; contacts = false'> 
+        @click='posts = !posts; contacts = false; partners = false;'> 
         News Dashboard</button>
         <button 
         type="button"
         :class="{'btn btn-danger': !contacts, 'btn btn-success': contacts}"
-        @click='contacts = !contacts; posts = false;'> 
+        @click='contacts = !contacts; posts = false; partners = false;'> 
         Newsletter Dashboard </button>
+        <button 
+        type="button"
+        :class="{'btn btn-danger': !partners, 'btn btn-success': partners}"
+        @click='partners = !partners; posts = false; contacts = false;'> 
+        Partner Dashboard </button>
       </div>
     </section>
 
     <DashboardPosts
     v-if='posts'
     ></DashboardPosts>
+
     <DashboardContacts
     v-if='contacts'
     ></DashboardContacts>
+
+    <DashboardPartners
+    v-if='partners'
+    ></DashboardPartners>
+
   </div>
 </template>
 
 <script>
-import DashboardPosts from "../pages/components/DashboardPosts";
-import DashboardContacts from "../pages/components/DashboardContacts";
+import DashboardPosts from "../pages/components/Post/DashboardPosts";
+import DashboardContacts from "../pages/components/Contact/DashboardContacts";
+import DashboardPartners from "../pages/components/Partner/DashboardPartners";
 
 import { NavLink } from "../components";
 
@@ -57,6 +81,7 @@ export default {
   components: {
     DashboardPosts,
     DashboardContacts,
+    DashboardPartners,
     NavLink
   },
   data() {
@@ -64,6 +89,7 @@ export default {
       header: "Admin Dashboard",
       posts: false,
       contacts: false,
+      partners: false,
     };
   }
 };

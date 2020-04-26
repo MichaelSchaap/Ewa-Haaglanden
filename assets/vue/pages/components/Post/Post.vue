@@ -3,7 +3,7 @@
     <img
       class="card-img-top"
       style="width:100%;height:auto;cursor:pointer;"
-      :src="require(`../../../../public/images/news/${img}`)"
+      :src="require(`../../../../../public/images/news/${img}`)"
       alt="Niews foto"
     />
     <div class="card-body">
