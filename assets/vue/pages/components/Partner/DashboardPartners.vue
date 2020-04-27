@@ -2,24 +2,26 @@
   <section class="allPartners">
     <div class="container">
       <div class="row">
-
         <div style="display:block; margin-left:2%;margin-top: 5%">
-        <button 
-        @click="prevPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber==0"
-        >
-        Previous
-        </button>
-        <button 
-        @click="nextPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber >= pageCount -1"
-        >
-        Next
-        </button>
+          <button
+            @click="prevPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber==0"
+          >Previous</button>
+          <button
+            @click="nextPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber >= pageCount -1"
+          >Next</button>
+
+          <input
+            type="text"
+            placeholder="Vind een partner"
+            style="height: 2.4rem"
+            v-model="partnerNameSearchString"
+          />
         </div>
 
         <table
@@ -50,8 +52,10 @@
             <tr v-for="partner in paginatedData" v-else :key="partner.id">
               <td style="width:15%">{{partner.name}}</td>
               <td style="width:40%">{{partner.website}}</td>
-              <td style="width:5%">{{partner.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
-              <td style="width:40%"> 
+              <td
+                style="width:5%"
+              >{{partner.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
+              <td style="width:40%">
                 <button
                   type="button"
                   class="btn btn-danger"
@@ -69,26 +73,19 @@
           </tbody>
         </table>
         <div style="display:block;margin-bottom:10%; margin-left:2%;">
-        <button 
-        @click="prevPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber==0"
-        >
-        Previous
-        </button>
-        <button 
-        @click="nextPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber >= pageCount -1"
-        >
-        Next
-        </button>
+          <button
+            @click="prevPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber==0"
+          >Previous</button>
+          <button
+            @click="nextPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber >= pageCount -1"
+          >Next</button>
         </div>
-
-
-
       </div>
     </div>
   </section>
@@ -102,10 +99,10 @@ export default {
   components: {
     ErrorMessage
   },
-  props:{
-    size:{
-      type:Number,
-      required:false,
+  props: {
+    size: {
+      type: Number,
+      required: false,
       default: 10
     }
   },
@@ -115,32 +112,30 @@ export default {
       name: "",
       website: "",
       img: "",
-      pageNumber: 0,  // default to page 0
-
+      pageNumber: 0, // default to page 0
+      partnerNameSearchString: ""
     };
   },
   methods: {
-
     deletePartner(partnerId) {
-      let i = this.partners.map(partner => partner.id).indexOf(partnerId)
+      let i = this.partners.map(partner => partner.id).indexOf(partnerId);
       this.partners.splice(i, 1);
       this.$store.dispatch("partner/DELETE_PARTNER", {
         partnerId
       });
-
-      
     },
     goToPartner(partnerId) {
-      this.$router.push({ name: "DashboardEditPartners", params: { Pid: partnerId } });
+      this.$router.push({
+        name: "DashboardEditPartners",
+        params: { Pid: partnerId }
+      });
     },
-
-    nextPage(){
-        this.pageNumber++;
+    nextPage() {
+      this.pageNumber++;
     },
-    prevPage(){
-        this.pageNumber--;
+    prevPage() {
+      this.pageNumber--;
     }
-
   },
   computed: {
     isLoading() {
@@ -158,17 +153,30 @@ export default {
     partners() {
       return this.$store.getters["partner/partners"];
     },
-    pageCount(){
+    pageCount() {
       let l = this.partners.length,
-          s = this.size;
-      return Math.ceil(l/s);
+        s = this.size;
+      return Math.ceil(l / s);
     },
-    paginatedData(){
-    const start = this.pageNumber * this.size,
-          end   = start + this.size;     
-    return this.partners.slice(start, end).sort(function(a, b) {
-        return a.created < b.created ? 1 : -1;
-      });
+    paginatedData() {
+      var partnerNameSearchString = this.partnerNameSearchString;
+      partnerNameSearchString = partnerNameSearchString.trim().toLowerCase();
+      
+      const start = this.pageNumber * this.size,
+        end = start + this.size;
+      return this.partners
+        .slice(start, end)
+        .sort(function(a, b) {
+          return a.created < b.created ? 1 : -1;
+        })
+        .filter(function(partners) {
+          if (
+            partners.name.toLowerCase().indexOf(partnerNameSearchString) !== -1
+          ) {
+            
+            return partners;
+          }
+        });
     }
   },
   created() {
@@ -178,9 +186,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
-
 body {
   margin: 0 !important;
 }
