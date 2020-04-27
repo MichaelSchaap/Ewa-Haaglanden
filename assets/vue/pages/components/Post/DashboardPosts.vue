@@ -3,10 +3,27 @@
     <div class="container">
       <div class="row">
 
-
+        <div style="display:block; margin-left:2%;margin-top: 5%">
+        <button 
+        @click="prevPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber==0"
+        >
+        Previous
+        </button>
+        <button 
+        @click="nextPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber >= pageCount -1"
+        >
+        Next
+        </button>
+        </div>
 
         <table
-          style="display:block;margin-bottom:10%; margin-left:2%;margin-top: 5%"
+          style="display:block; margin-left:2%;"
           class="table table-striped table-hover table-responsive"
         >
           <thead class="thead-dark">
@@ -29,7 +46,7 @@
             </div>
 
             <div v-else-if="!hasPosts" class="row" style="margin-left:5%;">No posts!</div>
-            <tr v-for="post in sortFunc()" 
+            <tr v-for="post in paginatedData" 
             v-else 
             :key="post.id"
             >
@@ -54,7 +71,24 @@
             </tr>
           </tbody>
         </table>
-
+        <div style="display:block;margin-bottom:10%; margin-left:2%;">
+        <button 
+        @click="prevPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber==0"
+        >
+        Previous
+        </button>
+        <button 
+        @click="nextPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber >= pageCount -1"
+        >
+        Next
+        </button>
+        </div>
 
 
       </div>
@@ -70,35 +104,46 @@ export default {
   components: {
     ErrorMessage
   },
+  props:{
+    size:{
+      type:Number,
+      required:false,
+      default: 10
+    }
+  },
   data() {
     return {
       id: "",
       title: "",
       content: "",
       img: "",
+      pageNumber: 0,  // default to page 0
     };
   },
   methods: {
-    sortFunc: function() {
-      return this.posts.slice().sort(function(a, b) {
-        return a.created < b.created ? 1 : -1;
-      });
-    },
+
     deletePost(postId) {
       let i = this.posts.map(post => post.id).indexOf(postId)
       this.posts.splice(i, 1);
       this.$store.dispatch("post/DELETE_POST", {
         postId
       });
-      
-      
+    
     },
     goToNews(postId) {
       this.$router.push({ name: "PostDetails", params: { Pid: postId } });
     },
     goToPost(postId) {
       this.$router.push({ name: "DashboardEditPosts", params: { Pid: postId } });
+    },
+
+    nextPage(){
+        this.pageNumber++;
+    },
+    prevPage(){
+        this.pageNumber--;
     }
+
   },
   computed: {
     isLoading() {
@@ -118,6 +163,18 @@ export default {
     },
     canCreatePost() {
       return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
+    },
+    pageCount(){
+      let l = this.posts.length,
+          s = this.size;
+      return Math.ceil(l/s);
+    },
+    paginatedData(){
+    const start = this.pageNumber * this.size,
+          end   = start + this.size;     
+    return this.posts.slice(start, end).sort(function(a, b) {
+        return a.created < b.created ? 1 : -1;
+      });
     }
   },
   created() {

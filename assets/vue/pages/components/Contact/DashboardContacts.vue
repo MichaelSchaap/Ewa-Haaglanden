@@ -3,10 +3,27 @@
     <div class="container">
       <div class="row">
 
-
+        <div style="display:block; margin-left:2%;margin-top: 5%">
+        <button 
+        @click="prevPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber==0"
+        >
+        Previous
+        </button>
+        <button 
+        @click="nextPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber >= pageCount -1"
+        >
+        Next
+        </button>
+        </div>
 
         <table
-          style="display:block;margin-bottom:10%; margin-left:2%;margin-top: 5%"
+          style="display:block; margin-left:2%;"
           class="table table-striped table-hover table-responsive"
         >
           <thead class="thead-dark">
@@ -29,14 +46,31 @@
             </div>
 
             <div v-else-if="!hasContacts" class="row" style="margin-left:5%;">No emails!</div>
-            <tr v-for="contact in sortFunc()" v-else :key="contact.id">
+            <tr v-for="contact in paginatedData" v-else :key="contact.id">
               <td>{{contact.name}}</td>
               <td>{{contact.email}}</td>
               <td>{{contact.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
             </tr>
           </tbody>
         </table>
-
+        <div style="display:block;margin-bottom:10%; margin-left:2%;">
+        <button 
+        @click="prevPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber==0"
+        >
+        Previous
+        </button>
+        <button 
+        @click="nextPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber >= pageCount -1"
+        >
+        Next
+        </button>
+        </div>
 
 
       </div>
@@ -52,19 +86,28 @@ export default {
   components: {
     ErrorMessage
   },
+  props:{
+    size:{
+      type:Number,
+      required:false,
+      default: 10
+    }
+  },
   data() {
     return {
       name: "",
       email: "",
       message: "",
+      pageNumber: 0,  // default to page 0
     };
   },
   methods: {
-    sortFunc: function() {
-      return this.contacts.slice().sort(function(a, b) {
-        return a.created < b.created ? 1 : -1;
-      });
+    nextPage(){
+        this.pageNumber++;
     },
+    prevPage(){
+        this.pageNumber--;
+    }
 
   },
   computed: {
@@ -83,6 +126,18 @@ export default {
     contacts() {
       return this.$store.getters["contact/contacts"];
     },
+    pageCount(){
+      let l = this.contacts.length,
+          s = this.size;
+      return Math.ceil(l/s);
+    },
+    paginatedData(){
+    const start = this.pageNumber * this.size,
+          end   = start + this.size;     
+    return this.contacts.slice(start, end).sort(function(a, b) {
+        return a.created < b.created ? 1 : -1;
+      });
+    }
   },
   created() {
     this.$store.dispatch("contact/findAll");
