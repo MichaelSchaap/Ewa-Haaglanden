@@ -11,7 +11,28 @@
     </section>
 
     <div class="container" style=" margin-top:3%;">
+
+      <div style="display:block;margin-top: 5%">
+        <button 
+        @click="prevPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber==0"
+        >
+        Previous
+        </button>
+        <button 
+        @click="nextPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber >= pageCount -1"
+        >
+        Next
+        </button>
+        </div>
+    
       <div class="row">
+
         <div v-if="isLoading" class="container">
           <div class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
@@ -27,7 +48,7 @@
         <div v-else-if="!hasPosts" class="row">No posts!</div>
 
         <div
-          v-for="post in sortFunc()"
+          v-for="post in paginatedData"
           v-else
           :key="post.id"
           class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
@@ -40,7 +61,28 @@
             @click.native="goToNews(post.id)"
           />
         </div>
+
       </div>
+
+      <div style="display:block;margin-bottom:10%;">
+        <button 
+        @click="prevPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber==0"
+        >
+        Previous
+        </button>
+        <button 
+        @click="nextPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber >= pageCount -1"
+        >
+        Next
+        </button>
+        </div>
+
     </div>
   </div>
 </template>
@@ -55,22 +97,32 @@ export default {
     Post,
     ErrorMessage
   },
+  props:{
+    size:{
+      type:Number,
+      required:false,
+      default: 10
+    }
+  },
   data() {
     return {
       title: "",
       content: "",
       img: "",
-      header: "NIEUWS."
+      header: "NIEUWS.",
+      pageNumber: 0,  // default to page 0
     };
   },
   methods: {
     goToNews(postId) {
       this.$router.push({ name: "PostDetails", params: { Pid: postId } });
     },
-    sortFunc: function() {
-      return this.posts.slice().sort(function(a, b) {
-        return a.created < b.created ? 1 : -1;
-      });
+    
+    nextPage(){
+        this.pageNumber++;
+    },
+    prevPage(){
+        this.pageNumber--;
     }
   },
   computed: {
@@ -91,6 +143,18 @@ export default {
     },
     canCreatePost() {
       return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
+    },
+    pageCount(){
+      let l = this.posts.length,
+          s = this.size;
+      return Math.ceil(l/s);
+    },
+    paginatedData(){
+    const start = this.pageNumber * this.size,
+          end   = start + this.size;     
+    return this.posts.slice(start, end).sort(function(a, b) {
+        return a.created < b.created ? 1 : -1;
+      });
     }
   },
   created() {
