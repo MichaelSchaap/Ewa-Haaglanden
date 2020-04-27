@@ -28,10 +28,10 @@
         >
           <thead class="thead-dark">
             <tr>
-              <th>Naam</th>
-              <th>Website</th>
-              <th>Date created</th>
-              <th>Acties</th>
+              <th style="width:30%">Naam</th>
+              <th style="width:40%">Website</th>
+              <th style="width:10%">Date created</th>
+              <th style="width:20%">Acties</th>
             </tr>
           </thead>
           <tbody>
@@ -48,17 +48,18 @@
 
             <div v-else-if="!hasPartners" class="row" style="margin-left:5%;">No partners!</div>
             <tr v-for="partner in paginatedData" v-else :key="partner.id">
-              <td>{{partner.name}}</td>
-              <td>{{partner.website}}</td>
-              <td>{{partner.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
-              <td>
+              <td style="width:15%">{{partner.name}}</td>
+              <td style="width:40%">{{partner.website}}</td>
+              <td style="width:5%">{{partner.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
+              <td style="width:40%"> 
                 <button
                   type="button"
                   class="btn btn-danger"
+                  style="width:100%"
                   @click="deletePartner(partner.id)"
                 >Verwijderen</button>
                 <button
-                  style="background-color:black;"
+                  style="background-color:black;width:100%"
                   type="button"
                   @click="goToPartner(partner.id)"
                   class="btn btn-info"
