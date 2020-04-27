@@ -28,9 +28,9 @@
         >
           <thead class="thead-dark">
             <tr>
-              <th>Title</th>
-              <th>Date created</th>
-              <th>Acties</th>
+              <th style="width:60%">Title</th>
+              <th style="width:10%">Date created</th>
+              <th style="width:20%">Acties</th>
             </tr>
           </thead>
           <tbody>
@@ -50,18 +50,18 @@
             v-else 
             :key="post.id"
             >
-              <td>{{post.title}}</td>
-              <td>{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
-              <td>
+              <td style="width:30%">{{post.title}}</td>
+              <td style="width:5%">{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
+              <td style="width:20%">
                 <button
                   type="button"
                   class="btn btn-danger"
                   @click="deletePost(post.id)"
-                  
+                  style="width:100%"
                 >Verwijderen</button>
-                <button type="button" class="btn btn-info" @click="goToNews(post.id)">Bekijken</button>
+                <button type="button" class="btn btn-info" @click="goToNews(post.id)" style="width:100%">Bekijken</button>
                 <button
-                  style="background-color:black;"
+                  style="background-color:black;width:100%"
                   type="button"
                   @click="goToPost(post.id)"
                   

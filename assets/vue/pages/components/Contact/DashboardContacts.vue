@@ -28,9 +28,9 @@
         >
           <thead class="thead-dark">
             <tr>
-              <th>Naam</th>
-              <th>E-mail</th>
-              <th>Date created</th>
+              <th style="width:30%">Naam</th>
+              <th style="width:40%">E-mail</th>
+              <th style="width:10%">Date created</th>
             </tr>
           </thead>
           <tbody>
@@ -47,9 +47,9 @@
 
             <div v-else-if="!hasContacts" class="row" style="margin-left:5%;">No emails!</div>
             <tr v-for="contact in paginatedData" v-else :key="contact.id">
-              <td>{{contact.name}}</td>
-              <td>{{contact.email}}</td>
-              <td>{{contact.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
+              <td style="width:15%">{{contact.name}}</td>
+              <td style="width:40%">{{contact.email}}</td>
+              <td style="width:5%">{{contact.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
             </tr>
           </tbody>
         </table>
