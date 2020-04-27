@@ -11,46 +11,53 @@
     </section>
 
     <section class="createPost">
-      <div class="container" style>
-        <nav-link
-          class="nav-link"
-          to="/admin/dashboard/post/create"
-          v-if='posts'
-          style="display:inline; padding-right: 0%; padding-left:0%;"
-        >
-          <button
-            style="background-color:black;"
-            type="button"
-            class="btn btn-dark"
-          >Create news article</button>
-        </nav-link>
-        <nav-link
-          class="nav-link"
-          to="/admin/dashboard/partner/create"
-          v-if='partners'
-          style="display:inline; padding-right: 0%; padding-left:0%;"
-        >
-          <button
-            style="background-color:black;"
-            type="button"
-            class="btn btn-dark"
-          >Create partner</button>
-        </nav-link>
+      <div class="container">
+        <div class="row" style="padding-left: 1rem;">
         <button 
         type="button"
         :class="{'btn btn-danger': !posts, 'btn btn-success': posts}"
         @click='posts = !posts; contacts = false; partners = false;'> 
-        News Dashboard</button>
+        News</button>
         <button 
         type="button"
         :class="{'btn btn-danger': !contacts, 'btn btn-success': contacts}"
         @click='contacts = !contacts; posts = false; partners = false;'> 
-        Newsletter Dashboard </button>
+        Newsletters </button>
         <button 
         type="button"
         :class="{'btn btn-danger': !partners, 'btn btn-success': partners}"
         @click='partners = !partners; posts = false; contacts = false;'> 
-        Partner Dashboard </button>
+        Partners </button>
+        
+      </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <nav-link
+              class="nav-link"
+              to="/admin/dashboard/post/create"
+              v-if='posts'
+              style="display:inline; width:auto;"
+            >
+              <button
+                style="background-color:black;"
+                type="button"
+                class="btn btn-dark"
+              >Create news article</button>
+            </nav-link>
+            <nav-link
+              class="nav-link"
+              to="/admin/dashboard/partner/create"
+              v-if='partners'
+              style="display:inline;width:auto;"
+            >
+              <button
+                style="background-color:black;"
+                type="button"
+                class="btn btn-dark"
+              >Create partner</button>
+            </nav-link>
+        </div>
       </div>
     </section>
 

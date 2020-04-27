@@ -28,13 +28,14 @@
         >
           <thead class="thead-dark">
             <tr>
-              <th style="width:60%">Title</th>
+              <th style="width:30%">Titel</th>
+              <th style="width:30%">Content</th>
               <th style="width:10%">Date created</th>
               <th style="width:20%">Acties</th>
             </tr>
           </thead>
           <tbody>
-            <div v-if="isLoading" class="container">
+            <div v-if="isLoading" class="container" style="margin-top:4%; margin-left:140%">
               <div class="spinner-border" role="status">
                 <span class="sr-only">Loading...</span>
               </div>
@@ -50,7 +51,8 @@
             v-else 
             :key="post.id"
             >
-              <td style="width:30%">{{post.title}}</td>
+              <td style="width:15%">{{post.title}}</td>
+              <td style="width:15%">{{post.content.slice(0,250) + '...'}}</td>
               <td style="width:5%">{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
               <td style="width:20%">
                 <button
@@ -184,13 +186,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.spinner-border {
-  display: block;
-  position: fixed;
-  z-index: 1031;
-  top: 70%;
-  right: 50%; /* or: left: 50%; */
-}
 
 
 body {

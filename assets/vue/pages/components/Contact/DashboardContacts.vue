@@ -34,7 +34,7 @@
             </tr>
           </thead>
           <tbody>
-            <div v-if="isLoading" class="container">
+            <div v-if="isLoading" class="container" style="margin-top:4%; margin-left:150%">
               <div class="spinner-border" role="status">
                 <span class="sr-only">Loading...</span>
               </div>
