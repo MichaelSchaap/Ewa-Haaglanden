@@ -2,24 +2,26 @@
   <section class="allPosts">
     <div class="container">
       <div class="row">
-
         <div style="display:block; margin-left:2%;margin-top: 5%">
-        <button 
-        @click="prevPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber==0"
-        >
-        Previous
-        </button>
-        <button 
-        @click="nextPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber >= pageCount -1"
-        >
-        Next
-        </button>
+          <button
+            @click="prevPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber==0"
+          >Previous</button>
+          <button
+            @click="nextPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber >= pageCount -1"
+          >Next</button>
+
+          <input
+            type="text"
+            placeholder="Vind een artikel"
+            style="height: 2.4rem"
+            v-model="postNameSearchString"
+          />
         </div>
 
         <table
@@ -47,13 +49,12 @@
             </div>
 
             <div v-else-if="!hasPosts" class="row" style="margin-left:5%;">No posts!</div>
-            <tr v-for="post in paginatedData" 
-            v-else 
-            :key="post.id"
-            >
+            <tr v-for="post in paginatedData" v-else :key="post.id">
               <td style="width:15%">{{post.title}}</td>
               <td style="width:15%">{{post.content.slice(0,250) + '...'}}</td>
-              <td style="width:5%">{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
+              <td
+                style="width:5%"
+              >{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
               <td style="width:20%">
                 <button
                   type="button"
@@ -61,12 +62,16 @@
                   @click="deletePost(post.id)"
                   style="width:100%"
                 >Verwijderen</button>
-                <button type="button" class="btn btn-info" @click="goToNews(post.id)" style="width:100%">Bekijken</button>
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  @click="goToNews(post.id)"
+                  style="width:100%"
+                >Bekijken</button>
                 <button
                   style="background-color:black;width:100%"
                   type="button"
                   @click="goToPost(post.id)"
-                  
                   class="btn btn-info"
                 >Verander</button>
               </td>
@@ -74,25 +79,19 @@
           </tbody>
         </table>
         <div style="display:block;margin-bottom:10%; margin-left:2%;">
-        <button 
-        @click="prevPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber==0"
-        >
-        Previous
-        </button>
-        <button 
-        @click="nextPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber >= pageCount -1"
-        >
-        Next
-        </button>
+          <button
+            @click="prevPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber==0"
+          >Previous</button>
+          <button
+            @click="nextPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber >= pageCount -1"
+          >Next</button>
         </div>
-
-
       </div>
     </div>
   </section>
@@ -106,10 +105,10 @@ export default {
   components: {
     ErrorMessage
   },
-  props:{
-    size:{
-      type:Number,
-      required:false,
+  props: {
+    size: {
+      type: Number,
+      required: false,
       default: 10
     }
   },
@@ -119,33 +118,34 @@ export default {
       title: "",
       content: "",
       img: "",
-      pageNumber: 0,  // default to page 0
+      pageNumber: 0, // default to page 0
+      postNameSearchString: ""
     };
   },
   methods: {
-
     deletePost(postId) {
-      let i = this.posts.map(post => post.id).indexOf(postId)
+      let i = this.posts.map(post => post.id).indexOf(postId);
       this.posts.splice(i, 1);
       this.$store.dispatch("post/DELETE_POST", {
         postId
       });
-    
     },
     goToNews(postId) {
       this.$router.push({ name: "PostDetails", params: { Pid: postId } });
     },
     goToPost(postId) {
-      this.$router.push({ name: "DashboardEditPosts", params: { Pid: postId } });
+      this.$router.push({
+        name: "DashboardEditPosts",
+        params: { Pid: postId }
+      });
     },
 
-    nextPage(){
-        this.pageNumber++;
+    nextPage() {
+      this.pageNumber++;
     },
-    prevPage(){
-        this.pageNumber--;
+    prevPage() {
+      this.pageNumber--;
     }
-
   },
   computed: {
     isLoading() {
@@ -166,17 +166,29 @@ export default {
     canCreatePost() {
       return this.$store.getters["security/hasRole"]("ROLE_ADMIN");
     },
-    pageCount(){
+    pageCount() {
       let l = this.posts.length,
-          s = this.size;
-      return Math.ceil(l/s);
+        s = this.size;
+      return Math.ceil(l / s);
     },
-    paginatedData(){
-    const start = this.pageNumber * this.size,
-          end   = start + this.size;     
-    return this.posts.slice(start, end).sort(function(a, b) {
-        return a.created < b.created ? 1 : -1;
-      });
+    paginatedData() {
+      var postNameSearchString = this.postNameSearchString;
+      postNameSearchString = postNameSearchString.trim().toLowerCase();
+
+      const start = this.pageNumber * this.size,
+        end = start + this.size;
+      return this.posts
+        .filter(function(posts) {
+          if (
+            posts.title.toLowerCase().indexOf(postNameSearchString) !== -1
+          ) {
+            return posts;
+          }
+        })
+        .sort(function(a, b) {
+          return a.created < b.created ? 1 : -1;
+        })
+        .splice(start, end);
     }
   },
   created() {
@@ -186,8 +198,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 body {
   margin: 0 !important;
 }

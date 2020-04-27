@@ -161,22 +161,21 @@ export default {
     paginatedData() {
       var partnerNameSearchString = this.partnerNameSearchString;
       partnerNameSearchString = partnerNameSearchString.trim().toLowerCase();
-      
+
       const start = this.pageNumber * this.size,
         end = start + this.size;
       return this.partners
-        .slice(start, end)
-        .sort(function(a, b) {
-          return a.created < b.created ? 1 : -1;
-        })
         .filter(function(partners) {
           if (
             partners.name.toLowerCase().indexOf(partnerNameSearchString) !== -1
           ) {
-            
             return partners;
           }
-        });
+        })
+        .sort(function(a, b) {
+          return a.created < b.created ? 1 : -1;
+        })
+        .splice(start, end);
     }
   },
   created() {

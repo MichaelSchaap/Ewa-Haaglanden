@@ -183,5 +183,7 @@ final class PartnerController extends AbstractController
         return new JsonResponse($data, Response::HTTP_CREATED, [], true);
     
     }
+
+   
    
 }
