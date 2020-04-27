@@ -11,6 +11,7 @@ export default {
   },
   edit(postId, title, content, img) {
     return axios.patch("/api/admin/dashboard/post/edit/" + postId, {
+      id: postId,
       title: title,
       content: content,
       img: img,

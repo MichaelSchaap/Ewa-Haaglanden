@@ -148,29 +148,29 @@ final class PostController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $post = $em->getRepository(Post::class)->find($id);
 
-        $newTitle = $paramFetcher->get('title');
-        $newContent = $paramFetcher->get('content');
-        $newImg = $paramFetcher->get('img');
+        $title = $paramFetcher->get('title');
+        $content = $paramFetcher->get('content');
+        $img = $paramFetcher->get('img');
 
-        if (trim($newTitle) !== '') {
+        if (trim($title) !== '') {
             if ($post) {
-                $post->setTitle($newTitle); 
+                $post->setTitle($title); 
             }
         }
 
-        if (trim($newContent) !== '') {
+        if (trim($content) !== '') {
             if ($post) {
-                $post->setContent($newContent); 
+                $post->setContent($content); 
             }
         }
 
-        if (trim($newImg) !== '') {
+        if (trim($img) !== '') {
             if ($post) {
                 define('UPLOAD_DIR', 'images/news/');
-                $newImg = str_replace('data:image/jpeg;base64,', '', $newImg);
-                $newImg = str_replace('data:image/png;base64,', '', $img);
-                $newImg = str_replace(' ', '+', $newImg);
-                $data = base64_decode($newImg);
+                $img = str_replace('data:image/jpeg;base64,', '', $img);
+                $img = str_replace('data:image/png;base64,', '', $img);
+                $img = str_replace(' ', '+', $img);
+                $data = base64_decode($img);
                 $file = uniqid() . '.jpeg';
                 $read = UPLOAD_DIR . $file;
                 $success = file_put_contents($read, $data);

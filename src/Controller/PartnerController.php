@@ -145,29 +145,29 @@ final class PartnerController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $partner = $em->getRepository(Partner::class)->find($id);
 
-        $newName = $paramFetcher->get('name');
-        $newWebsite = $paramFetcher->get('website');
-        $newImg = $paramFetcher->get('img');
+        $name = $paramFetcher->get('name');
+        $website = $paramFetcher->get('website');
+        $img = $paramFetcher->get('img');
 
-        if (trim($newName) !== '') {
+        if (trim($name) !== '') {
             if ($partner) {
-                $partner->setName($newName); 
+                $partner->setName($name); 
             }
         }
 
-        if (trim($newWebsite) !== '') {
+        if (trim($website) !== '') {
             if ($partner) {
-                $partner->setWebsite($newWebsite); 
+                $partner->setWebsite($website); 
             }
         }
 
-        if (trim($newImg) !== '') {
+        if (trim($img) !== '') {
             if ($partner) {
                 define('UPLOAD_DIR', 'images/logo/');
-                $newImg = str_replace('data:image/jpeg;base64,', '', $newImg);
-                $newImg = str_replace('data:image/png;base64,', '', $img);
-                $newImg = str_replace(' ', '+', $newImg);
-                $data = base64_decode($newImg);
+                $img = str_replace('data:image/jpeg;base64,', '', $img);
+                $img = str_replace('data:image/png;base64,', '', $img);
+                $img = str_replace(' ', '+', $img);
+                $data = base64_decode($img);
                 $file = uniqid() . '.jpeg';
                 $read = UPLOAD_DIR . $file;
                 $success = file_put_contents($read, $data);

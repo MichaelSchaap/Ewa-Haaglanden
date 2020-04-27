@@ -2,85 +2,49 @@
   <section v-if="canCreatePost" class="EditPost">
     <div class="container h-100" style>
       <div class="row h-100 justify-content-center align-items-center">
-        <div style>
-          <form method="post" enctype="multiplart/form-data">
-            <div class="content" style>
-              <div class="container" style="width:85%">
-                <div class="row">
-                  <div class="col-12">
-                    <input
-                      class="form-control"
-                      id="title"
-                      v-model="newTitle"
-                      type="text"
-                      placeholder="Titel"
-                      style="margin-bottom:2%;"
-                    />
-                  </div>
-                  <div class="col-6">
-                    <span style="white-space: pre;">
-                      <textarea
-                        class="form-control"
-                        id="content"
-                        rows="4"
-                        cols="80"
-                        v-model="newContent"
-                        type="text"
-                        placeholder="Vul in de inhoud van de artikel"
-                        style="margin-bottom:2%;"
-                      ></textarea>
-                    </span>
-                  </div>
-                  <div class="col-6">
-                    <input
-                      class="form-control"
-                      type="file"
-                      ref="files"
-                      name="files"
-                      style="width:100%;border:none;margin-bottom:2%;padding-left:0px;"
-                      @change="onFileSelected"
-                      placeholder="Image"
-                      accept="image/jpeg, image/png"
-                    />
-                    <img :src="newImg" alt="Afbeelding voorbeeld" style="width:150px; height:auto;" />
-                  </div>
-                  <div class="col-6">
-                  <button
-                    type="button"
-                    style="background-color:#CC0029"
-                    class="btn btn-primary btn-lg btn-round btn-block"
-                    @click="goBack()"
-                  >Terug</button>
-                  </div>
-                  <div class="col-6">
-                  <button
-                    :disabled="isLoading"
-                    type="button"
-                    style="background-color:#CC0029"
-                    class="btn btn-primary btn-lg btn-round btn-block"
-                    @click="editPost()"
-                  >Veranderen</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-
-          <br />
+        <div v-if="isLoading" class="container" style="text-align: center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
         </div>
+
+        <div v-else-if="hasError" class="row">
+          <div class="alert alert-danger" role="alert">
+            <error-message :error="error" />
+          </div>
+        </div>
+
+        <div v-else-if="!hasPosts" class="row">No posts!</div>
+
+        <div v-for="post in posts" v-else :key="post.id">
+          <div v-if="postId == post.id">
+            <DashboardFormEditPost 
+            :title="post.title" 
+            :content="post.content" 
+            :img="post.img" />
+          </div>
+        </div>
+
+        <br />
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import DashboardFormEditPost from "../Post/DashboardFormEditPost";
+
 export default {
   name: "DashboardEditPost",
+  components: {
+    DashboardFormEditPost
+  },
   data() {
     return {
-      newTitle: "",
-      newContent: "",
-      newImg: ""
+      title: "",
+      content: "",
+      img: "",
+      postId: this.$route.params.Pid
     };
   },
   computed: {
@@ -105,33 +69,6 @@ export default {
   },
   created() {
     this.$store.dispatch("post/findAll");
-  },
-  methods: {
-    async editPost() {
-      this.$store.dispatch("post/edit", {
-        postId: this.$route.params.Pid,
-        title: this.newTitle,
-        content: this.newContent,
-        img: this.newImg
-      })
-      .catch(error => {
-        console.log(error)
-      });
-
-    },
-
-    goBack() {
-        this.$router.push({ path: "/admin/dashboard" });
-    },
-
-    onFileSelected(event) {
-      let image = event.target.files[0];
-      let reader = new FileReader();
-      reader.readAsDataURL(image);
-      reader.onload = e => {
-        this.newImg = e.target.result;
-      };
-    }
   }
 };
 </script>

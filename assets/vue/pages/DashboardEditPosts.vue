@@ -10,7 +10,9 @@
       </div>
     </section>
 
-    <DashboardEditPost></DashboardEditPost>
+    <DashboardEditPost
+
+    ></DashboardEditPost>
   </div>
 </template>
 
