@@ -6,20 +6,11 @@
     :color-on-scroll="colorOnScroll"
     menu-classes="ml-auto"
   >
-    <template>
-      <router-link v-popover:popover1 class="navbar-brand" to="/">
-        <img class="n-logo" src="images/EWAHaaglanden_logo.png" alt style="width: 200px" />
-      </router-link>
-      <el-popover
-        ref="popover1"
-        popper-class="popover"
-        placement="bottom"
-        width="200"
-        trigger="hover"
-      >
-        <div class="popover-body">Ontworpen en gemaakt door studenten.</div>
-      </el-popover>
-    </template>
+
+      <a class="navbar-brand" href="/home">
+        <img src="images/EWAHaaglanden_logo.png" alt style="width: 200px">
+      </a>
+
     <template slot="navbar-menu">
       <li class="nav-item">
         <nav-link class="nav-link" to="/home">
