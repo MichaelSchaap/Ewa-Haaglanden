@@ -20,6 +20,13 @@
         >
         Next
         </button>
+
+        <input
+            type="text"
+            placeholder="Vind een e-mail"
+            style="height: 2.4rem"
+            v-model="contactEmailSearchString"
+          />
         </div>
 
         <table
@@ -99,6 +106,7 @@ export default {
       email: "",
       message: "",
       pageNumber: 0,  // default to page 0
+      contactEmailSearchString: ""
     };
   },
   methods: {
@@ -131,12 +139,24 @@ export default {
           s = this.size;
       return Math.ceil(l/s);
     },
-    paginatedData(){
-    const start = this.pageNumber * this.size,
-          end   = start + this.size;     
-    return this.contacts.slice(start, end).sort(function(a, b) {
-        return a.created < b.created ? 1 : -1;
-      });
+    paginatedData() {
+      var contactEmailSearchString = this.contactEmailSearchString;
+      contactEmailSearchString = contactEmailSearchString.trim().toLowerCase();
+
+      const start = this.pageNumber * this.size,
+        end = start + this.size;
+      return this.contacts
+        .filter(function(contacts) {
+          if (
+            contacts.email.toLowerCase().indexOf(contactEmailSearchString) !== -1
+          ) {
+            return contacts;
+          }
+        })
+        .sort(function(a, b) {
+          return a.created < b.created ? 1 : -1;
+        })
+        .splice(start, end);
     }
   },
   created() {
