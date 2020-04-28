@@ -16,18 +16,23 @@
         <button 
         type="button"
         :class="{'btn btn-danger': !posts, 'btn btn-success': posts}"
-        @click='posts = !posts; contacts = false; partners = false;'> 
+        @click='posts = !posts; contacts = false; partners = false; documents = false;'> 
         News</button>
         <button 
         type="button"
         :class="{'btn btn-danger': !contacts, 'btn btn-success': contacts}"
-        @click='contacts = !contacts; posts = false; partners = false;'> 
+        @click='contacts = !contacts; posts = false; partners = false; documents = false;'> 
         Newsletters </button>
         <button 
         type="button"
         :class="{'btn btn-danger': !partners, 'btn btn-success': partners}"
-        @click='partners = !partners; posts = false; contacts = false;'> 
+        @click='partners = !partners; posts = false; contacts = false; documents = false;'> 
         Partners </button>
+        <button 
+        type="button"
+        :class="{'btn btn-danger': !documents, 'btn btn-success': documents}"
+        @click='documents = !documents; posts = false; contacts = false; partners = false;'> 
+        Informatie </button>
         
       </div>
       </div>
@@ -57,6 +62,18 @@
                 class="btn btn-dark"
               >Create partner</button>
             </nav-link>
+            <nav-link
+              class="nav-link"
+              to="/admin/dashboard/document/create"
+              v-if='documents'
+              style="display:inline;width:auto;"
+            >
+              <button
+                style="background-color:black;"
+                type="button"
+                class="btn btn-dark"
+              >Create bestand</button>
+            </nav-link>
         </div>
       </div>
     </section>
@@ -73,6 +90,10 @@
     v-if='partners'
     ></DashboardPartners>
 
+    <DashboardDocuments
+    v-if='documents'
+    ></DashboardDocuments>
+
   </div>
 </template>
 
@@ -80,6 +101,7 @@
 import DashboardPosts from "../pages/components/Post/DashboardPosts";
 import DashboardContacts from "../pages/components/Contact/DashboardContacts";
 import DashboardPartners from "../pages/components/Partner/DashboardPartners";
+import DashboardDocuments from "../pages/components/Document/DashboardDocuments";
 
 import { NavLink } from "../components";
 
@@ -89,6 +111,7 @@ export default {
     DashboardPosts,
     DashboardContacts,
     DashboardPartners,
+    DashboardDocuments,
     NavLink
   },
   data() {
@@ -97,6 +120,7 @@ export default {
       posts: false,
       contacts: false,
       partners: false,
+      documents: false,
     };
   }
 };

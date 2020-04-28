@@ -2,14 +2,16 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from "../vue/store";
 import Index from './pages/Index.vue';
-import Information from './pages/Information.vue';
+import Documents from './pages/Documents.vue';
 import Partners from './pages/Partners.vue';
 import Posts from './pages/Posts.vue';
 import PostDetails from './pages/PostDetails.vue';
 import Dashboard from './pages/Dashboard.vue';
 import DashboardCreationPost from './pages/DashboardCreationPost.vue';
+import DashboardCreationDocument from './pages/DashboardCreationDocument.vue';
 import DashboardCreationPartner from './pages/DashboardCreationPartner.vue';
 import DashboardEditPosts from './pages/DashboardEditPosts.vue';
+import DashboardEditDocuments from './pages/DashboardEditDocuments.vue';
 import DashboardEditPartners from './pages/DashboardEditPartners.vue';
 import Login from './pages/Login.vue';
 import MainNavbar from './layout/MainNavbar.vue';
@@ -35,8 +37,8 @@ let router = new VueRouter({
     },
     {
       path: '/informatie',
-      name: 'information',
-      components: { default: Information, header: MainNavbar, footer: MainFooter },
+      name: 'Documents',
+      components: { default: Documents, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 0 },
         footer: { backgroundColor: 'black' }
@@ -89,6 +91,15 @@ let router = new VueRouter({
       }
     },
     {
+      path: '/admin/dashboard/document/create',
+      name: 'DashboardCreationDocument',
+      components: { default: DashboardCreationDocument, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 0 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
       path: '/admin/dashboard/partner/create',
       name: 'DashboardCreationPartner',
       components: { default: DashboardCreationPartner, header: MainNavbar, footer: MainFooter },
@@ -101,6 +112,16 @@ let router = new VueRouter({
       path: '/admin/dashboard/post/edit/:Pid',
       name: 'DashboardEditPosts',
       components: { default: DashboardEditPosts, header: MainNavbar, footer: MainFooter },
+      props: {
+        default: true,
+        header: { colorOnScroll: 0 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/admin/dashboard/document/edit/:Pid',
+      name: 'DashboardEditDocuments',
+      components: { default: DashboardEditDocuments, header: MainNavbar, footer: MainFooter },
       props: {
         default: true,
         header: { colorOnScroll: 0 },

@@ -11,7 +11,6 @@
 <script>
 export default {
   name: 'nav-link',
-  inject: ['closeNavbar'],
   props: {
     to: {
       type: [String, Object],
@@ -23,13 +22,6 @@ export default {
       return this.to ? 'router-link' : 'a';
     }
   },
-  methods: {
-    closeNav() {
-      if (this.closeNavbar) {
-        this.closeNavbar();
-      }
-    }
-  }
 };
 </script>
 <style>

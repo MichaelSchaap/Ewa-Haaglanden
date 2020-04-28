@@ -48,7 +48,7 @@
               </div>
             </div>
 
-            <div v-else-if="!hasPartners" class="row" style="margin-left:5%;">No partners!</div>
+            <div v-else-if="!hasPartners" class="row" style="margin-left:5%;">Geen partners!</div>
             <tr v-for="partner in paginatedData" v-else :key="partner.id">
               <td style="width:15%">{{partner.name}}</td>
               <td style="width:40%">{{partner.website}}</td>

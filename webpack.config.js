@@ -80,6 +80,15 @@ Encore
         },
     })
 
+    .addLoader({
+        enforce: 'pre',
+        test:/\.(pdf)(\?.*)?$/,
+        loader: 'file-loader',
+        options: {
+            name: 'assets/pdf/[name].[hash:8].[ext]'
+        },
+    })
+
 // uncomment if you're having problems with a jQuery plugin
 //.autoProvidejQuery()
 
@@ -89,3 +98,4 @@ Encore
 ;
 
 module.exports = Encore.getWebpackConfig();
+

@@ -90,11 +90,6 @@ export default {
       default: 'lg'
     }
   },
-  provide() {
-    return {
-      closeNavbar: this.close
-    };
-  },
   components: {
     NavbarToggleButton
   },

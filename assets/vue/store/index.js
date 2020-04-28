@@ -4,6 +4,7 @@ import SecurityModule from "./security";
 import PostModule from "./post";
 import ContactModule from "./contact";
 import PartnerModule from "./partner";
+import DocumentModule from "./document";
 
 Vue.use(Vuex);
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
     security: SecurityModule,
     post: PostModule,
     contact: ContactModule,
-    partner: PartnerModule
+    partner: PartnerModule,
+    document: DocumentModule
   }
 });
