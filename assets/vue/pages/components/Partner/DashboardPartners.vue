@@ -31,7 +31,7 @@
           <thead class="thead-dark">
             <tr>
               <th style="width:30%">Naam</th>
-              <th style="width:40%">Website</th>
+              <th style="width:30%">Website</th>
               <th style="width:10%">Created</th>
               <th style="width:20%">Acties</th>
             </tr>
@@ -51,11 +51,11 @@
             <div v-else-if="!hasPartners" class="row" style="margin-left:5%;">Geen partners!</div>
             <tr v-for="partner in paginatedData" v-else :key="partner.id">
               <td style="width:15%">{{partner.name}}</td>
-              <td style="width:40%">{{partner.website}}</td>
+              <td style="width:15%">{{partner.website}}</td>
               <td
-                style="width:5%"
+                style="width:10%"
               >{{partner.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
-              <td style="width:40%">
+              <td style="width:20%">
                 <button
                   type="button"
                   class="btn btn-danger"

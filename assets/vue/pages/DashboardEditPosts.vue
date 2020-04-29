@@ -44,7 +44,7 @@ export default {
 
 @import "../assets/scss/now-ui-kit/mixins.scss";
 
-.news-intro {
+.about-us {
   @include angled-edge("outside bottom", "lower right", #ffb300);
 }
 </style>
