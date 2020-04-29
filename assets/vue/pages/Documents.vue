@@ -2,8 +2,7 @@
   <div>
     <IntroductionSection></IntroductionSection>
 
-    <div class="container" style=" margin-top:3%;">
-      <div style="display:block;margin-top: 5%">
+    <div class="container" style="display:block;">
         <button
           @click="prevPage"
           type="button"
@@ -17,6 +16,9 @@
           :disabled="pageNumber >= pageCount -1"
         >Next</button>
       </div>
+  
+    <div class="container" style=" margin-top:3%;">
+      
 
       <div class="row">
         <div v-if="isLoading" class="container">
@@ -48,20 +50,25 @@
         </div>
       </div>
 
-      <div style="display:block;margin-bottom:10%;">
-        <button
-          @click="prevPage"
-          type="button"
-          class="btn btn-secondary"
-          :disabled="pageNumber==0"
-        >Previous</button>
-        <button
-          @click="nextPage"
-          type="button"
-          class="btn btn-secondary"
-          :disabled="pageNumber >= pageCount -1"
-        >Next</button>
+      <div style="display:block;margin-bottom:5%;margin-top:3%;">
+        <button 
+        @click="prevPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber==0"
+        >
+        Previous
+        </button>
+        <button 
+        @click="nextPage"
+        type="button"
+        class="btn btn-secondary"
+        :disabled="pageNumber >= pageCount -1"
+        >
+        Next
+        </button>
       </div>
+
     </div>
   </div>
 </template>
@@ -148,6 +155,10 @@ export default {
 
 .about-us {
   @include angled-edge("outside bottom", "lower right", #ffb300);
+}
+
+button {
+  width:10%;
 }
 </style>
 

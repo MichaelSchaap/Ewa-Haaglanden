@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:10%">
+    <section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:5%">
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
@@ -10,26 +10,23 @@
       </div>
     </section>
 
+    <div class="container" style="display:block;">
+        <button
+          @click="prevPage"
+          type="button"
+          class="btn btn-secondary"
+          :disabled="pageNumber==0"
+        >Previous</button>
+        <button
+          @click="nextPage"
+          type="button"
+          class="btn btn-secondary"
+          :disabled="pageNumber >= pageCount -1"
+        >Next</button>
+      </div>
+
     <div class="container" style=" margin-top:3%;">
 
-      <div style="display:block;margin-top: 5%">
-        <button 
-        @click="prevPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber==0"
-        >
-        Previous
-        </button>
-        <button 
-        @click="nextPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber >= pageCount -1"
-        >
-        Next
-        </button>
-        </div>
     
       <div class="row">
 
@@ -52,6 +49,7 @@
           v-else
           :key="post.id"
           class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
+          style="heigth:50%"
         >
           <post
             :title="post.title"
@@ -81,7 +79,7 @@
         >
         Next
         </button>
-        </div>
+      </div>
 
     </div>
   </div>
@@ -176,5 +174,9 @@ export default {
 
 .about-us {
   @include angled-edge("outside bottom", "lower right", #ffb300);
+}
+
+button {
+  width:10%;
 }
 </style>

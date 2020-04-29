@@ -1,5 +1,5 @@
 <template>
-  <section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:10%">
+  <section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:5%">
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">

@@ -2,26 +2,21 @@
   <section class="allDocuments">
     <div class="container">
       <div class="row">
-
         <div style="display:block; margin-left:2%;margin-top: 5%">
-        <button 
-        @click="prevPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber==0"
-        >
-        Previous
-        </button>
-        <button 
-        @click="nextPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber >= pageCount -1"
-        >
-        Next
-        </button>
+          <button
+            @click="prevPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber==0"
+          >Previous</button>
+          <button
+            @click="nextPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber >= pageCount -1"
+          >Next</button>
 
-        <input
+          <input
             type="text"
             placeholder="Vind een bestand"
             style="height: 2.4rem"
@@ -37,8 +32,8 @@
             <tr>
               <th style="width:30%">Naam</th>
               <th style="width:30%">Omschrijving</th>
-              <th style="width:10%">Date created</th>
-              <th style="width:10%">Acties</th>
+              <th style="width:10%">Created</th>
+              <th style="width:20%">Acties</th>
             </tr>
           </thead>
           <tbody>
@@ -56,45 +51,35 @@
             <div v-else-if="!hasDocuments" class="row" style="margin-left:5%;">Geen bestanden!</div>
             <tr v-for="document in paginatedData" v-else :key="document.id">
               <td style="width:15%">{{document.name}}</td>
-              <td style="width:40%;word-wrap: break-word;">{{document.description.slice(0,100)}}</td>
-              <td style="width:5%">{{document.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
-              <td style="width:40%">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  style="width:100%"
-                  @click="deleteDocument(document.id)"
-                >Verwijderen</button>
-                <button
-                  style="background-color:black;width:100%"
-                  type="button"
-                  @click="goToDocument(document.id)"
-                  class="btn btn-info"
-                >Verander</button>
+              <td style="width:15%;">{{document.description.slice(0,200)}}</td>
+              <td
+                style="width:10%"
+              >{{document.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
+              <td style="width:20%">
+                <button type="button" class="btn btn-danger" @click="deleteDocument(document.id)">
+                  <i class="fa fa-trash"></i>
+                </button>
+                <button type="button" @click="goToDocument(document.id)" class="btn btn-info">
+                  <i class="fa fa-edit"></i>
+                </button>
               </td>
             </tr>
           </tbody>
         </table>
         <div style="display:block;margin-bottom:10%; margin-left:2%;">
-        <button 
-        @click="prevPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber==0"
-        >
-        Previous
-        </button>
-        <button 
-        @click="nextPage"
-        type="button"
-        class="btn btn-secondary"
-        :disabled="pageNumber >= pageCount -1"
-        >
-        Next
-        </button>
+          <button
+            @click="prevPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber==0"
+          >Previous</button>
+          <button
+            @click="nextPage"
+            type="button"
+            class="btn btn-secondary"
+            :disabled="pageNumber >= pageCount -1"
+          >Next</button>
         </div>
-
-
       </div>
     </div>
   </section>
@@ -108,10 +93,10 @@ export default {
   components: {
     ErrorMessage
   },
-  props:{
-    size:{
-      type:Number,
-      required:false,
+  props: {
+    size: {
+      type: Number,
+      required: false,
       default: 10
     }
   },
@@ -121,7 +106,7 @@ export default {
       name: "",
       description: "",
       file: "",
-      pageNumber: 0,  // default to page 0
+      pageNumber: 0, // default to page 0
       documentNaamSearchString: ""
     };
   },
@@ -139,13 +124,12 @@ export default {
         params: { Pid: documentId }
       });
     },
-    nextPage(){
-        this.pageNumber++;
+    nextPage() {
+      this.pageNumber++;
     },
-    prevPage(){
-        this.pageNumber--;
+    prevPage() {
+      this.pageNumber--;
     }
-
   },
   created() {
     this.$store.dispatch("document/findAll");
@@ -166,10 +150,10 @@ export default {
     documents() {
       return this.$store.getters["document/documents"];
     },
-    pageCount(){
+    pageCount() {
       let l = this.documents.length,
-          s = this.size;
-      return Math.ceil(l/s);
+        s = this.size;
+      return Math.ceil(l / s);
     },
     paginatedData() {
       var documentNaamSearchString = this.documentNaamSearchString;
@@ -180,7 +164,8 @@ export default {
       return this.documents
         .filter(function(documents) {
           if (
-            documents.name.toLowerCase().indexOf(documentNaamSearchString) !== -1
+            documents.name.toLowerCase().indexOf(documentNaamSearchString) !==
+            -1
           ) {
             return documents;
           }
@@ -188,9 +173,9 @@ export default {
         .sort(function(a, b) {
           return a.created < b.created ? 1 : -1;
         })
-        .splice(start, end);
+        .slice(start, end);
     }
-  },
+  }
 };
 </script>
 
@@ -202,7 +187,6 @@ export default {
   top: 70%;
   right: 50%; /* or: left: 50%; */
 }
-
 
 body {
   margin: 0 !important;

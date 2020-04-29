@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:10%">
+    <section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:3%">
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
@@ -12,24 +12,28 @@
 
     <section class="createPost">
       <div class="container">
-        <div class="row" style="padding-left: 1rem;">
+        <div class="row" style="padding-left: 1rem;text-align:center">
         <button 
         type="button"
+        
         :class="{'btn btn-danger': !posts, 'btn btn-success': posts}"
         @click='posts = !posts; contacts = false; partners = false; documents = false;'> 
         News</button>
         <button 
         type="button"
+        
         :class="{'btn btn-danger': !contacts, 'btn btn-success': contacts}"
         @click='contacts = !contacts; posts = false; partners = false; documents = false;'> 
         Newsletters </button>
         <button 
         type="button"
+        
         :class="{'btn btn-danger': !partners, 'btn btn-success': partners}"
         @click='partners = !partners; posts = false; contacts = false; documents = false;'> 
         Partners </button>
         <button 
         type="button"
+   
         :class="{'btn btn-danger': !documents, 'btn btn-success': documents}"
         @click='documents = !documents; posts = false; contacts = false; partners = false;'> 
         Informatie </button>
@@ -132,4 +136,5 @@ export default {
 .about-us {
   @include angled-edge("outside bottom", "lower right", #ffb300);
 }
+
 </style>

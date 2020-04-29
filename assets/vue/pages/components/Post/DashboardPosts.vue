@@ -32,7 +32,7 @@
             <tr>
               <th style="width:30%">Titel</th>
               <th style="width:30%">Content</th>
-              <th style="width:10%">Date created</th>
+              <th style="width:10%">Created</th>
               <th style="width:20%">Acties</th>
             </tr>
           </thead>
@@ -48,32 +48,23 @@
               </div>
             </div>
 
-            <div v-else-if="!hasPosts" class="row" style="margin-left:5%;">No posts!</div>
+            <div v-else-if="!hasPosts" class="row" style="margin-left:5%;">Geen nieuws artikelen!</div>
             <tr v-for="post in paginatedData" v-else :key="post.id">
               <td style="width:15%">{{post.title}}</td>
               <td style="width:15%">{{post.content.slice(0,250) + '...'}}</td>
               <td
-                style="width:5%"
+                style="width:10%"
               >{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
               <td style="width:20%">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  @click="deletePost(post.id)"
-                  style="width:100%"
-                >Verwijderen</button>
-                <button
-                  type="button"
-                  class="btn btn-info"
-                  @click="goToNews(post.id)"
-                  style="width:100%"
-                >Bekijken</button>
-                <button
-                  style="background-color:black;width:100%"
-                  type="button"
-                  @click="goToPost(post.id)"
-                  class="btn btn-info"
-                >Verander</button>
+                <button type="button" class="btn btn-danger" @click="deletePost(post.id)">
+                  <i class="fa fa-trash"></i>
+                </button>
+                <button type="button" class="btn btn-info" @click="goToNews(post.id)">
+                  <i class="fa fa-eye"></i>
+                </button>
+                <button type="button" @click="goToPost(post.id)" class="btn btn-info">
+                  <i class="fa fa-edit"></i>
+                </button>
               </td>
             </tr>
           </tbody>
@@ -179,16 +170,14 @@ export default {
         end = start + this.size;
       return this.posts
         .filter(function(posts) {
-          if (
-            posts.title.toLowerCase().indexOf(postNameSearchString) !== -1
-          ) {
+          if (posts.title.toLowerCase().indexOf(postNameSearchString) !== -1) {
             return posts;
           }
         })
         .sort(function(a, b) {
           return a.created < b.created ? 1 : -1;
         })
-        .splice(start, end);
+        .slice(start, end);
     }
   },
   created() {

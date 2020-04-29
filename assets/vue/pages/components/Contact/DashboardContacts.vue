@@ -37,7 +37,7 @@
             <tr>
               <th style="width:30%">Naam</th>
               <th style="width:40%">E-mail</th>
-              <th style="width:10%">Date created</th>
+              <th style="width:10%">Created</th>
             </tr>
           </thead>
           <tbody>
@@ -156,7 +156,7 @@ export default {
         .sort(function(a, b) {
           return a.created < b.created ? 1 : -1;
         })
-        .splice(start, end);
+        .slice(start, end);
     }
   },
   created() {

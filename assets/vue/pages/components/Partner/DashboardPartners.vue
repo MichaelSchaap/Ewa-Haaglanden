@@ -32,7 +32,7 @@
             <tr>
               <th style="width:30%">Naam</th>
               <th style="width:40%">Website</th>
-              <th style="width:10%">Date created</th>
+              <th style="width:10%">Created</th>
               <th style="width:20%">Acties</th>
             </tr>
           </thead>
@@ -59,21 +59,19 @@
                 <button
                   type="button"
                   class="btn btn-danger"
-                  style="width:100%"
                   @click="deletePartner(partner.id)"
-                >Verwijderen</button>
+                ><i class="fa fa-trash"></i></button>
                 <button
-                  style="background-color:black;width:100%"
                   type="button"
                   @click="goToPartner(partner.id)"
                   class="btn btn-info"
-                >Verander</button>
+                ><i class="fa fa-edit"></i></button>
               </td>
             </tr>
           </tbody>
         </table>
         <div style="display:block;margin-bottom:10%; margin-left:2%;">
-          <button
+         <button
             @click="prevPage"
             type="button"
             class="btn btn-secondary"
@@ -175,7 +173,7 @@ export default {
         .sort(function(a, b) {
           return a.created < b.created ? 1 : -1;
         })
-        .splice(start, end);
+        .slice(start, end);
     }
   },
   created() {

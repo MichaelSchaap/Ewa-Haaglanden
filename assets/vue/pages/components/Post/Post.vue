@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="margin-right:6%; margin-bottom:5%;">
+  <div class="card" style="margin-right:6%; margin-bottom:5%">
     <img
       class="card-img-top"
       style="width:100%;height:auto;cursor:pointer;"
