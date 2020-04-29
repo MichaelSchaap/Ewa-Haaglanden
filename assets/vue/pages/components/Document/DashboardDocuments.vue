@@ -56,7 +56,7 @@
             <div v-else-if="!hasDocuments" class="row" style="margin-left:5%;">Geen bestanden!</div>
             <tr v-for="document in paginatedData" v-else :key="document.id">
               <td style="width:15%">{{document.name}}</td>
-              <td style="width:40%">{{document.description}}</td>
+              <td style="width:40%;word-wrap: break-word;">{{document.description.slice(0,100)}}</td>
               <td style="width:5%">{{document.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
               <td style="width:40%">
                 <button

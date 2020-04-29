@@ -71,7 +71,7 @@ final class DocumentController extends AbstractController
         $file = str_replace('data:application/pdf;base64,', '', $file);
         $file = str_replace(' ', '+', $file);
         $data = base64_decode($file);
-        $unique = uniqid() . '.pdf';
+        $unique = $name . '.pdf';
         $read = UPLOAD_DIR . $unique;
         $success = file_put_contents($read, $data);
         $document->setFile($unique);
@@ -166,7 +166,7 @@ final class DocumentController extends AbstractController
                 $file = str_replace('data:application/pdf;base64,', '', $file);
                 $file = str_replace(' ', '+', $file);
                 $data = base64_decode($file);
-                $unique = uniqid() . '.pdf';
+                $unique = $name . '.pdf';
                 $read = UPLOAD_DIR . $unique;
                 $success = file_put_contents($read, $data);
                 $document->setFile($unique);

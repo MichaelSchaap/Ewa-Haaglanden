@@ -9,7 +9,7 @@
               id="name"
               v-model="name"
               type="text"
-              placeholder="name"
+              placeholder="Naam"
               style="margin-bottom:2%;"
             />
           </div>
@@ -112,7 +112,7 @@ export default {
     },
     file: {
       type: String,
-      required: true
+      required: false
     }
   }
 };
