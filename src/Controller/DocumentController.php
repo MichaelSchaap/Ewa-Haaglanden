@@ -163,10 +163,13 @@ final class DocumentController extends AbstractController
                 define('UPLOAD_DIR', 'images/doc/');
                 $document->setFile($file);
                 $file = $document->getFile($file);
+                $file = str_replace('data:application/pdf;base64,', '', $file);
+                $file = str_replace(' ', '+', $file);
                 $data = base64_decode($file);
-                $read = UPLOAD_DIR . $file;
+                $unique = uniqid() . '.pdf';
+                $read = UPLOAD_DIR . $unique;
                 $success = file_put_contents($read, $data);
-                $document->setFile($file);
+                $document->setFile($unique);
             }
         }
 

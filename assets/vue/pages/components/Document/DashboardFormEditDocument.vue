@@ -59,7 +59,6 @@
           </div>
           <div class="col-6">
             <button
-              :disabled="isLoading"
               type="button"
               style="background-color:#CC0029"
               class="btn btn-primary btn-lg btn-round btn-block"

@@ -133,7 +133,7 @@ export default {
         documentId
       });
     },
-    goToPartner(documentId) {
+    goToDocument(documentId) {
       this.$router.push({
         name: "DashboardEditDocuments",
         params: { Pid: documentId }
