@@ -13,12 +13,14 @@
     <div class="container" style="display:block;">
         <button
           @click="prevPage"
+          style="width: auto"
           type="button"
           class="btn btn-secondary"
           :disabled="pageNumber==0"
         >Previous</button>
         <button
           @click="nextPage"
+          style="width: auto"
           type="button"
           class="btn btn-secondary"
           :disabled="pageNumber >= pageCount -1"
@@ -65,6 +67,7 @@
       <div style="display:block;margin-bottom:10%;">
         <button 
         @click="prevPage"
+        style="width: auto"
         type="button"
         class="btn btn-secondary"
         :disabled="pageNumber==0"
@@ -73,6 +76,7 @@
         </button>
         <button 
         @click="nextPage"
+        style="width: auto"
         type="button"
         class="btn btn-secondary"
         :disabled="pageNumber >= pageCount -1"

@@ -1,6 +1,6 @@
 <template>
   <form>
-    <div class="content" style="margin-top:15%">
+    <div class="content" style="margin-top:15%;">
       <div class="container">
         <div class="col-md-5 ml-auto mr-auto">
           <card type="login" plain>
@@ -10,7 +10,7 @@
             <div class="row">
               <div class="col-12">
                 <input
-                  class="no-border input-lg"
+                  class="big_form"
                   v-model="login"
                   type="text"
                   addon-left-icon="now-ui-icons users_circle-08"
@@ -20,7 +20,7 @@
               </div>
               <div class="col-12">
                 <input
-                  class="no-border input-lg"
+                  class="big_form"
                   v-model="password"
                   type="password"
                   addon-left-icon="now-ui-icons text_caps-small"
@@ -35,7 +35,8 @@
                 <button
                   :disabled="login.length === 0 || password.length === 0 || isLoading"
                   type="button"
-                  class="btn btn-primary btn-lg btn-round btn-block"
+                  style="background-color:#CC0029;"
+                  class="btn btn-danger"
                   @click="performLogin()"
                 >Login</button>
               </div>
@@ -127,7 +128,41 @@ export default {
   right: 50%; /* or: left: 50%; */
 }
 
-.content {
+.big_form {
+  font-size: 20px;
+  height: 56px;
+  box-shadow: none;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  width: 100%;
+  max-width: 668px;
+  position: relative;
+  height: 48px;
+  border-color: currentcolor currentcolor rgb(102, 102, 102);
+  border-bottom-color: rgb(102, 102, 102);
+  border-style: none none solid;
+  border-width: medium medium 2px;
+  border-image: none 100% / 1 / 0 stretch;
+  border-radius: 0px;
+
+  font-family: "Exo BNNVARA", Verdana, sans-serif;
+  color: rgb(16, 16, 16);
+  font-size: 16px;
+  text-indent: 17px;
+  padding: 3px;
+}
+
+.big_form:focus {
+  border-bottom-color: rgb(16, 16, 16);
+  outline: rgb(1, 186, 239) solid 2px;
+  outline-offset: 2px;
+}
+
+.big_form:hover,
+.big_form:active {
+  outline: currentcolor none 0px;
+  border-bottom-color: rgb(16, 16, 16);
 }
 
 @import "../assets/scss/now-ui-kit/mixins.scss";
