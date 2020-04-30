@@ -55,6 +55,8 @@
             :file="document.file"
             :created="document.created"
           />
+
+          
         </div>
       </div>
 
@@ -173,8 +175,17 @@ export default {
   @include angled-edge("outside bottom", "lower left", #ffb300);
 }
 
-button {
-  width:10%;
+a {
+  background-color: red;
+  color: white;
+  padding-left: 25%;
+  padding-right: 25%;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-box-shadow: -2px 18px 18px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: -2px 18px 18px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: -2px 18px 18px -4px rgba(0, 0, 0, 0.5);
 }
 </style>
 

@@ -9,10 +9,10 @@
 
       <p class="card-text" style="text-size:12px;white-space: pre-line">{{ description }}</p>
     </div>
-    <div  style="text-align:center;">
+    <div v-if="file.length > 6" style="text-align:center;">
       <a :href="require(`../../../../../public/images/doc/${file}`)" download>Download</a>
     </div>
-  
+    <div v-else-if="file === null" style="text-align:center;"></div>
   </div>
 </template>
 
