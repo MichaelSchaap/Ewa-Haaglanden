@@ -1,5 +1,5 @@
 <template>
-  <div class="partners">
+  <div class="partners" style="background-color: #f6f6f6;">
     <section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:10%">
       <div class="container">
         <div class="row">

@@ -21,14 +21,14 @@
           @click="prevPage"
           style="width: auto"
           type="button"
-          class="btn btn-secondary"
+          class="lined thick"
           :disabled="pageNumber==0"
         >Previous</button>
         <button
           @click="nextPage"
           style="width: auto"
           type="button"
-          class="btn btn-secondary"
+          class="lined thick"
           :disabled="pageNumber >= pageCount -1"
         >Next</button>
       </div>
@@ -81,7 +81,7 @@
         @click="prevPage"
         style="width: auto"
         type="button"
-        class="btn btn-secondary"
+        class="lined thick"
         :disabled="pageNumber==0"
         >
         Previous
@@ -90,7 +90,7 @@
         @click="nextPage"
         style="width: auto"
         type="button"
-        class="btn btn-secondary"
+        class="lined thick"
         :disabled="pageNumber >= pageCount -1"
         >
         Next
@@ -192,7 +192,30 @@ export default {
   @include angled-edge("outside bottom", "lower left", #ffb300);
 }
 
-button {
-  width:10%;
+button{
+      align-self:center;
+      background:transparent;
+      padding:0.5rem 1rem;
+      margin:0 1rem;
+      transition:all .5s ease;
+      color:#41403E;
+      letter-spacing:1px;
+      outline:none;
+      box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      cursor: pointer;
+      /*
+      Above is shorthand for:
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 15px 225px;
+      border-bottom-right-radius: 225px 15px;
+      border-bottom-left-radius:15px 255px;
+      */
+       &:hover{
+         box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+      } 
+      &.lined.thick{
+         border:solid 7px #41403E;
+      }
 }
 </style>

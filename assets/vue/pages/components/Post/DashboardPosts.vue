@@ -6,13 +6,13 @@
           <button
             @click="prevPage"
             type="button"
-            class="btn btn-secondary"
+            class="lined thin"
             :disabled="pageNumber==0"
           >Previous</button>
           <button
             @click="nextPage"
             type="button"
-            class="btn btn-secondary"
+            class="lined thin"
             :disabled="pageNumber >= pageCount -1"
           >Next</button>
 
@@ -25,7 +25,7 @@
         </div>
 
         <table
-          style="display:block; margin-left:2%;"
+          style="display:block; margin-left:2%;margin-top:2%;"
           class="table table-striped table-hover table-responsive"
         >
           <thead class="thead-dark">
@@ -55,14 +55,14 @@
               <td
                 style="width:10%"
               >{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
-              <td style="width:20%">
-                <button type="button" class="btn btn-danger" @click="deletePost(post.id)">
+              <td style="width:20%;vertical-align: middle;">
+                <button type="button" class="dashed thin" @click="deletePost(post.id)">
                   <i class="fa fa-trash"></i>
                 </button>
-                <button type="button" class="btn btn-info" @click="goToNews(post.id)">
+                <button type="button" class="dashed thin" @click="goToNews(post.id)">
                   <i class="fa fa-eye"></i>
                 </button>
-                <button type="button" @click="goToPost(post.id)" class="btn btn-info">
+                <button type="button" class="dashed thin" @click="goToPost(post.id)">
                   <i class="fa fa-edit"></i>
                 </button>
               </td>
@@ -73,13 +73,13 @@
           <button
             @click="prevPage"
             type="button"
-            class="btn btn-secondary"
+            class="lined thin"
             :disabled="pageNumber==0"
           >Previous</button>
           <button
             @click="nextPage"
             type="button"
-            class="btn btn-secondary"
+            class="lined thin"
             :disabled="pageNumber >= pageCount -1"
           >Next</button>
         </div>
@@ -189,5 +189,40 @@ export default {
 <style lang="scss" scoped>
 body {
   margin: 0 !important;
+}
+button{
+      align-self:center;
+      background:transparent;
+      padding:0.5rem 1rem;
+      transition:all .5s ease;
+      color:#41403E;
+      letter-spacing:1px;
+      outline:none;
+      cursor: pointer;
+      box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      /*
+      Above is shorthand for:
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 15px 225px;
+      border-bottom-right-radius: 225px 15px;
+      border-bottom-left-radius:15px 255px;
+      */
+       &:hover{
+         box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+      } 
+      &.lined.thick{
+         border:solid 7px #41403E;
+      }
+      &.lined.thin{
+         border:solid 2px #41403E;
+      }
+      &.dotted.thick{
+         border:dotted 5px #41403E;
+      }
+      &.dashed.thin{
+        border:dashed 2px #41403E;
+        padding:1rem 1rem;
+      }
 }
 </style>

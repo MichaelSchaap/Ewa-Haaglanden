@@ -16,27 +16,27 @@
         <button 
         type="button"
         
-        :class="{'btn btn-danger': !posts, 'btn btn-success': posts}"
+        :class="{'lined thick': !posts, 'dotted thick': posts}"
         @click='posts = !posts; contacts = false; partners = false; documents = false;'> 
         News</button>
         <button 
         type="button"
         
-        :class="{'btn btn-danger': !contacts, 'btn btn-success': contacts}"
-        @click='contacts = !contacts; posts = false; partners = false; documents = false;'> 
-        Newsletters </button>
-        <button 
-        type="button"
-        
-        :class="{'btn btn-danger': !partners, 'btn btn-success': partners}"
+        :class="{'lined thick': !partners, 'dotted thick': partners}"
         @click='partners = !partners; posts = false; contacts = false; documents = false;'> 
         Partners </button>
         <button 
         type="button"
    
-        :class="{'btn btn-danger': !documents, 'btn btn-success': documents}"
+        :class="{'lined thick': !documents, 'dotted thick': documents}"
         @click='documents = !documents; posts = false; contacts = false; partners = false;'> 
         Informatie </button>
+        <button 
+        type="button"
+        
+        :class="{'lined thick': !contacts, 'dotted thick': contacts}"
+        @click='contacts = !contacts; posts = false; partners = false; documents = false;'> 
+        Newsletters </button>
         
       </div>
       </div>
@@ -49,10 +49,9 @@
               style="display:inline; width:auto;"
             >
               <button
-                style="background-color:black;"
                 type="button"
-                class="btn btn-dark"
-              >Create news article</button>
+                class="lined thick"
+              >Create news artikel</button>
             </nav-link>
             <nav-link
               class="nav-link"
@@ -61,9 +60,8 @@
               style="display:inline;width:auto;"
             >
               <button
-                style="background-color:black;"
                 type="button"
-                class="btn btn-dark"
+                class="lined thick"
               >Create partner</button>
             </nav-link>
             <nav-link
@@ -73,9 +71,8 @@
               style="display:inline;width:auto;"
             >
               <button
-                style="background-color:black;"
                 type="button"
-                class="btn btn-dark"
+                class="lined thick"
               >Create bestand</button>
             </nav-link>
         </div>
@@ -140,6 +137,38 @@ export default {
 
 .news-intro {
   @include angled-edge("outside bottom", "lower left", #ffb300);
+}
+
+button{
+      align-self:center;
+      background:transparent;
+      padding:0.5rem 1rem;
+      transition:all .5s ease;
+      color:#41403E;
+      letter-spacing:1px;
+      outline:none;
+      cursor: pointer;
+      box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      /*
+      Above is shorthand for:
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 15px 225px;
+      border-bottom-right-radius: 225px 15px;
+      border-bottom-left-radius:15px 255px;
+      */
+       &:hover{
+         box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+      } 
+      &.lined.thick{
+         border:solid 7px #41403E;
+      }
+      &.lined.thin{
+         border:solid 2px #41403E;
+      }
+      &.dotted.thick{
+         border:dotted 5px #41403E;
+      }
 }
 
 </style>
