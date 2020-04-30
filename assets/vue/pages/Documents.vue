@@ -11,18 +11,18 @@
     <div v-else class="container" style="display:block;">
         <button
           @click="prevPage"
-          style="width: auto"
+          style=""
           type="button"
-          class="lined thick"
+          class="lined thin"
           :disabled="pageNumber==0"
-        >Previous</button>
+        >&nbsp;&nbsp;< Vorige&nbsp;&nbsp;</button>
         <button
           @click="nextPage"
-          style="width: auto;"
+          style=""
           type="button"
-          class="lined thick"
+          class="lined thin"
           :disabled="pageNumber >= pageCount -1"
-        >Next</button>
+        >Volgende > </button>
       </div>
   
     <div class="container" style=" margin-top:3%;">
@@ -66,24 +66,24 @@
           </div>
         </div>
 
-      <div v-else style="display:block;margin-bottom:5%;margin-top:3%;">
+      <div v-else style="display:block;margin-bottom:10%;">
         <button 
         @click="prevPage"
         style="width: auto"
         type="button"
-        class="lined thick"
+        class="lined thin"
         :disabled="pageNumber==0"
         >
-        Previous
+        &nbsp;&nbsp;< Vorige&nbsp;&nbsp;
         </button>
         <button 
         @click="nextPage"
         style="width: auto"
         type="button"
-        class="lined thick"
+        class="lined thin"
         :disabled="pageNumber >= pageCount -1"
         >
-        Next
+        Volgende >
         </button>
       </div>
 
@@ -178,7 +178,6 @@ button{
       align-self:center;
       background:transparent;
       padding:0.5rem 1rem;
-      margin:0 1rem;
       transition:all .5s ease;
       color:#41403E;
       letter-spacing:1px;

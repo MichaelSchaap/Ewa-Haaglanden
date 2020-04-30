@@ -1,17 +1,21 @@
 <template>
-  <div class="card" style="margin-right:6%; margin-bottom:5%">
+  <div class="card" style="margin-right:6%; margin-bottom:5%;height: 75vh;">
     <img
       class="card-img-top"
-      style="width:100%;height:auto;cursor:pointer;"
+      style="width:100%;height:25vh;cursor:pointer;"
       :src="require(`../../../../../public/images/news/${img}`)"
       alt="Niews foto"
     />
-    <div class="card-body">
-      <h5 class="card-title" style="text-size:20px;font-weight:bold">{{ title }}</h5>
+    <div class="card-body" style="">
+      <div style="">
+      <h5 class="card-title" style="text-size:20px;font-weight:bold; height:8vh">{{ title }}</h5>
+      </div>
+      <div style="display:flex;margin-auto">
       <p
         class="card-text"
-        style="color: #b4b4b4;"
+        style="color: #b4b4b4;margin-bottom:1vh"
       >{{ created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10) }}</p>
+      </div>
       <p
         class="card-text"
         style="text-size:12px;white-space: pre-line"

@@ -1,13 +1,14 @@
 <template>
+<div class="container">
   <div
     id="target"
-    class="col-lg-10 col-md-10 col-sm-12 col-xs-12"
-    style="margin-top:5%;margin-bottom:5%;"
+    class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+    style="padding-top:5%;padding-bottom:5%;"
   >
     <div class="container">
       <img
         class
-        style="width:100%;height:auto;"
+        style="width:100%;height:auto;padding-bottom:3%"
         :src="require(`../../../../../public/images/news/${img}`)"
         alt="Niews foto"
       />
@@ -22,6 +23,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -55,6 +57,13 @@ body {
 
 #target {
   position: relative;
-  margin-left: 5%;
+
+}
+
+@media (max-width: 978px) {
+    #target {
+      padding:0;
+      margin:0;
+    }
 }
 </style>

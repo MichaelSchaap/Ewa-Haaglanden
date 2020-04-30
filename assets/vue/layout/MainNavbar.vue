@@ -6,10 +6,9 @@
     :color-on-scroll="colorOnScroll"
     menu-classes="ml-auto"
   >
-
-      <a class="navbar-brand" href="/home">
-        <img src="images/EWAHaaglanden_logo.png" alt style="width: 200px">
-      </a>
+    <a class="navbar-brand" href="/home">
+      <img src="images/EWAHaaglanden_logo.png" alt style="width: 200px" />
+    </a>
 
     <template slot="navbar-menu">
       <li class="nav-item">
@@ -40,13 +39,13 @@
 
       <li v-if="!isAuthenticated" class="nav-item">
         <nav-link class="nav-link" to="/login">
-          <p>Login</p>
+          <p>Inloggen</p>
         </nav-link>
       </li>
 
       <li v-if="isAuthenticated" class="nav-item" style="color:black;">
         <a class="nav-link" href="/api/security/logout">
-          <p>Logout</p>
+          <p>Uitloggen</p>
         </a>
       </li>
     </template>
@@ -66,6 +65,31 @@ export default {
     Navbar,
     NavLink,
     [Popover.name]: Popover
+  },
+  methods: {
+    setNav(value) {
+      let htmlClasses = document.querySelector("html").classList;
+      if (value) {
+        htmlClasses.add("nav-open");
+      } else {
+        htmlClasses.remove("nav-open");
+      }
+      let isOpen = htmlClasses.contains("nav-open");
+      let eventToTrigger = isOpen ? "open" : "close";
+      this.showMenu = isOpen;
+      this.$emit(eventToTrigger);
+    },
+    toggle() {
+      this.setNav(!this.showMenu);
+    },
+    open() {
+      this.setNav(true);
+    },
+    close() {
+      if (this.showMenu) {
+        this.setNav(false);
+      }
+    }
   },
   computed: {
     isAuthenticated() {

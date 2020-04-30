@@ -59,7 +59,7 @@ export default {
 
   data: function() {
     return {
-      header: "PARTNERS.",
+      header: "PARTNERS",
       name: "",
       website: "",
       img: ""

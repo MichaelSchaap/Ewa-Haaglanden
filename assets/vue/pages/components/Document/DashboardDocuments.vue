@@ -2,26 +2,28 @@
   <section class="allDocuments">
     <div class="container">
       <div class="row">
-        <div style="display:block; margin-left:2%;margin-top: 5%">
-          <button
-            @click="prevPage"
-            type="button"
-            class="lined thin"
-            :disabled="pageNumber==0"
-          >Previous</button>
-          <button
-            @click="nextPage"
-            type="button"
-            class="lined thin"
-            :disabled="pageNumber >= pageCount -1"
-          >Next</button>
+        <div style="display:block;margin-top: 5%">
+          <div class="container" style="display:block; margin-left:2%">
+            <button
+              @click="prevPage"
+              type="button"
+              class="lined thin"
+              :disabled="pageNumber==0"
+            >&nbsp;&nbsp;< Vorige&nbsp;&nbsp;</button>
+            <button
+              @click="nextPage"
+              type="button"
+              class="lined thin"
+              :disabled="pageNumber >= pageCount -1"
+            >Volgende ></button>
 
-          <input
-            type="text"
-            placeholder="Vind een bestand"
-            style="height: 2.4rem"
-            v-model="documentNaamSearchString"
-          />
+            <input
+              type="text"
+              placeholder="Vind een bestand..."
+              style="height: 2.4rem"
+              v-model="documentNaamSearchString"
+            />
+          </div>
         </div>
 
         <table
@@ -32,7 +34,7 @@
             <tr>
               <th style="width:30%">Naam</th>
               <th style="width:30%">Omschrijving</th>
-              <th style="width:10%">Created</th>
+              <th style="width:10%">Datum</th>
               <th style="width:20%">Acties</th>
             </tr>
           </thead>
@@ -56,10 +58,10 @@
                 style="width:10%"
               >{{document.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
               <td style="width:20%;vertical-align: middle;">
-                <button type="button" class="dashed thin" @click="deleteDocument(document.id)">
+                <button type="button" class="lined thin" @click="deleteDocument(document.id)">
                   <i class="fa fa-trash"></i>
                 </button>
-                <button type="button" @click="goToDocument(document.id)" class="dashed thin">
+                <button type="button" @click="goToDocument(document.id)" class="lined thin">
                   <i class="fa fa-edit"></i>
                 </button>
               </td>
@@ -72,13 +74,13 @@
             type="button"
             class="lined thin"
             :disabled="pageNumber==0"
-          >Previous</button>
+          >&nbsp;&nbsp;< Vorige&nbsp;&nbsp;</button>
           <button
             @click="nextPage"
             type="button"
             class="lined thin"
             :disabled="pageNumber >= pageCount -1"
-          >Next</button>
+          >Volgende ></button>
         </div>
       </div>
     </div>

@@ -37,7 +37,7 @@
                   type="button"
                   class="lined thin"
                   @click="performLogin()"
-                >Login</button>
+                >Inloggen</button>
               </div>
             </template>
           </card>
@@ -75,7 +75,7 @@ export default {
     return {
       login: "",
       password: "",
-      header: "LOGIN."
+      header: "LOGIN"
     };
   },
   computed: {

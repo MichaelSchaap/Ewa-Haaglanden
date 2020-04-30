@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="">
     <section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:5%">
       <div class="container">
         <div class="row">
@@ -16,21 +16,21 @@
           </div>
         </div>
 
-    <div class="container" v-else style="display:block;">
+    <div v-else class="container" style="display:block;">
         <button
           @click="prevPage"
-          style="width: auto"
+          style=""
           type="button"
-          class="lined thick"
+          class="lined thin"
           :disabled="pageNumber==0"
-        >Previous</button>
+        >&nbsp;&nbsp;< Vorige&nbsp;&nbsp;</button>
         <button
           @click="nextPage"
-          style="width: auto"
+          style=""
           type="button"
-          class="lined thick"
+          class="lined thin"
           :disabled="pageNumber >= pageCount -1"
-        >Next</button>
+        >Volgende > </button>
       </div>
 
     <div class="container" style=" margin-top:3%;">
@@ -81,19 +81,19 @@
         @click="prevPage"
         style="width: auto"
         type="button"
-        class="lined thick"
+        class="lined thin"
         :disabled="pageNumber==0"
         >
-        Previous
+        &nbsp;&nbsp; < Vorige&nbsp;&nbsp;
         </button>
         <button 
         @click="nextPage"
         style="width: auto"
         type="button"
-        class="lined thick"
+        class="lined thin"
         :disabled="pageNumber >= pageCount -1"
         >
-        Next
+        Volgende >
         </button>
       </div>
 
@@ -123,7 +123,7 @@ export default {
       title: "",
       content: "",
       img: "",
-      header: "NIEUWS.",
+      header: "NIEUWS",
       pageNumber: 0,  // default to page 0
     };
   },
@@ -196,7 +196,6 @@ button{
       align-self:center;
       background:transparent;
       padding:0.5rem 1rem;
-      margin:0 1rem;
       transition:all .5s ease;
       color:#41403E;
       letter-spacing:1px;
@@ -216,6 +215,9 @@ button{
       } 
       &.lined.thick{
          border:solid 7px #41403E;
+      }
+      &.lined.thin{
+         border:solid 2px #41403E;
       }
 }
 </style>

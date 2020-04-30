@@ -16,27 +16,27 @@
         <button 
         type="button"
         
-        :class="{'lined thick': !posts, 'dotted thick': posts}"
+        :class="{'lined thin': !posts, 'dotted thin': posts}"
         @click='posts = !posts; contacts = false; partners = false; documents = false;'> 
-        News</button>
+        Nieuws</button>
         <button 
         type="button"
         
-        :class="{'lined thick': !partners, 'dotted thick': partners}"
+        :class="{'lined thin': !partners, 'dotted thin': partners}"
         @click='partners = !partners; posts = false; contacts = false; documents = false;'> 
         Partners </button>
         <button 
         type="button"
    
-        :class="{'lined thick': !documents, 'dotted thick': documents}"
+        :class="{'lined thin': !documents, 'dotted thin': documents}"
         @click='documents = !documents; posts = false; contacts = false; partners = false;'> 
-        Informatie </button>
+        Info </button>
         <button 
         type="button"
         
-        :class="{'lined thick': !contacts, 'dotted thick': contacts}"
+        :class="{'lined thin': !contacts, 'dotted thin': contacts}"
         @click='contacts = !contacts; posts = false; partners = false; documents = false;'> 
-        Newsletters </button>
+        E-mails </button>
         
       </div>
       </div>
@@ -50,8 +50,8 @@
             >
               <button
                 type="button"
-                class="lined thick"
-              >Create news artikel</button>
+                class="lined thin"
+              >Maak nieuws artikel</button>
             </nav-link>
             <nav-link
               class="nav-link"
@@ -61,8 +61,8 @@
             >
               <button
                 type="button"
-                class="lined thick"
-              >Create partner</button>
+                class="lined thin"
+              >Maak partner</button>
             </nav-link>
             <nav-link
               class="nav-link"
@@ -72,8 +72,8 @@
             >
               <button
                 type="button"
-                class="lined thick"
-              >Create bestand</button>
+                class="lined thin"
+              >Maak bestand</button>
             </nav-link>
         </div>
       </div>
@@ -166,8 +166,8 @@ button{
       &.lined.thin{
          border:solid 2px #41403E;
       }
-      &.dotted.thick{
-         border:dotted 5px #41403E;
+      &.dotted.thin{
+         border:dotted 2px #41403E;
       }
 }
 

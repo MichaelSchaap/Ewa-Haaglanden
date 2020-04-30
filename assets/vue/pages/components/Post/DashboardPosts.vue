@@ -2,26 +2,28 @@
   <section class="allPosts">
     <div class="container">
       <div class="row">
-        <div style="display:block; margin-left:2%;margin-top: 5%">
-          <button
-            @click="prevPage"
-            type="button"
-            class="lined thin"
-            :disabled="pageNumber==0"
-          >Previous</button>
-          <button
-            @click="nextPage"
-            type="button"
-            class="lined thin"
-            :disabled="pageNumber >= pageCount -1"
-          >Next</button>
+        <div style="display:block;margin-top: 5%">
+          <div class="container" style="display:block; margin-left:2%">
+            <button
+              @click="prevPage"
+              type="button"
+              class="lined thin"
+              :disabled="pageNumber==0"
+            >&nbsp;&nbsp;< Vorige&nbsp;&nbsp;</button>
+            <button
+              @click="nextPage"
+              type="button"
+              class="lined thin"
+              :disabled="pageNumber >= pageCount -1"
+            >Volgende ></button>
 
-          <input
-            type="text"
-            placeholder="Vind een artikel"
-            style="height: 2.4rem"
-            v-model="postNameSearchString"
-          />
+            <input
+              type="text"
+              placeholder="Vind een artikel..."
+              style="height: 2.4rem"
+              v-model="postNameSearchString"
+            />
+          </div>
         </div>
 
         <table
@@ -32,7 +34,7 @@
             <tr>
               <th style="width:30%">Titel</th>
               <th style="width:30%">Content</th>
-              <th style="width:10%">Created</th>
+              <th style="width:10%">Datum</th>
               <th style="width:20%">Acties</th>
             </tr>
           </thead>
@@ -56,13 +58,13 @@
                 style="width:10%"
               >{{post.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
               <td style="width:20%;vertical-align: middle;">
-                <button type="button" class="dashed thin" @click="deletePost(post.id)">
+                <button type="button" class="lined thin" @click="deletePost(post.id)">
                   <i class="fa fa-trash"></i>
                 </button>
-                <button type="button" class="dashed thin" @click="goToNews(post.id)">
+                <button type="button" class="lined thin" @click="goToNews(post.id)">
                   <i class="fa fa-eye"></i>
                 </button>
-                <button type="button" class="dashed thin" @click="goToPost(post.id)">
+                <button type="button" class="lined thin" @click="goToPost(post.id)">
                   <i class="fa fa-edit"></i>
                 </button>
               </td>
@@ -71,17 +73,17 @@
         </table>
         <div style="display:block;margin-bottom:10%; margin-left:2%;">
           <button
-            @click="prevPage"
-            type="button"
-            class="lined thin"
-            :disabled="pageNumber==0"
-          >Previous</button>
-          <button
-            @click="nextPage"
-            type="button"
-            class="lined thin"
-            :disabled="pageNumber >= pageCount -1"
-          >Next</button>
+              @click="prevPage"
+              type="button"
+              class="lined thin"
+              :disabled="pageNumber==0"
+            >&nbsp;&nbsp;< Vorige&nbsp;&nbsp;</button>
+            <button
+              @click="nextPage"
+              type="button"
+              class="lined thin"
+              :disabled="pageNumber >= pageCount -1"
+            >Volgende ></button>
         </div>
       </div>
     </div>
@@ -190,39 +192,39 @@ export default {
 body {
   margin: 0 !important;
 }
-button{
-      align-self:center;
-      background:transparent;
-      padding:0.5rem 1rem;
-      transition:all .5s ease;
-      color:#41403E;
-      letter-spacing:1px;
-      outline:none;
-      cursor: pointer;
-      box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
-      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-      /*
+button {
+  align-self: center;
+  background: transparent;
+  padding: 0.5rem 1rem;
+  transition: all 0.5s ease;
+  color: #41403e;
+  letter-spacing: 1px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  /*
       Above is shorthand for:
       border-top-left-radius: 255px 15px;
       border-top-right-radius: 15px 225px;
       border-bottom-right-radius: 225px 15px;
       border-bottom-left-radius:15px 255px;
       */
-       &:hover{
-         box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
-      } 
-      &.lined.thick{
-         border:solid 7px #41403E;
-      }
-      &.lined.thin{
-         border:solid 2px #41403E;
-      }
-      &.dotted.thick{
-         border:dotted 5px #41403E;
-      }
-      &.dashed.thin{
-        border:dashed 2px #41403E;
-        padding:1rem 1rem;
-      }
+  &:hover {
+    box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+  }
+  &.lined.thick {
+    border: solid 7px #41403e;
+  }
+  &.lined.thin {
+    border: solid 2px #41403e;
+  }
+  &.dotted.thick {
+    border: dotted 5px #41403e;
+  }
+  &.dashed.thin {
+    border: dashed 2px #41403e;
+    padding: 1rem 1rem;
+  }
 }
 </style>

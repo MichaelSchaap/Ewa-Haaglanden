@@ -15,7 +15,7 @@ export default {
   name: "IntroductionSection",
   data() {
     return {
-      header: "INFORMATIE.",
+      header: "INFORMATIE",
     };
   },
 };

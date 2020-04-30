@@ -1,7 +1,7 @@
 <template>
-  <div class="card" style="margin-right:6%; margin-bottom:5%;padding-bottom: 6%;">
+  <div class="card" style="margin-right:6%; margin-bottom:5%;height: 50vh;">
     <div class="card-body">
-      <h5 class="card-title" style="text-size:20px;font-weight:bold">{{ name }}</h5>
+      <h5 class="card-title" style="text-size:20px;font-weight:bold;height:8vh">{{ name }}</h5>
       <p
         class="card-text"
         style="color: #b4b4b4;"
@@ -9,10 +9,10 @@
 
       <p class="card-text" style="text-size:12px;white-space: pre-line">{{ description }}</p>
     </div>
-    <div v-if="file.length > 6" style="text-align:center;">
+    <div v-if="file.length > 6" class="container" style="text-align:center;padding-top:1vh">
       <a class="lined thin" :href="require(`../../../../../public/images/doc/${file}`)" download>Download</a>
     </div>
-    <div v-else-if="file === null" style="text-align:center;"></div>
+    <div v-else-if="file === null" class="container" style="text-align:center;"></div>
   </div>
 </template>
 

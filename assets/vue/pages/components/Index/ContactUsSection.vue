@@ -37,7 +37,7 @@
                   <input
                     id="email"
                     class="big_form"
-                    placeholder="E-mail Hier..."
+                    placeholder="E-mail hier..."
                     v-model="email"
                     type="text"
                     style="margin-bottom:2%;"

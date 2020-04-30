@@ -3,30 +3,28 @@
     <div class="container">
       <div class="row">
 
-        <div style="display:block; margin-left:2%;margin-top: 5%">
-        <button 
-        @click="prevPage"
-        type="button"
-        class="lined thin"
-        :disabled="pageNumber==0"
-        >
-        Previous
-        </button>
-        <button 
-        @click="nextPage"
-        type="button"
-        class="lined thin"
-        :disabled="pageNumber >= pageCount -1"
-        >
-        Next
-        </button>
+        <div style="display:block;margin-top: 5%">
+          <div class="container" style="display:block; margin-left:2%">
+            <button
+              @click="prevPage"
+              type="button"
+              class="lined thin"
+              :disabled="pageNumber==0"
+            >&nbsp;&nbsp;< Vorige&nbsp;&nbsp;</button>
+            <button
+              @click="nextPage"
+              type="button"
+              class="lined thin"
+              :disabled="pageNumber >= pageCount -1"
+            >Volgende ></button>
 
-        <input
-            type="text"
-            placeholder="Vind een e-mail"
-            style="height: 2.4rem"
-            v-model="contactEmailSearchString"
-          />
+            <input
+              type="text"
+              placeholder="Vind een e-mail..."
+              style="height: 2.4rem"
+              v-model="contactEmailSearchString"
+            />
+          </div>
         </div>
 
         <table
@@ -37,7 +35,7 @@
             <tr>
               <th style="width:30%">Naam</th>
               <th style="width:40%">E-mail</th>
-              <th style="width:10%">Created</th>
+              <th style="width:10%">Datum</th>
             </tr>
           </thead>
           <tbody>
@@ -67,7 +65,7 @@
         class="lined thin"
         :disabled="pageNumber==0"
         >
-        Previous
+        &nbsp;&nbsp; < Vorige&nbsp;&nbsp;
         </button>
         <button 
         @click="nextPage"
@@ -75,7 +73,7 @@
         class="lined thin"
         :disabled="pageNumber >= pageCount -1"
         >
-        Next
+        Volgende >
         </button>
         </div>
 
