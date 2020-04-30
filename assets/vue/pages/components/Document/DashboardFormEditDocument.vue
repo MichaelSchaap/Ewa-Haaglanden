@@ -2,6 +2,7 @@
   <form method="post" enctype="multiplart/form-data">
     <div class="content" style>
       <div class="container" style="width:85%">
+        <flash-message class="success" style="width:25%;text-align:center;margin-left: 25%;margin-bottom:5%; position:absolute;top: 40%;left: 12.5%;"></flash-message>
         <div class="row">
           <div class="col-12">
             <input
@@ -70,6 +71,8 @@
 </template>
 
 <script>
+require('vue-flash-message/dist/vue-flash-message.min.css');
+
 export default {
   name: "DashboardFormEditDocument",
   methods: {
@@ -84,6 +87,9 @@ export default {
         .catch(error => {
           console.log(error);
         });
+        this.flash('Document veranderd!', 'success', {
+        timeout: 2000
+      });
     },
 
     goBack() {

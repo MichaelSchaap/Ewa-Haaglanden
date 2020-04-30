@@ -23,6 +23,9 @@
               style="height: 2.4rem"
               v-model="postNameSearchString"
             />
+
+            <flash-message class="error" style="width:65%;text-align:center;margin-top:2%"></flash-message>
+    
           </div>
         </div>
 
@@ -85,13 +88,16 @@
               :disabled="pageNumber >= pageCount -1"
             >Volgende ></button>
         </div>
+
       </div>
+      
     </div>
   </section>
 </template>
 
 <script>
 import ErrorMessage from "../../../pages/components/ErrorMessage";
+require('vue-flash-message/dist/vue-flash-message.min.css');
 
 export default {
   name: "DashboardPosts",
@@ -121,6 +127,9 @@ export default {
       this.posts.splice(i, 1);
       this.$store.dispatch("post/DELETE_POST", {
         postId
+      });
+      this.flash('Nieuws artikel verwijderd', 'error', {
+        timeout: 1000
       });
     },
     goToNews(postId) {

@@ -67,11 +67,15 @@
           <br />
         </div>
       </div>
+    <flash-message class="success" style="width:25%;text-align:center;margin-left: 25%;margin-bottom:5%; position:absolute;top: 40%;left: 12.5%;"></flash-message>
+
     </div>
   </section>
 </template>
 
 <script>
+require('vue-flash-message/dist/vue-flash-message.min.css');
+
 export default {
   name: "DashboardCreatePost",
   data() {
@@ -117,6 +121,9 @@ export default {
         this.$data.content = "";
         this.$data.img = null;
       }
+      this.flash('Nieuws artikel gemaakt!', 'success', {
+        timeout: 5000
+      });
       
       
     },

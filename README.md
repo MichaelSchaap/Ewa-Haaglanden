@@ -12,14 +12,10 @@ Use yarn run encore dev --watch to view the website
 
 INSTALLATION + USAGE END
 
-TEST BEGIN
+DATABASE BEGIN
 
-Use composer csfix and composer cscheck to do quick test of the code.
+php bin/console doctrine:database:create
 
-Use php bin/console doctrine:database:create --env=test to create test database
-Use php bin/console doctrine:database:diff --env=test to create migration
-Use php bin/console doctrine:database:migrate --env=test to migrate to db
+php bin/console doctrine:migrations:diff
 
-Use php bin/phpunit to test
-
-TEST END
+php bin/console doctrine:migrations:migrate

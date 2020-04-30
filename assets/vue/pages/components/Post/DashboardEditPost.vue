@@ -1,6 +1,7 @@
 <template>
   <section v-if="canCreatePost" class="EditPost">
     <div class="container h-100" style>
+      
       <div class="row h-100 justify-content-center align-items-center">
         <div v-if="isLoading" class="container" style="text-align: center">
           <div class="spinner-border" role="status">

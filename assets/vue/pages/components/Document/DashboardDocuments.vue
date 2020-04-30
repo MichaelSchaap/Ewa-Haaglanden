@@ -4,6 +4,7 @@
       <div class="row">
         <div style="display:block;margin-top: 5%">
           <div class="container" style="display:block; margin-left:2%">
+          
             <button
               @click="prevPage"
               type="button"
@@ -23,6 +24,9 @@
               style="height: 2.4rem"
               v-model="documentNaamSearchString"
             />
+
+             <flash-message class="error" style="width:65%;text-align:center;margin-top:2%"></flash-message>
+        
           </div>
         </div>
 
@@ -89,6 +93,7 @@
 
 <script>
 import ErrorMessage from "../../../pages/components/ErrorMessage";
+require('vue-flash-message/dist/vue-flash-message.min.css');
 
 export default {
   name: "DashboardDocuments",
@@ -118,6 +123,9 @@ export default {
       this.documents.splice(i, 1);
       this.$store.dispatch("document/DELETE_DOCUMENT", {
         documentId
+      });
+      this.flash('Bestand verwijderd', 'error', {
+        timeout: 1000
       });
     },
     goToDocument(documentId) {

@@ -4,6 +4,7 @@
       <div class="row">
         <div style="display:block;margin-top: 5%">
           <div class="container" style="display:block; margin-left:2%">
+      
             <button
               @click="prevPage"
               type="button"
@@ -23,6 +24,9 @@
               style="height: 2.4rem"
               v-model="partnerNameSearchString"
             />
+
+            <flash-message class="error" style="width:65%;text-align:center;margin-top:2%"></flash-message>
+   
           </div>
         </div>
 
@@ -83,12 +87,14 @@
           >Volgende ></button>
         </div>
       </div>
+      
     </div>
   </section>
 </template>
 
 <script>
 import ErrorMessage from "../../../pages/components/ErrorMessage";
+require('vue-flash-message/dist/vue-flash-message.min.css');
 
 export default {
   name: "DashboardPartners",
@@ -118,6 +124,9 @@ export default {
       this.partners.splice(i, 1);
       this.$store.dispatch("partner/DELETE_PARTNER", {
         partnerId
+      });
+      this.flash('Partner verwijderd', 'error', {
+        timeout: 1000
       });
     },
     goToPartner(partnerId) {
