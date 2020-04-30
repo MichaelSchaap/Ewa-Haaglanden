@@ -41,7 +41,7 @@
             </tr>
           </thead>
           <tbody>
-            <div v-if="isLoading" class="container" style="margin-top:4%; margin-left:150%">
+            <div v-if="isLoading" class="container" style="margin-top:4%; margin-left:140%">
               <div class="spinner-border" role="status">
                 <span class="sr-only">Loading...</span>
               </div>
@@ -166,13 +166,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.spinner-border {
-  display: block;
-  position: fixed;
-  z-index: 1031;
-  top: 70%;
-  right: 50%; /* or: left: 50%; */
-}
+
 
 
 body {

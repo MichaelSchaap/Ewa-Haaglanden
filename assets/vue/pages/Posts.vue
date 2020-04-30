@@ -10,7 +10,13 @@
       </div>
     </section>
 
-    <div class="container" style="display:block;">
+    <div v-if="isLoading" class="container">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+
+    <div class="container" v-else style="display:block;">
         <button
           @click="prevPage"
           style="width: auto"
@@ -64,7 +70,13 @@
 
       </div>
 
-      <div style="display:block;margin-bottom:10%;">
+      <div v-if="isLoading" class="container">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+
+      <div v-else style="display:block;margin-bottom:10%;">
         <button 
         @click="prevPage"
         style="width: auto"
@@ -103,7 +115,7 @@ export default {
     size:{
       type:Number,
       required:false,
-      default: 10
+      default: 9
     }
   },
   data() {
@@ -170,14 +182,14 @@ export default {
   display: block;
   position: fixed;
   z-index: 1031;
-  top: 50%;
+  top: 60%;
   right: 50%; /* or: left: 50%; */
 }
 
 @import "../assets/scss/now-ui-kit/mixins.scss";
 
-.about-us {
-  @include angled-edge("outside bottom", "lower right", #ffb300);
+.news-intro {
+  @include angled-edge("outside bottom", "lower left", #ffb300);
 }
 
 button {

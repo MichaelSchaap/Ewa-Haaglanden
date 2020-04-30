@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="isAuthenticated">
     <section class="news-intro" style="background-color: #FFB300;padding-top:8%;margin-bottom:3%">
       <div class="container">
         <div class="row">
@@ -126,6 +126,11 @@ export default {
       partners: false,
       documents: false,
     };
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters["security/isAuthenticated"]
+    },
   }
 };
 </script>
@@ -133,8 +138,8 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/now-ui-kit/mixins.scss";
 
-.about-us {
-  @include angled-edge("outside bottom", "lower right", #ffb300);
+.news-intro {
+  @include angled-edge("outside bottom", "lower left", #ffb300);
 }
 
 </style>

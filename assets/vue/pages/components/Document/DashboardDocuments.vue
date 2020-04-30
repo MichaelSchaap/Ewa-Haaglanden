@@ -180,13 +180,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.spinner-border {
-  display: block;
-  position: fixed;
-  z-index: 1031;
-  top: 70%;
-  right: 50%; /* or: left: 50%; */
-}
 
 body {
   margin: 0 !important;

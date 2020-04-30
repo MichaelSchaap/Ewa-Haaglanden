@@ -60,21 +60,26 @@ final class DocumentController extends AbstractController
         }
 
         $file = $request->request->get('file');
+
+
       
         $document = new Document();
         $document->setName($name);
         $document->setDescription($description);
 
-        define('UPLOAD_DIR', 'images/doc/');
-        $document->setFile($file);
-        $file = $document->getFile($file);
-        $file = str_replace('data:application/pdf;base64,', '', $file);
-        $file = str_replace(' ', '+', $file);
-        $data = base64_decode($file);
-        $unique = $name . '.pdf';
-        $read = UPLOAD_DIR . $unique;
-        $success = file_put_contents($read, $data);
-        $document->setFile($unique);
+        if (!empty($file)) {
+            define('UPLOAD_DIR', 'images/doc/');
+            $document->setFile($file);
+            $file = $document->getFile($file);
+            $file = str_replace('data:application/pdf;base64,', '', $file);
+            $file = str_replace(' ', '+', $file);
+            $data = base64_decode($file);
+            $unique = $name . '.pdf';
+            $read = UPLOAD_DIR . $unique;
+            $success = file_put_contents($read, $data);
+            $document->setFile($unique);
+        }
+       
         
         $this->em->persist($document);
         $this->em->flush();
