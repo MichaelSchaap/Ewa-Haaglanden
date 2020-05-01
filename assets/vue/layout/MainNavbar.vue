@@ -66,31 +66,6 @@ export default {
     NavLink,
     [Popover.name]: Popover
   },
-  methods: {
-    setNav(value) {
-      let htmlClasses = document.querySelector("html").classList;
-      if (value) {
-        htmlClasses.add("nav-open");
-      } else {
-        htmlClasses.remove("nav-open");
-      }
-      let isOpen = htmlClasses.contains("nav-open");
-      let eventToTrigger = isOpen ? "open" : "close";
-      this.showMenu = isOpen;
-      this.$emit(eventToTrigger);
-    },
-    toggle() {
-      this.setNav(!this.showMenu);
-    },
-    open() {
-      this.setNav(true);
-    },
-    close() {
-      if (this.showMenu) {
-        this.setNav(false);
-      }
-    }
-  },
   computed: {
     isAuthenticated() {
       return this.$store.getters["security/isAuthenticated"];

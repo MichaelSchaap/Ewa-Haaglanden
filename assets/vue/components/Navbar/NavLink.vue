@@ -27,10 +27,6 @@ function resizeThrottler(actualResizeHandler) {
 export default {
   name: 'nav-link',
   props: {
-    transparent: {
-      type: Boolean,
-      default: false
-    },
     to: {
       type: [String, Object],
       default: undefined
