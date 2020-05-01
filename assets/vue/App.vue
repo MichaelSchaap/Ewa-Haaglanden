@@ -3,6 +3,7 @@
     <router-view name="header" />
     <div class="wrapper">
       <router-view />
+      <cookie-law theme="dark-lime"></cookie-law>
     </div>
     <router-view name="footer" />
   </div>
@@ -10,6 +11,7 @@
 
 <script>
 import axios from "axios";
+import CookieLaw from 'vue-cookie-law'
 
 export default {
   name: "App",
@@ -17,6 +19,9 @@ export default {
     isAuthenticated() {
       return this.$store.getters["security/isAuthenticated"]
     },
+  },
+  components: {
+    CookieLaw
   },
   created() {
     let isAuthenticated = JSON.parse(this.$parent.$el.attributes["data-is-authenticated"].value),

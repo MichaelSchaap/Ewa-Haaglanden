@@ -42,7 +42,7 @@ export default {
     VideoSection,
     NewsSection,
     PartnerSection,
-    ContactUsSection
+    ContactUsSection,
   }
 };
 </script>
