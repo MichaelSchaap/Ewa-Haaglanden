@@ -15,7 +15,7 @@
           type="button"
           class="lined thin"
           :disabled="pageNumber==0"
-        >&nbsp;&nbsp;< Vorige&nbsp;&nbsp;</button>
+        >&nbsp;&nbsp;&lt; Vorige&nbsp;&nbsp;</button>
         <button
           @click="nextPage"
           style=""
@@ -74,7 +74,7 @@
         class="lined thin"
         :disabled="pageNumber==0"
         >
-        &nbsp;&nbsp;< Vorige&nbsp;&nbsp;
+        &nbsp;&nbsp;&lt; Vorige&nbsp;&nbsp;
         </button>
         <button 
         @click="nextPage"
