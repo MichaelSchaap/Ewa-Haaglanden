@@ -34,8 +34,9 @@
           <thead class="thead-dark">
             <tr>
               <th style="width:30%">Naam</th>
-              <th style="width:40%">E-mail</th>
+              <th style="width:30%">E-mail</th>
               <th style="width:10%">Datum</th>
+              <th style="width:20%">Acties</th>
             </tr>
           </thead>
           <tbody>
@@ -55,6 +56,11 @@
               <td style="width:15%">{{contact.name}}</td>
               <td style="width:40%">{{contact.email}}</td>
               <td style="width:5%">{{contact.created.replace(/^(\d+)-(\d+)-(\d+)(.*):\d+$/, '$3/$2/$1$4').slice(0,10)}}</td>
+              <td style="width:20%;vertical-align: middle;">
+                <button type="button" class="lined thin" @click="deleteContact(contact.id)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -108,6 +114,16 @@ export default {
     };
   },
   methods: {
+    deleteContact(contactId) {
+      let i = this.contacts.map(contact => contact.id).indexOf(contactId);
+      this.contacts.splice(i, 1);
+      this.$store.dispatch("contact/DELETE_CONTACT", {
+        contactId
+      });
+      this.flash('E-mail verwijderd', 'error', {
+        timeout: 1000
+      });
+    },
     nextPage(){
         this.pageNumber++;
     },

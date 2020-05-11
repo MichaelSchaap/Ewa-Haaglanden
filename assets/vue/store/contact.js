@@ -5,7 +5,8 @@ const CREATING_CONTACT = "CREATING_CONTACT",
   CREATING_CONTACT_ERROR = "CREATING_CONTACT_ERROR",
   FETCHING_CONTACTS = "FETCHING_CONTACTS",
   FETCHING_CONTACTS_SUCCESS = "FETCHING_CONTACTS_SUCCESS",
-  FETCHING_CONTACTS_ERROR = "FETCHING_CONTACTS_ERROR";
+  FETCHING_CONTACTS_ERROR = "FETCHING_CONTACTS_ERROR",
+  REMOVE_CONTACT = "REMOVE_CONTACT";
 
 
 export default {
@@ -62,6 +63,16 @@ export default {
       state.error = error;
       state.contacts = [];
     },
+    [REMOVE_CONTACT](state, { contactId, }) {
+      state.isLoading = true;
+      let contacts = state.contacts.find(contact => contact.id === contactId).contacts;
+
+      let rs = contacts.filter(currentContact => {
+        return currentContact.id !== contactId;
+      })
+
+      state.contacts.find(contact => contact.id === contactId).contacts = [...rs];
+    },
     
     // [DELETING_POST](state, id){
     //   let idx = state.posts.indexOf(id)
@@ -90,6 +101,22 @@ export default {
         commit(FETCHING_CONTACTS_ERROR, error);
         return null;
       }
+    },
+    async DELETE_CONTACT({ commit }, { contactId }) {
+      return new Promise((resolve, reject) => {
+        ContactAPI.delete(contactId)
+          .then(({ status }) => {
+            if (status === 204) {
+              commit(REMOVE_CONTACT, {
+                contactId
+              })
+              resolve(status);
+            }
+          })
+          .catch(error => {
+            reject(error);
+          })
+      })
     },
     
   }

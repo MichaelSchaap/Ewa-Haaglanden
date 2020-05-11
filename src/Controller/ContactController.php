@@ -106,5 +106,22 @@ final class ContactController extends AbstractController
         return new JsonResponse($data, Response::HTTP_OK, [], true);
     }
 
+    /**
+    * @Rest\Post("/admin/dashboard/contact/delete/{id}", name="deleteContact", methods={"DELETE"})
+     */
+    public function delete(Request $request, $id): JsonResponse
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $contact = $em->getRepository(Contact::class)->find($id);
+
+        $em->remove($contact);
+        $em->flush();
+
+        $data = $this->serializer->serialize($contact, JsonEncoder::FORMAT);
+
+        return new JsonResponse($data, Response::HTTP_OK, [], true);
+    }
+
    
 }

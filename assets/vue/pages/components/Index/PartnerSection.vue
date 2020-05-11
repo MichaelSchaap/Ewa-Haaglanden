@@ -19,7 +19,6 @@
 
         <div v-else-if="!hasPartners" style="margin-left:5%;">No partners!</div>
 
-
           <img 
           v-for="partner in partners" v-else :key="partner.id"
           class="img-padding" 

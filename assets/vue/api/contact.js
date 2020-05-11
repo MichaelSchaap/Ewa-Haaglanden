@@ -13,4 +13,7 @@ export default {
   findAll() {
     return axios.get("/api/admin/dashboard");
   },
+  delete(contactId) {
+    return axios.delete('/api/admin/dashboard/contact/delete/' + contactId);
+  }
 };
