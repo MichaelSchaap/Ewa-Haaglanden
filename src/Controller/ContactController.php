@@ -80,7 +80,7 @@ final class ContactController extends AbstractController
         ->setFrom([$email => $name])
 
         // Set the To addresses with an associative array (setTo/setCc/setBcc)
-        ->setTo(['haaglandenewa@gmail.com' => 'Ewa Haaglanden'])
+        ->setTo(['ewahaaglanden@rocmondriaan.nl' => 'Ewa Haaglanden'])
 
         // Give it a body
         ->setBody($message)
