@@ -14,11 +14,10 @@
     <div class="container text-center" style="margin-bottom:5%">
       <div class="row justify-content-md-center">
         <div class="col-md-12 col-lg-8">
-          <h2 class="title" style="color: black; font-size:40px;">Introductie Ewa Haaglanden</h2>
           <h5
             class="description"
-            style="color:black;"
-          >Ewa Haaglanden is een samenwerkingsverband tussen bedrijven, gemeente, ROC Mondriaan en andere partijen in de regio Haaglanden. Binnen Ewa Haaglanden willen we samen jonge mensen zonder diploma begeleiden, opleiden en doorschakelen naar een diploma én een fijne werkplek. We willen kandidaten binnen bedrijven verder opleiden. En we willen kandidaten met relevante scholing dichter bij een baan en participatie brengen.</h5>
+            style="color:black;text-align:left;"
+          >Ewa Haaglanden is een samenwerkingsverband tussen bedrijven, gemeenten, ROC Mondriaan en maatschappelijke partijen in de regio Haaglanden. Wij leiden jonge mensen op naar een diploma en een fijne werkplek. Wij leiden werknemers verder op. En we brengen kandidaten met relevante scholing dichter bij een baan en participatie. </h5>
         </div>
       </div>
     </div>

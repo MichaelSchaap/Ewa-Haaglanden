@@ -47,7 +47,7 @@ export default {
     return {
       title: "",
       img: "",
-      header: "LAATSTE BERICHTEN"
+      header: "Laatste berichten"
     };
   },
   methods: {
